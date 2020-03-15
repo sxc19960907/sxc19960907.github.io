@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | NoteBook</title>
+  <title>3.15pandas基础操作(二) | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="pandas基础操作(二)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.15pandas基础操作(二)">
+<meta property="og:url" content="http://yoursite.com/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="pandas基础操作(二)">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-15T11:08:06.000Z">
+<meta property="article:modified_time" content="2020-03-15T11:21:42.350Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
@@ -159,36 +164,97 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-3-15pandas基础操作-二" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      3.15pandas基础操作(二)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" class="archive-article-date">
+
+        
+        <a href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" class="archive-article-date">
   	<time datetime="2020-03-15T11:08:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/">3.15pandas基础操作(二)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pandas基础操作-二"><a href="#pandas基础操作-二" class="headerlink" title="pandas基础操作(二)"></a>pandas基础操作(二)</h1><a id="more"></a>
+<h2 id="Pandas-处理丢失数据"><a href="#Pandas-处理丢失数据" class="headerlink" title="Pandas 处理丢失数据"></a>Pandas 处理丢失数据</h2><h3 id="创建含-NaN-的矩阵"><a href="#创建含-NaN-的矩阵" class="headerlink" title="创建含 NaN 的矩阵"></a>创建含 NaN 的矩阵</h3><p>建立了一个6X4的矩阵数据并且把两个位置置为空.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dates = pd.date_range(<span class="string">'20130101'</span>, periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">24</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=dates, columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>])</span><br><span class="line">df.iloc[<span class="number">0</span>,<span class="number">1</span>] = np.nan</span><br><span class="line">df.iloc[<span class="number">1</span>,<span class="number">2</span>] = np.nan</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">             A     B     C   D</span></span><br><span class="line"><span class="string">2013-01-01   0   NaN   2.0   3</span></span><br><span class="line"><span class="string">2013-01-02   4   5.0   NaN   7</span></span><br><span class="line"><span class="string">2013-01-03   8   9.0  10.0  11</span></span><br><span class="line"><span class="string">2013-01-04  12  13.0  14.0  15</span></span><br><span class="line"><span class="string">2013-01-05  16  17.0  18.0  19</span></span><br><span class="line"><span class="string">2013-01-06  20  21.0  22.0  23</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<h3 id="pd-dropna"><a href="#pd-dropna" class="headerlink" title="pd.dropna()"></a>pd.dropna()</h3><p>如果想直接去掉有 NaN 的行或列, 可以使用 dropna</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.dropna(</span><br><span class="line">    axis=<span class="number">0</span>,     <span class="comment"># 0: 对行进行操作; 1: 对列进行操作</span></span><br><span class="line">    how=<span class="string">'any'</span>   <span class="comment"># 'any': 只要存在 NaN 就 drop 掉; 'all': 必须全部是 NaN 才 drop </span></span><br><span class="line">    ) </span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">             A     B     C   D</span></span><br><span class="line"><span class="string">2013-01-03   8   9.0  10.0  11</span></span><br><span class="line"><span class="string">2013-01-04  12  13.0  14.0  15</span></span><br><span class="line"><span class="string">2013-01-05  16  17.0  18.0  19</span></span><br><span class="line"><span class="string">2013-01-06  20  21.0  22.0  23</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="pd-fillna"><a href="#pd-fillna" class="headerlink" title="pd.fillna()"></a>pd.fillna()</h3><p>如果是将 NaN 的值用其他值代替, 比如代替成 0:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df.fillna(value=<span class="number">0</span>)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">             A     B     C   D</span></span><br><span class="line"><span class="string">2013-01-01   0   0.0   2.0   3</span></span><br><span class="line"><span class="string">2013-01-02   4   5.0   0.0   7</span></span><br><span class="line"><span class="string">2013-01-03   8   9.0  10.0  11</span></span><br><span class="line"><span class="string">2013-01-04  12  13.0  14.0  15</span></span><br><span class="line"><span class="string">2013-01-05  16  17.0  18.0  19</span></span><br><span class="line"><span class="string">2013-01-06  20  21.0  22.0  23</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<h3 id="pd-isnull"><a href="#pd-isnull" class="headerlink" title="pd.isnull()"></a>pd.isnull()</h3><p>判断是否有缺失数据 NaN, 为 True 表示缺失数据:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df.isnull() </span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">                A      B      C      D</span></span><br><span class="line"><span class="string">2013-01-01  False   True  False  False</span></span><br><span class="line"><span class="string">2013-01-02  False  False   True  False</span></span><br><span class="line"><span class="string">2013-01-03  False  False  False  False</span></span><br><span class="line"><span class="string">2013-01-04  False  False  False  False</span></span><br><span class="line"><span class="string">2013-01-05  False  False  False  False</span></span><br><span class="line"><span class="string">2013-01-06  False  False  False  False</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>检测在数据中是否存在 NaN, 如果存在就返回 True:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.any(df.isnull()) == <span class="literal">True</span>  </span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pandas-导入导出"><a href="#Pandas-导入导出" class="headerlink" title="Pandas 导入导出"></a>Pandas 导入导出</h2><h3 id="读取csv"><a href="#读取csv" class="headerlink" title="读取csv"></a>读取csv</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment">#加载模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取csv</span></span><br><span class="line">data = pd.read_csv(<span class="string">'student.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印出data</span></span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<h3 id="将资料存取成pickle"><a href="#将资料存取成pickle" class="headerlink" title="将资料存取成pickle"></a>将资料存取成pickle</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.to_pickle(<span class="string">'student.pickle'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Pandas合并concat"><a href="#Pandas合并concat" class="headerlink" title="Pandas合并concat"></a>Pandas合并concat</h2><h3 id="axis-合并方向"><a href="#axis-合并方向" class="headerlink" title="axis (合并方向)"></a>axis (合并方向)</h3><p>axis=0是预设值，因此未设定任何参数时，函数默认axis=0。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集</span></span><br><span class="line">df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">df3 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">2</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#concat纵向合并</span></span><br><span class="line">res = pd.concat([df1, df2, df3], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印结果</span></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 0  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 1  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 2  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 0  2.0  2.0  2.0  2.0</span></span><br><span class="line"><span class="comment"># 1  2.0  2.0  2.0  2.0</span></span><br><span class="line"><span class="comment"># 2  2.0  2.0  2.0  2.0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ignore-index-重置-index"><a href="#ignore-index-重置-index" class="headerlink" title="ignore_index (重置 index)"></a>ignore_index (重置 index)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#承上一个例子，并将index_ignore设定为True</span></span><br><span class="line">res = pd.concat([df1, df2, df3], axis=<span class="number">0</span>, ignore_index=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印结果</span></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 5  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 6  2.0  2.0  2.0  2.0</span></span><br><span class="line"><span class="comment"># 7  2.0  2.0  2.0  2.0</span></span><br><span class="line"><span class="comment"># 8  2.0  2.0  2.0  2.0</span></span><br></pre></td></tr></table></figure>
+<p>结果的index变0, 1, 2, 3, 4, 5, 6, 7, 8。</p>
+<h3 id="join-合并方式"><a href="#join-合并方式" class="headerlink" title="join (合并方式)"></a>join (合并方式)</h3><p>join=’outer’为预设值，因此未设定任何参数时，函数默认join=’outer’。此方式是依照column来做纵向合并，有相同的column上下合并在一起，其他独自的column个自成列，原本没有值的位置皆以NaN填充。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集</span></span><br><span class="line">df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>], index=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>], index=[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#纵向"外"合并df1与df2</span></span><br><span class="line">res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'outer'</span>)</span><br><span class="line"></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d    e</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0  NaN</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0  NaN</span></span><br><span class="line"><span class="comment"># 3  0.0  0.0  0.0  0.0  NaN</span></span><br><span class="line"><span class="comment"># 2  NaN  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 3  NaN  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  NaN  1.0  1.0  1.0  1.0</span></span><br></pre></td></tr></table></figure>
+<p>原理同上个例子的说明，但只有相同的column合并在一起，其他的会被抛弃。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#承上一个例子</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#纵向"内"合并df1与df2</span></span><br><span class="line">res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'inner'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印结果</span></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     b    c    d</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 3  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  1.0  1.0  1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重置index并打印结果</span></span><br><span class="line">res = pd.concat([df1, df2], axis=<span class="number">0</span>, join=<span class="string">'inner'</span>, ignore_index=<span class="literal">True</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 5  1.0  1.0  1.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="join-axes-依照-axes-合并"><a href="#join-axes-依照-axes-合并" class="headerlink" title="join_axes (依照 axes 合并)"></a>join_axes (依照 axes 合并)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集</span></span><br><span class="line">df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>], index=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>], index=[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#依照`df1.index`进行横向合并</span></span><br><span class="line">res = pd.concat([df1, df2], axis=<span class="number">1</span>, join_axes=[df1.index])</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印结果</span></span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d    b    c    d    e</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0  NaN  NaN  NaN  NaN</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 3  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#移除join_axes，并打印结果</span></span><br><span class="line">res = pd.concat([df1, df2], axis=<span class="number">1</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d    b    c    d    e</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0  NaN  NaN  NaN  NaN</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 3  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  NaN  NaN  NaN  NaN  1.0  1.0  1.0  1.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="append-添加数据"><a href="#append-添加数据" class="headerlink" title="append (添加数据)"></a>append (添加数据)</h3><p>append只有纵向合并，没有横向合并。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集</span></span><br><span class="line">df1 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">0</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">df2 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">df3 = pd.DataFrame(np.ones((<span class="number">3</span>,<span class="number">4</span>))*<span class="number">1</span>, columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">s1 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], index=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#将df2合并到df1的下面，以及重置index，并打印出结果</span></span><br><span class="line">res = df1.append(df2, ignore_index=<span class="literal">True</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 5  1.0  1.0  1.0  1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#合并多个df，将df2与df3合并至df1的下面，以及重置index，并打印出结果</span></span><br><span class="line">res = df1.append([df2, df3], ignore_index=<span class="literal">True</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 4  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 5  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 6  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 7  1.0  1.0  1.0  1.0</span></span><br><span class="line"><span class="comment"># 8  1.0  1.0  1.0  1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#合并series，将s1合并至df1，以及重置index，并打印出结果</span></span><br><span class="line">res = df1.append(s1, ignore_index=<span class="literal">True</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     a    b    c    d</span></span><br><span class="line"><span class="comment"># 0  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 1  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 2  0.0  0.0  0.0  0.0</span></span><br><span class="line"><span class="comment"># 3  1.0  2.0  3.0  4.0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pandas-合并-merge"><a href="#Pandas-合并-merge" class="headerlink" title="Pandas 合并 merge"></a>Pandas 合并 merge</h2><h3 id="依据一组key合并"><a href="#依据一组key合并" class="headerlink" title="依据一组key合并"></a>依据一组key合并</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集并打印出</span></span><br><span class="line">left = pd.DataFrame(&#123;<span class="string">'key'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>, <span class="string">'K3'</span>],</span><br><span class="line">                             <span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>, <span class="string">'A2'</span>, <span class="string">'A3'</span>],</span><br><span class="line">                             <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>, <span class="string">'B2'</span>, <span class="string">'B3'</span>]&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">'key'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>, <span class="string">'K3'</span>],</span><br><span class="line">                              <span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>, <span class="string">'C2'</span>, <span class="string">'C3'</span>],</span><br><span class="line">                              <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>, <span class="string">'D2'</span>, <span class="string">'D3'</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(left)</span><br><span class="line"><span class="comment">#    A   B key</span></span><br><span class="line"><span class="comment"># 0  A0  B0  K0</span></span><br><span class="line"><span class="comment"># 1  A1  B1  K1</span></span><br><span class="line"><span class="comment"># 2  A2  B2  K2</span></span><br><span class="line"><span class="comment"># 3  A3  B3  K3</span></span><br><span class="line"></span><br><span class="line">print(right)</span><br><span class="line"><span class="comment">#    C   D key</span></span><br><span class="line"><span class="comment"># 0  C0  D0  K0</span></span><br><span class="line"><span class="comment"># 1  C1  D1  K1</span></span><br><span class="line"><span class="comment"># 2  C2  D2  K2</span></span><br><span class="line"><span class="comment"># 3  C3  D3  K3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#依据key column合并，并打印出</span></span><br><span class="line">res = pd.merge(left, right, on=<span class="string">'key'</span>)</span><br><span class="line"></span><br><span class="line">print(res)</span><br><span class="line">     A   B key   C   D</span><br><span class="line"><span class="comment"># 0  A0  B0  K0  C0  D0</span></span><br><span class="line"><span class="comment"># 1  A1  B1  K1  C1  D1</span></span><br><span class="line"><span class="comment"># 2  A2  B2  K2  C2  D2</span></span><br><span class="line"><span class="comment"># 3  A3  B3  K3  C3  D3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="依据两组key合并"><a href="#依据两组key合并" class="headerlink" title="依据两组key合并"></a>依据两组key合并</h3><p>合并时有4种方法how = [‘left’, ‘right’, ‘outer’, ‘inner’]，预设值how=’inner’。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集并打印出</span></span><br><span class="line">left = pd.DataFrame(&#123;<span class="string">'key1'</span>: [<span class="string">'K0'</span>, <span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>],</span><br><span class="line">                      <span class="string">'key2'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K0'</span>, <span class="string">'K1'</span>],</span><br><span class="line">                      <span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>, <span class="string">'A2'</span>, <span class="string">'A3'</span>],</span><br><span class="line">                      <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>, <span class="string">'B2'</span>, <span class="string">'B3'</span>]&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">'key1'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>],</span><br><span class="line">                       <span class="string">'key2'</span>: [<span class="string">'K0'</span>, <span class="string">'K0'</span>, <span class="string">'K0'</span>, <span class="string">'K0'</span>],</span><br><span class="line">                       <span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C1'</span>, <span class="string">'C2'</span>, <span class="string">'C3'</span>],</span><br><span class="line">                       <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D1'</span>, <span class="string">'D2'</span>, <span class="string">'D3'</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(left)</span><br><span class="line"><span class="comment">#    A   B key1 key2</span></span><br><span class="line"><span class="comment"># 0  A0  B0   K0   K0</span></span><br><span class="line"><span class="comment"># 1  A1  B1   K0   K1</span></span><br><span class="line"><span class="comment"># 2  A2  B2   K1   K0</span></span><br><span class="line"><span class="comment"># 3  A3  B3   K2   K1</span></span><br><span class="line"></span><br><span class="line">print(right)</span><br><span class="line"><span class="comment">#    C   D key1 key2</span></span><br><span class="line"><span class="comment"># 0  C0  D0   K0   K0</span></span><br><span class="line"><span class="comment"># 1  C1  D1   K1   K0</span></span><br><span class="line"><span class="comment"># 2  C2  D2   K1   K0</span></span><br><span class="line"><span class="comment"># 3  C3  D3   K2   K0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#依据key1与key2 columns进行合并，并打印出四种结果['left', 'right', 'outer', 'inner']</span></span><br><span class="line">res = pd.merge(left, right, on=[<span class="string">'key1'</span>, <span class="string">'key2'</span>], how=<span class="string">'inner'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#    A   B key1 key2   C   D</span></span><br><span class="line"><span class="comment"># 0  A0  B0   K0   K0  C0  D0</span></span><br><span class="line"><span class="comment"># 1  A2  B2   K1   K0  C1  D1</span></span><br><span class="line"><span class="comment"># 2  A2  B2   K1   K0  C2  D2</span></span><br><span class="line"></span><br><span class="line">res = pd.merge(left, right, on=[<span class="string">'key1'</span>, <span class="string">'key2'</span>], how=<span class="string">'outer'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     A    B key1 key2    C    D</span></span><br><span class="line"><span class="comment"># 0   A0   B0   K0   K0   C0   D0</span></span><br><span class="line"><span class="comment"># 1   A1   B1   K0   K1  NaN  NaN</span></span><br><span class="line"><span class="comment"># 2   A2   B2   K1   K0   C1   D1</span></span><br><span class="line"><span class="comment"># 3   A2   B2   K1   K0   C2   D2</span></span><br><span class="line"><span class="comment"># 4   A3   B3   K2   K1  NaN  NaN</span></span><br><span class="line"><span class="comment"># 5  NaN  NaN   K2   K0   C3   D3</span></span><br><span class="line"></span><br><span class="line">res = pd.merge(left, right, on=[<span class="string">'key1'</span>, <span class="string">'key2'</span>], how=<span class="string">'left'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#    A   B key1 key2    C    D</span></span><br><span class="line"><span class="comment"># 0  A0  B0   K0   K0   C0   D0</span></span><br><span class="line"><span class="comment"># 1  A1  B1   K0   K1  NaN  NaN</span></span><br><span class="line"><span class="comment"># 2  A2  B2   K1   K0   C1   D1</span></span><br><span class="line"><span class="comment"># 3  A2  B2   K1   K0   C2   D2</span></span><br><span class="line"><span class="comment"># 4  A3  B3   K2   K1  NaN  NaN</span></span><br><span class="line"></span><br><span class="line">res = pd.merge(left, right, on=[<span class="string">'key1'</span>, <span class="string">'key2'</span>], how=<span class="string">'right'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     A    B key1 key2   C   D</span></span><br><span class="line"><span class="comment"># 0   A0   B0   K0   K0  C0  D0</span></span><br><span class="line"><span class="comment"># 1   A2   B2   K1   K0  C1  D1</span></span><br><span class="line"><span class="comment"># 2   A2   B2   K1   K0  C2  D2</span></span><br><span class="line"><span class="comment"># 3  NaN  NaN   K2   K0  C3  D3</span></span><br></pre></td></tr></table></figure>
+<h3 id="Indicator"><a href="#Indicator" class="headerlink" title="Indicator"></a>Indicator</h3><p>indicator=True会将合并的记录放在新的一列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集并打印出</span></span><br><span class="line">df1 = pd.DataFrame(&#123;<span class="string">'col1'</span>:[<span class="number">0</span>,<span class="number">1</span>], <span class="string">'col_left'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>]&#125;)</span><br><span class="line">df2 = pd.DataFrame(&#123;<span class="string">'col1'</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>],<span class="string">'col_right'</span>:[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(df1)</span><br><span class="line"><span class="comment">#   col1 col_left</span></span><br><span class="line"><span class="comment"># 0     0        a</span></span><br><span class="line"><span class="comment"># 1     1        b</span></span><br><span class="line"></span><br><span class="line">print(df2)</span><br><span class="line"><span class="comment">#   col1  col_right</span></span><br><span class="line"><span class="comment"># 0     1          2</span></span><br><span class="line"><span class="comment"># 1     2          2</span></span><br><span class="line"><span class="comment"># 2     2          2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 依据col1进行合并，并启用indicator=True，最后打印出</span></span><br><span class="line">res = pd.merge(df1, df2, on=<span class="string">'col1'</span>, how=<span class="string">'outer'</span>, indicator=<span class="literal">True</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#   col1 col_left  col_right      _merge</span></span><br><span class="line"><span class="comment"># 0   0.0        a        NaN   left_only</span></span><br><span class="line"><span class="comment"># 1   1.0        b        2.0        both</span></span><br><span class="line"><span class="comment"># 2   2.0      NaN        2.0  right_only</span></span><br><span class="line"><span class="comment"># 3   2.0      NaN        2.0  right_only</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定indicator column的名称，并打印出</span></span><br><span class="line">res = pd.merge(df1, df2, on=<span class="string">'col1'</span>, how=<span class="string">'outer'</span>, indicator=<span class="string">'indicator_column'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#   col1 col_left  col_right indicator_column</span></span><br><span class="line"><span class="comment"># 0   0.0        a        NaN        left_only</span></span><br><span class="line"><span class="comment"># 1   1.0        b        2.0             both</span></span><br><span class="line"><span class="comment"># 2   2.0      NaN        2.0       right_only</span></span><br><span class="line"><span class="comment"># 3   2.0      NaN        2.0       right_only</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="依据index合并"><a href="#依据index合并" class="headerlink" title="依据index合并"></a>依据index合并</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集并打印出</span></span><br><span class="line">left = pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="string">'A0'</span>, <span class="string">'A1'</span>, <span class="string">'A2'</span>],</span><br><span class="line">                     <span class="string">'B'</span>: [<span class="string">'B0'</span>, <span class="string">'B1'</span>, <span class="string">'B2'</span>]&#125;,</span><br><span class="line">                     index=[<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>])</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">'C'</span>: [<span class="string">'C0'</span>, <span class="string">'C2'</span>, <span class="string">'C3'</span>],</span><br><span class="line">                      <span class="string">'D'</span>: [<span class="string">'D0'</span>, <span class="string">'D2'</span>, <span class="string">'D3'</span>]&#125;,</span><br><span class="line">                     index=[<span class="string">'K0'</span>, <span class="string">'K2'</span>, <span class="string">'K3'</span>])</span><br><span class="line"></span><br><span class="line">print(left)</span><br><span class="line"><span class="comment">#     A   B</span></span><br><span class="line"><span class="comment"># K0  A0  B0</span></span><br><span class="line"><span class="comment"># K1  A1  B1</span></span><br><span class="line"><span class="comment"># K2  A2  B2</span></span><br><span class="line"></span><br><span class="line">print(right)</span><br><span class="line"><span class="comment">#     C   D</span></span><br><span class="line"><span class="comment"># K0  C0  D0</span></span><br><span class="line"><span class="comment"># K2  C2  D2</span></span><br><span class="line"><span class="comment"># K3  C3  D3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#依据左右资料集的index进行合并，how='outer',并打印出</span></span><br><span class="line">res = pd.merge(left, right, left_index=<span class="literal">True</span>, right_index=<span class="literal">True</span>, how=<span class="string">'outer'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#      A    B    C    D</span></span><br><span class="line"><span class="comment"># K0   A0   B0   C0   D0</span></span><br><span class="line"><span class="comment"># K1   A1   B1  NaN  NaN</span></span><br><span class="line"><span class="comment"># K2   A2   B2   C2   D2</span></span><br><span class="line"><span class="comment"># K3  NaN  NaN   C3   D3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#依据左右资料集的index进行合并，how='inner',并打印出</span></span><br><span class="line">res = pd.merge(left, right, left_index=<span class="literal">True</span>, right_index=<span class="literal">True</span>, how=<span class="string">'inner'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#     A   B   C   D</span></span><br><span class="line"><span class="comment"># K0  A0  B0  C0  D0</span></span><br><span class="line"><span class="comment"># K2  A2  B2  C2  D2</span></span><br></pre></td></tr></table></figure>
+<h3 id="解决overlapping的问题"><a href="#解决overlapping的问题" class="headerlink" title="解决overlapping的问题"></a>解决overlapping的问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义资料集</span></span><br><span class="line">boys = pd.DataFrame(&#123;<span class="string">'k'</span>: [<span class="string">'K0'</span>, <span class="string">'K1'</span>, <span class="string">'K2'</span>], <span class="string">'age'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]&#125;)</span><br><span class="line">girls = pd.DataFrame(&#123;<span class="string">'k'</span>: [<span class="string">'K0'</span>, <span class="string">'K0'</span>, <span class="string">'K3'</span>], <span class="string">'age'</span>: [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用suffixes解决overlapping的问题</span></span><br><span class="line">res = pd.merge(boys, girls, on=<span class="string">'k'</span>, suffixes=[<span class="string">'_boy'</span>, <span class="string">'_girl'</span>], how=<span class="string">'inner'</span>)</span><br><span class="line">print(res)</span><br><span class="line"><span class="comment">#    age_boy   k  age_girl</span></span><br><span class="line"><span class="comment"># 0        1  K0         4</span></span><br><span class="line"><span class="comment"># 1        1  K0         5</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,198 +266,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-15T10:53:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.15java基础-类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/">3.15java基础-类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pandas基础操作-二"><span class="toc-number">1.</span> <span class="toc-text">pandas基础操作(二)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas-处理丢失数据"><span class="toc-number">1.1.</span> <span class="toc-text">Pandas 处理丢失数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建含-NaN-的矩阵"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建含 NaN 的矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pd-dropna"><span class="toc-number">1.1.2.</span> <span class="toc-text">pd.dropna()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pd-fillna"><span class="toc-number">1.1.3.</span> <span class="toc-text">pd.fillna()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pd-isnull"><span class="toc-number">1.1.4.</span> <span class="toc-text">pd.isnull()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas-导入导出"><span class="toc-number">1.2.</span> <span class="toc-text">Pandas 导入导出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取csv"><span class="toc-number">1.2.1.</span> <span class="toc-text">读取csv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将资料存取成pickle"><span class="toc-number">1.2.2.</span> <span class="toc-text">将资料存取成pickle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas合并concat"><span class="toc-number">1.3.</span> <span class="toc-text">Pandas合并concat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#axis-合并方向"><span class="toc-number">1.3.1.</span> <span class="toc-text">axis (合并方向)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ignore-index-重置-index"><span class="toc-number">1.3.2.</span> <span class="toc-text">ignore_index (重置 index)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join-合并方式"><span class="toc-number">1.3.3.</span> <span class="toc-text">join (合并方式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join-axes-依照-axes-合并"><span class="toc-number">1.3.4.</span> <span class="toc-text">join_axes (依照 axes 合并)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#append-添加数据"><span class="toc-number">1.3.5.</span> <span class="toc-text">append (添加数据)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas-合并-merge"><span class="toc-number">1.4.</span> <span class="toc-text">Pandas 合并 merge</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依据一组key合并"><span class="toc-number">1.4.1.</span> <span class="toc-text">依据一组key合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依据两组key合并"><span class="toc-number">1.4.2.</span> <span class="toc-text">依据两组key合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Indicator"><span class="toc-number">1.4.3.</span> <span class="toc-text">Indicator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依据index合并"><span class="toc-number">1.4.4.</span> <span class="toc-text">依据index合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决overlapping的问题"><span class="toc-number">1.4.5.</span> <span class="toc-text">解决overlapping的问题</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-14T11:46:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">3.14 pandas基本操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-03-14T10:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/">3.14java基础-数组</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">3.13 numpy基础操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">3.13 Java基础-方法的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -417,8 +404,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
