@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/3 | NoteBook</title>
+  <title>3.16java基础-常用的API | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/index.html">
+  <meta name="description" content="java基础-常用的API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.16java基础-常用的API">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="java基础-常用的API">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%AD%98%E5%82%A8%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B.png">
+<meta property="article:published_time" content="2020-03-16T11:25:05.000Z">
+<meta property="article:modified_time" content="2020-03-16T11:56:22.713Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -159,36 +167,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-3-16java基础-常用的API" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      3.16java基础-常用的API
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/" class="archive-article-date">
+
+        
+        <a href="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/" class="archive-article-date">
   	<time datetime="2020-03-16T11:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/">3.16java基础-常用的API</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java基础-常用的API"><a href="#java基础-常用的API" class="headerlink" title="java基础-常用的API"></a>java基础-常用的API</h1><a id="more"></a>
+<h2 id="1-API-Scanner类"><a href="#1-API-Scanner类" class="headerlink" title="1.API-Scanner类"></a>1.API-Scanner类</h2><p>Scanner类的功能：可以实现键盘输入数据，到程序中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoScanner</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> num = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"输入的数："</span>+ num);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="2-Scanner练习1-键盘输入两个数求和"><a href="#2-Scanner练习1-键盘输入两个数求和" class="headerlink" title="2.Scanner练习1 键盘输入两个数求和"></a>2.Scanner练习1 键盘输入两个数求和</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoScannerSum</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"请输入一个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> a = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"请输入第二个个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> b = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> result = a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Scanner练习2-输入三个数求最大值"><a href="#3-Scanner练习2-输入三个数求最大值" class="headerlink" title="3.Scanner练习2-输入三个数求最大值"></a>3.Scanner练习2-输入三个数求最大值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoScannerMax</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"请输入第一个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> a = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"请输入第二个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> b = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"请输入第三个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> c = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp = a &gt; b ? a : b;</span><br><span class="line">        <span class="keyword">int</span> max = temp &gt; c ? temp : c;</span><br><span class="line">        System.out.println(<span class="string">"最大值："</span>+max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-匿名对象的说明"><a href="#4-匿名对象的说明" class="headerlink" title="4.匿名对象的说明"></a>4.匿名对象的说明</h2><p>匿名对象：只有右边的对象，没有左边的名字和赋值运算符</p>
+<pre><code class="new"></code></pre>
+<p>注意事项：匿名对象只能使用唯一的一次，下次在使用不得不在创建一个新对象。</p>
+<p>使用建议：如果确定有一个对象只需要使用唯一的一次，就可以用匿名对象。</p>
+<h2 id="5-Random基本使用"><a href="#5-Random基本使用" class="headerlink" title="5.Random基本使用"></a>5.Random基本使用</h2><p>Random类用来生成随机数字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2Random</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//无参数</span></span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> num = r.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"生成的随机数是："</span>+num);</span><br><span class="line">        <span class="comment">//有参数 左闭右开[0,10)</span></span><br><span class="line">        Random r1 = <span class="keyword">new</span> Random(<span class="number">10</span>);</span><br><span class="line">        System.out.println(r1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Random练习1-根据int变量n的值，来获取随机数字，范围是-1-n-可以取到1也可以取到n"><a href="#6-Random练习1-根据int变量n的值，来获取随机数字，范围是-1-n-可以取到1也可以取到n" class="headerlink" title="6.Random练习1-根据int变量n的值，来获取随机数字，范围是[1,n],可以取到1也可以取到n"></a>6.Random练习1-根据int变量n的值，来获取随机数字，范围是[1,n],可以取到1也可以取到n</h2><p>定义一个int变量n，随意赋值</p>
+<p>如果写10，那么就是0<del>9，然而想要的是1</del>10，可以发现：整体+1即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2Random1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">        Random r = <span class="keyword">new</span> Random(num);</span><br><span class="line">        <span class="keyword">int</span> result = r.nextInt(num)+<span class="number">1</span>;</span><br><span class="line">        System.out.println(<span class="string">"生成的随机数："</span>+result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Random练习2-猜数字小游戏"><a href="#7-Random练习2-猜数字小游戏" class="headerlink" title="7.Random练习2-猜数字小游戏"></a>7.Random练习2-猜数字小游戏</h2><ol>
+<li><p>首先需要产生一个随机数字，并且一旦产生不再变化。</p>
+</li>
+<li><p>需要键盘输入，用到Scanner</p>
+</li>
+<li><p>获取键盘输入的数字</p>
+</li>
+<li><p>已经得到了两个数字，判断一下</p>
+<ul>
+<li><p>如果太大，提示太大，并且重试； </p>
+</li>
+<li><p>如果太小，提示太小，并且重试；</p>
+</li>
+<li><p>如果猜中了，游戏结束</p>
+</li>
+</ul>
+</li>
+<li><p>用循环实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2Randomplay</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> randomNum = r.nextInt(<span class="number">100</span>)+<span class="number">1</span>;<span class="comment">//[1,100]</span></span><br><span class="line"></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> guessNum = sc.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (guessNum&gt;randomNum)&#123;</span><br><span class="line">                System.out.println(<span class="string">"数字太大"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (guessNum&lt;randomNum)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"数字太小"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"猜对了！"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="8-ArrayList基本使用"><a href="#8-ArrayList基本使用" class="headerlink" title="8.ArrayList基本使用"></a>8.ArrayList基本使用</h2><p>数组长度不可以改变。但是ArrayList集合的长度是可以随意变化的。</p>
+<p>对于ArrayList来说，有一对<E>代表泛型。</E></p>
+<p>泛型：就是装在集合当中的所有元素，全都是统一的什么类型。注意：泛型只能是引用类型，不能是基本类型。</p>
+<p>注意事项：<br>对于ArrayList来说，直接打印的是内容，如果内容是空，得到将是空的中括号[].</p>
+<h2 id="9-ArrayList常用方法"><a href="#9-ArrayList常用方法" class="headerlink" title="9.ArrayList常用方法"></a>9.ArrayList常用方法</h2><p><img src="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95.png" alt="avatar"></p>
+<h2 id="10-ArrayList存储基本类型"><a href="#10-ArrayList存储基本类型" class="headerlink" title="10.ArrayList存储基本类型"></a>10.ArrayList存储基本类型</h2><p><img src="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%AD%98%E5%82%A8%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B.png" alt="avatar"></p>
+<h2 id="11-ArrayList练习1-生成6个1-33之间的随机整数，添加到集合，并遍历集合。"><a href="#11-ArrayList练习1-生成6个1-33之间的随机整数，添加到集合，并遍历集合。" class="headerlink" title="11.ArrayList练习1-生成6个1~33之间的随机整数，添加到集合，并遍历集合。"></a>11.ArrayList练习1-生成6个1~33之间的随机整数，添加到集合，并遍历集合。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoArrayList</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = r.nextInt(<span class="number">33</span>)+<span class="number">1</span>;</span><br><span class="line">            list.add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-ArrayList-练习2-定义以指定格式打印集合的方法-ArrayList类型作为参数-，使用-括起来集合，使用-分割每个元素-格式参照（元素-元素-元素）"><a href="#12-ArrayList-练习2-定义以指定格式打印集合的方法-ArrayList类型作为参数-，使用-括起来集合，使用-分割每个元素-格式参照（元素-元素-元素）" class="headerlink" title="12.ArrayList 练习2-定义以指定格式打印集合的方法(ArrayList类型作为参数)，使用{}括起来集合，使用@分割每个元素 格式参照（元素@元素@元素）"></a>12.ArrayList 练习2-定义以指定格式打印集合的方法(ArrayList类型作为参数)，使用{}括起来集合，使用@分割每个元素 格式参照（元素@元素@元素）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"tom"</span>);</span><br><span class="line">        list.add(<span class="string">"amy"</span>);</span><br><span class="line">        list.add(<span class="string">"xiaoming"</span>);</span><br><span class="line">        printArrayList(list);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArrayList</span><span class="params">(ArrayList&lt;String&gt; list)</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"&#123;"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            String name = list.get(i);</span><br><span class="line">            <span class="keyword">if</span> (i==list.size()-<span class="number">1</span>)&#123;</span><br><span class="line">                System.out.print(name+<span class="string">"&#125;"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.print(name+<span class="string">"@"</span>);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,236 +280,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" class="archive-article-date">
-  	<time datetime="2020-03-15T11:08:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.15pandas基础操作(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/">3.15pandas基础操作(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java基础-常用的API"><span class="toc-number">1.</span> <span class="toc-text">java基础-常用的API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-API-Scanner类"><span class="toc-number">1.1.</span> <span class="toc-text">1.API-Scanner类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Scanner练习1-键盘输入两个数求和"><span class="toc-number">1.2.</span> <span class="toc-text">2.Scanner练习1 键盘输入两个数求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Scanner练习2-输入三个数求最大值"><span class="toc-number">1.3.</span> <span class="toc-text">3.Scanner练习2-输入三个数求最大值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-匿名对象的说明"><span class="toc-number">1.4.</span> <span class="toc-text">4.匿名对象的说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Random基本使用"><span class="toc-number">1.5.</span> <span class="toc-text">5.Random基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Random练习1-根据int变量n的值，来获取随机数字，范围是-1-n-可以取到1也可以取到n"><span class="toc-number">1.6.</span> <span class="toc-text">6.Random练习1-根据int变量n的值，来获取随机数字，范围是[1,n],可以取到1也可以取到n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Random练习2-猜数字小游戏"><span class="toc-number">1.7.</span> <span class="toc-text">7.Random练习2-猜数字小游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-ArrayList基本使用"><span class="toc-number">1.8.</span> <span class="toc-text">8.ArrayList基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-ArrayList常用方法"><span class="toc-number">1.9.</span> <span class="toc-text">9.ArrayList常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-ArrayList存储基本类型"><span class="toc-number">1.10.</span> <span class="toc-text">10.ArrayList存储基本类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-ArrayList练习1-生成6个1-33之间的随机整数，添加到集合，并遍历集合。"><span class="toc-number">1.11.</span> <span class="toc-text">11.ArrayList练习1-生成6个1~33之间的随机整数，添加到集合，并遍历集合。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-ArrayList-练习2-定义以指定格式打印集合的方法-ArrayList类型作为参数-，使用-括起来集合，使用-分割每个元素-格式参照（元素-元素-元素）"><span class="toc-number">1.12.</span> <span class="toc-text">12.ArrayList 练习2-定义以指定格式打印集合的方法(ArrayList类型作为参数)，使用{}括起来集合，使用@分割每个元素 格式参照（元素@元素@元素）</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-15T10:53:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/">3.15java基础-类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-14T11:46:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">3.14 pandas基本操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-03-14T10:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/">3.14java基础-数组</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">3.13 numpy基础操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">3.13 Java基础-方法的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -455,8 +418,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
