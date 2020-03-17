@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/ArrayList%E5%AD%98%E5%82%A8%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B.png">
 <meta property="article:published_time" content="2020-03-16T11:25:05.000Z">
-<meta property="article:modified_time" content="2020-03-16T11:56:22.713Z">
+<meta property="article:modified_time" content="2020-03-17T11:16:17.814Z">
 <meta property="article:author" content="青衫白衣">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -195,14 +195,15 @@
 <h2 id="3-Scanner练习2-输入三个数求最大值"><a href="#3-Scanner练习2-输入三个数求最大值" class="headerlink" title="3.Scanner练习2-输入三个数求最大值"></a>3.Scanner练习2-输入三个数求最大值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoScannerMax</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"请输入第一个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> a = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"请输入第二个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> b = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"请输入第三个数字："</span>);</span><br><span class="line">        <span class="keyword">int</span> c = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp = a &gt; b ? a : b;</span><br><span class="line">        <span class="keyword">int</span> max = temp &gt; c ? temp : c;</span><br><span class="line">        System.out.println(<span class="string">"最大值："</span>+max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-匿名对象的说明"><a href="#4-匿名对象的说明" class="headerlink" title="4.匿名对象的说明"></a>4.匿名对象的说明</h2><p>匿名对象：只有右边的对象，没有左边的名字和赋值运算符</p>
-<pre><code class="new"></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new 类名称();</span><br></pre></td></tr></table></figure>
+
 <p>注意事项：匿名对象只能使用唯一的一次，下次在使用不得不在创建一个新对象。</p>
 <p>使用建议：如果确定有一个对象只需要使用唯一的一次，就可以用匿名对象。</p>
 <h2 id="5-Random基本使用"><a href="#5-Random基本使用" class="headerlink" title="5.Random基本使用"></a>5.Random基本使用</h2><p>Random类用来生成随机数字。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2Random</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//无参数</span></span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> num = r.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"生成的随机数是："</span>+num);</span><br><span class="line">        <span class="comment">//有参数 左闭右开[0,10)</span></span><br><span class="line">        Random r1 = <span class="keyword">new</span> Random(<span class="number">10</span>);</span><br><span class="line">        System.out.println(r1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="6-Random练习1-根据int变量n的值，来获取随机数字，范围是-1-n-可以取到1也可以取到n"><a href="#6-Random练习1-根据int变量n的值，来获取随机数字，范围是-1-n-可以取到1也可以取到n" class="headerlink" title="6.Random练习1-根据int变量n的值，来获取随机数字，范围是[1,n],可以取到1也可以取到n"></a>6.Random练习1-根据int变量n的值，来获取随机数字，范围是[1,n],可以取到1也可以取到n</h2><p>定义一个int变量n，随意赋值</p>
-<p>如果写10，那么就是0<del>9，然而想要的是1</del>10，可以发现：整体+1即可</p>
+<p>如果写10，那么就是0 ~ 9，然而想要的是1 ~ 10，可以发现：整体+1即可</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2Random1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">        Random r = <span class="keyword">new</span> Random(num);</span><br><span class="line">        <span class="keyword">int</span> result = r.nextInt(num)+<span class="number">1</span>;</span><br><span class="line">        System.out.println(<span class="string">"生成的随机数："</span>+result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-Random练习2-猜数字小游戏"><a href="#7-Random练习2-猜数字小游戏" class="headerlink" title="7.Random练习2-猜数字小游戏"></a>7.Random练习2-猜数字小游戏</h2><ol>
@@ -497,15 +498,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
             
             <div class="clearfix"></div>
