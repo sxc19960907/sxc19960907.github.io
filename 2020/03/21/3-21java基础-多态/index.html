@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/3 | NoteBook</title>
+  <title>3.21java基础-多态 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/page/2/index.html">
+  <meta name="description" content="java基础-多态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.21java基础-多态">
+<meta property="og:url" content="http://yoursite.com/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="java基础-多态">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90.png">
+<meta property="article:published_time" content="2020-03-21T11:48:36.000Z">
+<meta property="article:modified_time" content="2020-03-21T11:59:06.043Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -159,36 +166,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-3-21java基础-多态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-03-14T10:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/">3.14java基础-数组</a>
+    <h1 class="article-title" itemprop="name">
+      3.21java基础-多态
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/" class="archive-article-date">
+  	<time datetime="2020-03-21T11:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java基础-多态"><a href="#java基础-多态" class="headerlink" title="java基础-多态"></a>java基础-多态</h1><a id="more"></a>
+
+<h2 id="1-多态的概述"><a href="#1-多态的概述" class="headerlink" title="1.多态的概述"></a>1.多态的概述</h2><p>extends继承或者implements实现，是多态性的前提。</p>
+<p>一个对象拥有多种形态，这就是对象的多态性</p>
+<h2 id="2-多态的格式与使用"><a href="#2-多态的格式与使用" class="headerlink" title="2.多态的格式与使用"></a>2.多态的格式与使用</h2><p>代码中体现多态性：父类引用指向子类对象</p>
+<p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类名称 对象名 &#x3D; new 子类名称();</span><br><span class="line">或者：</span><br><span class="line">接口名称 对象名 &#x3D; new 实现类名称();</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-多态中成员变量的使用特点"><a href="#3-多态中成员变量的使用特点" class="headerlink" title="3.多态中成员变量的使用特点"></a>3.多态中成员变量的使用特点</h2><p>访问成员变量的两种方式</p>
+<ol>
+<li>直接通过对象名称访问，看等号左边是谁，优先用谁，没有则向上找。</li>
+<li>间接通过成员方法访问，该方法属于谁，优先用谁，没有则向上找。</li>
+</ol>
+<h2 id="4-多态中成员方法的使用特点"><a href="#4-多态中成员方法的使用特点" class="headerlink" title="4.多态中成员方法的使用特点"></a>4.多态中成员方法的使用特点</h2><p>在多态中，成员方法的访问规则是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new的是谁，就优先用谁，没有则向上找</span><br></pre></td></tr></table></figure>
+
+<p>注意：编译看左边，运行看右边</p>
+<h2 id="5-使用多态的好处"><a href="#5-使用多态的好处" class="headerlink" title="5.使用多态的好处"></a>5.使用多态的好处</h2><p>好处：无论右边new的时候换成哪儿个子类对象，等号左边调用方法都不会变化。</p>
+<h2 id="6-对象的向上转型"><a href="#6-对象的向上转型" class="headerlink" title="6.对象的向上转型"></a>6.对象的向上转型</h2><p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父类名称 对象名 &#x3D; new 子类名称();</span><br></pre></td></tr></table></figure>
+
+<p>含义：右侧创建一个子类对象，把它当做父类来看待使用。</p>
+<p>注意事项：向上转型一定是安全的，从小范围转向了大范围。</p>
+<h2 id="7-对象的向下转型"><a href="#7-对象的向下转型" class="headerlink" title="7.对象的向下转型"></a>7.对象的向下转型</h2><p>其实是一个【还原】的动作</p>
+<p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子类名称 对象名 &#x3D; (子类名称) 父类对象;</span><br></pre></td></tr></table></figure>
+
+<p>含义：将父类对象，【还原】成为本来的子类对象。</p>
+<h2 id="8-用instanceof关键字修饰"><a href="#8-用instanceof关键字修饰" class="headerlink" title="8.用instanceof关键字修饰"></a>8.用instanceof关键字修饰</h2><p>如何才能知道一个父类引用的对象，本来是什么子类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Instanceof</span></span>&#123;</span><br><span class="line">Animal animal = <span class="keyword">new</span> Cat();</span><br><span class="line">animal.eat();</span><br><span class="line"></span><br><span class="line">If (animal <span class="keyword">instanceof</span> Dog)&#123;</span><br><span class="line">Dog dog = (Dog) animal;</span><br><span class="line">dog.watchHouse();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">If (animal <span class="keyword">instanceof</span> Cat)&#123;</span><br><span class="line">Cat cat = (Cat) animal;</span><br><span class="line">Cat.catchMouse();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>向下转型一定要进行instanceof判断</p>
+<h2 id="9-笔记本USB接口案例"><a href="#9-笔记本USB接口案例" class="headerlink" title="9.笔记本USB接口案例"></a>9.笔记本USB接口案例</h2><p><img src="/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90.png" alt="avatar"></p>
+<h2 id="10-案例实现"><a href="#10-案例实现" class="headerlink" title="10.案例实现"></a>10.案例实现</h2><p>interface USB</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">USB</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Open</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Close</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mouse类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">implements</span> <span class="title">USB</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"打开鼠标"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"关闭鼠标"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"点击鼠标"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>keyboard类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Keyboard</span> <span class="keyword">implements</span> <span class="title">USB</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"打开键盘"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"关闭键盘"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">type</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"键盘打字"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Computer类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">powerOn</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开启电脑"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">powerOff</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"关闭电脑"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useDevice</span><span class="params">(USB usb)</span></span>&#123;</span><br><span class="line">        usb.Open();</span><br><span class="line">        <span class="keyword">if</span>(usb <span class="keyword">instanceof</span> Mouse)&#123;</span><br><span class="line">            Mouse mouse = (Mouse) usb;</span><br><span class="line">            mouse.click();</span><br><span class="line">        &#125;<span class="keyword">else</span>  <span class="keyword">if</span> (usb <span class="keyword">instanceof</span> Keyboard)&#123;</span><br><span class="line">            Keyboard keyboard = (Keyboard) usb;</span><br><span class="line">            keyboard.type();</span><br><span class="line">        &#125;</span><br><span class="line">        usb.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoMain</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Computer computer = <span class="keyword">new</span> Computer();</span><br><span class="line">        computer.powerOn();</span><br><span class="line"></span><br><span class="line">        USB usbMouse = <span class="keyword">new</span> Mouse();<span class="comment">//使用多态写法</span></span><br><span class="line">        computer.useDevice(usbMouse);</span><br><span class="line"></span><br><span class="line">        Keyboard keyboard = <span class="keyword">new</span> Keyboard();<span class="comment">//没有使用多态写法</span></span><br><span class="line">        computer.useDevice(keyboard);<span class="comment">//正确写法，使用了向上转换</span></span><br><span class="line"></span><br><span class="line">        computer.powerOff();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,87 +277,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/20/3-20java%E5%9F%BA%E7%A1%80-%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.20java基础-接口</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">3.13 numpy基础操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java基础-多态"><span class="toc-number">1.</span> <span class="toc-text">java基础-多态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-多态的概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.多态的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-多态的格式与使用"><span class="toc-number">1.2.</span> <span class="toc-text">2.多态的格式与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-多态中成员变量的使用特点"><span class="toc-number">1.3.</span> <span class="toc-text">3.多态中成员变量的使用特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-多态中成员方法的使用特点"><span class="toc-number">1.4.</span> <span class="toc-text">4.多态中成员方法的使用特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-使用多态的好处"><span class="toc-number">1.5.</span> <span class="toc-text">5.使用多态的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-对象的向上转型"><span class="toc-number">1.6.</span> <span class="toc-text">6.对象的向上转型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象的向下转型"><span class="toc-number">1.7.</span> <span class="toc-text">7.对象的向下转型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-用instanceof关键字修饰"><span class="toc-number">1.8.</span> <span class="toc-text">8.用instanceof关键字修饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-笔记本USB接口案例"><span class="toc-number">1.9.</span> <span class="toc-text">9.笔记本USB接口案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-案例实现"><span class="toc-number">1.10.</span> <span class="toc-text">10.案例实现</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-13T12:48:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-Java%E5%9F%BA%E7%A1%80-%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">3.13 Java基础-方法的基本使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/03/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/03/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -307,8 +415,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

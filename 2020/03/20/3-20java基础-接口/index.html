@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/03/20/3-20java%E5%9F%BA%E7%A1%80-%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%B0%8F%E7%BB%93.png">
 <meta property="article:published_time" content="2020-03-20T11:13:59.000Z">
-<meta property="article:modified_time" content="2020-03-20T11:23:05.009Z">
+<meta property="article:modified_time" content="2020-03-21T11:50:39.001Z">
 <meta property="article:author" content="青衫白衣">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,21 @@
 <li>接口当中的常量，必须进行赋值。</li>
 <li>接口中常量名称，使用全部大写进行定义，并使用下划线进行分割。</li>
 </ol>
-<h1 id="11-接口的内容小结"><a href="#11-接口的内容小结" class="headerlink" title="11.接口的内容小结"></a>11.接口的内容小结</h1><p><img src="/2020/03/20/3-20java%E5%9F%BA%E7%A1%80-%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%B0%8F%E7%BB%93.png" alt="avatar"></p>
+<h2 id="11-接口的内容小结"><a href="#11-接口的内容小结" class="headerlink" title="11.接口的内容小结"></a>11.接口的内容小结</h2><p><img src="/2020/03/20/3-20java%E5%9F%BA%E7%A1%80-%E6%8E%A5%E5%8F%A3/%E6%8E%A5%E5%8F%A3%E5%B0%8F%E7%BB%93.png" alt="avatar"></p>
+<h2 id="12-继承父类并实现多个接口"><a href="#12-继承父类并实现多个接口" class="headerlink" title="12.继承父类并实现多个接口"></a>12.继承父类并实现多个接口</h2><p>使用接口时，需要注意：</p>
+<ol>
+<li>接口不能有静态代码块和构造方法</li>
+<li>一个类的直接父类是唯一的，但是一个类可以同时实现多个接口<br>格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class MyInterfaceImpl implements MyInterfaceA，MyInterfaceB&#123;</span><br><span class="line"> &#x2F;&#x2F;覆盖重写</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>如果实现类所实现的多个接口当中，存在重复的抽象方法，那么只需覆盖重写一次即可。</li>
+<li>如果实现类没有覆盖重写所有接口当中的所有抽象方法，那么实现类必须是一个抽象类。</li>
+<li>如果实现类实现的多个接口当中，存在重复的默认方法，那么实现类一定要对冲突的默认方法进行覆盖重写。</li>
+<li>一个类如果直接父类当中的方法，和接口当中的默认方法产生了冲突，优先用父类当中的方法。</li>
+</ol>
+<h2 id="13-接口之间的多继承"><a href="#13-接口之间的多继承" class="headerlink" title="13.接口之间的多继承"></a>13.接口之间的多继承</h2><ol>
+<li>类与类之间是单继承的。直接父类只有一个。</li>
+<li>类与接口之间是多实现的。一个类可以实现多个接口。</li>
+<li>接口与接口之间是多继承的。</li>
+</ol>
 
       
 
@@ -363,6 +377,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3.21java基础-多态
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/19/3-19java%E5%9F%BA%E7%A1%80-%E6%8A%BD%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">3.19java基础-抽象</div>
@@ -392,7 +415,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java基础-接口"><span class="toc-number">1.</span> <span class="toc-text">java基础-接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-接口的概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.接口的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接口定义格式"><span class="toc-number">1.2.</span> <span class="toc-text">2.接口定义格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-接口的抽象方法定义"><span class="toc-number">1.3.</span> <span class="toc-text">3.接口的抽象方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-接口的抽象方法使用"><span class="toc-number">1.4.</span> <span class="toc-text">4.接口的抽象方法使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-接口的默认方法定义"><span class="toc-number">1.5.</span> <span class="toc-text">5.接口的默认方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-接口的默认方法的使用"><span class="toc-number">1.6.</span> <span class="toc-text">6.接口的默认方法的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-接口的静态方法定义"><span class="toc-number">1.7.</span> <span class="toc-text">7.接口的静态方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-接口的静态方法的使用"><span class="toc-number">1.8.</span> <span class="toc-text">8.接口的静态方法的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-接口的私有方法定义"><span class="toc-number">1.9.</span> <span class="toc-text">9.接口的私有方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-接口的常量定义和使用"><span class="toc-number">1.10.</span> <span class="toc-text">10.接口的常量定义和使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-接口的内容小结"><span class="toc-number">2.</span> <span class="toc-text">11.接口的内容小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java基础-接口"><span class="toc-number">1.</span> <span class="toc-text">java基础-接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-接口的概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.接口的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接口定义格式"><span class="toc-number">1.2.</span> <span class="toc-text">2.接口定义格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-接口的抽象方法定义"><span class="toc-number">1.3.</span> <span class="toc-text">3.接口的抽象方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-接口的抽象方法使用"><span class="toc-number">1.4.</span> <span class="toc-text">4.接口的抽象方法使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-接口的默认方法定义"><span class="toc-number">1.5.</span> <span class="toc-text">5.接口的默认方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-接口的默认方法的使用"><span class="toc-number">1.6.</span> <span class="toc-text">6.接口的默认方法的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-接口的静态方法定义"><span class="toc-number">1.7.</span> <span class="toc-text">7.接口的静态方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-接口的静态方法的使用"><span class="toc-number">1.8.</span> <span class="toc-text">8.接口的静态方法的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-接口的私有方法定义"><span class="toc-number">1.9.</span> <span class="toc-text">9.接口的私有方法定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-接口的常量定义和使用"><span class="toc-number">1.10.</span> <span class="toc-text">10.接口的常量定义和使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-接口的内容小结"><span class="toc-number">1.11.</span> <span class="toc-text">11.接口的内容小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-继承父类并实现多个接口"><span class="toc-number">1.12.</span> <span class="toc-text">12.继承父类并实现多个接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-接口之间的多继承"><span class="toc-number">1.13.</span> <span class="toc-text">13.接口之间的多继承</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
