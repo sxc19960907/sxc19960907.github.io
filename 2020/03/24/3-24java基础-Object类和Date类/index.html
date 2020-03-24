@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>3.23java基础-final关键字和内部类 | NoteBook</title>
+  <title>3.24java基础-Object类和Date类 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="final关键字和内部类">
+  <meta name="description" content="java基础-Object类和Date类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.23java基础-final关键字和内部类">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
+<meta property="og:title" content="3.24java基础-Object类和Date类">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/3-24java%E5%9F%BA%E7%A1%80-Object%E7%B1%BB%E5%92%8CDate%E7%B1%BB/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="final关键字和内部类">
+<meta property="og:description" content="java基础-Object类和Date类">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png">
-<meta property="article:published_time" content="2020-03-23T13:23:50.000Z">
-<meta property="article:modified_time" content="2020-03-24T13:35:33.626Z">
+<meta property="article:published_time" content="2020-03-24T13:28:57.000Z">
+<meta property="article:modified_time" content="2020-03-24T13:35:13.821Z">
 <meta property="article:author" content="青衫白衣">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -166,103 +164,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-3-23java基础-final关键字和内部类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-3-24java基础-Object类和Date类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      3.23java基础-final关键字和内部类
+      3.24java基础-Object类和Date类
     </h1>
   
 
         
-        <a href="/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-23T13:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+        <a href="/2020/03/24/3-24java%E5%9F%BA%E7%A1%80-Object%E7%B1%BB%E5%92%8CDate%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-03-24T13:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="final关键字和内部类"><a href="#final关键字和内部类" class="headerlink" title="final关键字和内部类"></a>final关键字和内部类</h1><a id="more"></a>
-<h2 id="1-final关键字的概念与四种用法"><a href="#1-final关键字的概念与四种用法" class="headerlink" title="1.final关键字的概念与四种用法"></a>1.final关键字的概念与四种用法</h2><p>final关键字代表不可改变的</p>
-<p>用法：</p>
-<ol>
-<li>可以用来修饰一个类</li>
-<li>可以用来修饰一个方法</li>
-<li>可以用来修饰一个局部变量</li>
-<li>可以修饰一个成员变量</li>
-</ol>
-<h2 id="2-final关键字用于修饰类"><a href="#2-final关键字用于修饰类" class="headerlink" title="2.final关键字用于修饰类"></a>2.final关键字用于修饰类</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final class 类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="java基础-Object类和Date类"><a href="#java基础-Object类和Date类" class="headerlink" title="java基础-Object类和Date类"></a>java基础-Object类和Date类</h1><a id="more"></a>
+<h2 id="1-Object类的equals方法"><a href="#1-Object类的equals方法" class="headerlink" title="1.Object类的equals方法"></a>1.Object类的equals方法</h2><p>Boolean equals(Object obj)指示其他某个对象是否与此对象“相等”。</p>
+<p>Equals方法源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">Return (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<p>Object obj：可以传递任意的对象</p>
+<p>== 比较运算符，返回的是一个布尔值 true false</p>
+<p>基本数据类型：比较的是值</p>
+<p>引用数据类型：比较的是两个对象的地址值</p>
+<h2 id="2-重写Object类的equals方法"><a href="#2-重写Object类的equals方法" class="headerlink" title="2.重写Object类的equals方法"></a>2.重写Object类的equals方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(obj <span class="keyword">instanceof</span> Person)&#123;</span><br><span class="line"><span class="comment">//使用向下转型，把obj转换为Person类型</span></span><br><span class="line">Person p = (Person)obj;</span><br><span class="line"><span class="keyword">boolean</span> b = <span class="keyword">this</span>.name.equals(p.name)&amp;&amp;<span class="keyword">this</span>.age==p.age;</span><br><span class="line"><span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Objects类的equals方法"><a href="#3-Objects类的equals方法" class="headerlink" title="3.Objects类的equals方法"></a>3.Objects类的equals方法</h2><p>Object类的equals方法：对两个对象进行比较，防止空指针异常</p>
+<h2 id="4-日期时间类-Date类-毫秒值的概念和作用"><a href="#4-日期时间类-Date类-毫秒值的概念和作用" class="headerlink" title="4.日期时间类-Date类-毫秒值的概念和作用"></a>4.日期时间类-Date类-毫秒值的概念和作用</h2><p>类Date表示特定的瞬间，精确到毫秒。</p>
+<p>特定的瞬间：一个时间点，例如：2020-01-01 00:00:00</p>
+<p>毫秒值的作用：可以对时间和日期进行计算</p>
+<p>把日期转换为毫秒：</p>
+<p>当前的日期</p>
+<p>时间原点(0毫秒)：1970年1月1日 00:00:00</p>
+<p>就是计算当前日期到时间原点一共经历了多少毫秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.currentTimeMillis()</span><br></pre></td></tr></table></figure>
 
-<p>含义：当前这个类不能有任何的子类</p>
-<p>注意：一个类如果是final的，那么其中的所有成员方法都不能进行重写</p>
-<h2 id="3-final关键字用来修饰成员方法"><a href="#3-final关键字用来修饰成员方法" class="headerlink" title="3.final关键字用来修饰成员方法"></a>3.final关键字用来修饰成员方法</h2><p>当final关键字用来修饰一个方法时，这个方法不能被覆盖重写</p>
-<p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 final 返回值类型 方法名称(参数列表)&#123;</span><br><span class="line">&#x2F;&#x2F;方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-Date类的构造方法和成员方法"><a href="#5-Date类的构造方法和成员方法" class="headerlink" title="5.Date类的构造方法和成员方法"></a>5.Date类的构造方法和成员方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1Date</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        demo03();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//getTime()方法-&gt;计算现在日期到时间原点的差值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">demo03</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        <span class="keyword">long</span> time = date.getTime();</span><br><span class="line">        System.out.println(time);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Date的有参构造方法，将参数毫秒变成日期</span></span><br><span class="line">    <span class="comment">//Date(long date)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">demo02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> Date(<span class="number">3564649633L</span>);</span><br><span class="line">        System.out.println(date);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Date的无参构造方法，输出当前的日期</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">demo01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        System.out.println(date);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>注意：对于类、方法，abstract关键字和final关键字是不能同时使用的</p>
-<h2 id="4-final关键字用于修饰局部变量"><a href="#4-final关键字用于修饰局部变量" class="headerlink" title="4.final关键字用于修饰局部变量"></a>4.final关键字用于修饰局部变量</h2><p>一旦使用final用来修饰局部变量，那么这个变量就不能更改。</p>
-<ul>
-<li>对于基本类型来说，不可变说的是变量当中的数据不可改变</li>
-<li>对于引用类型来说，不可变说的是变量当中的地址值不可改变</li>
-</ul>
-<h2 id="5-final关键字用于修饰成员变量"><a href="#5-final关键字用于修饰成员变量" class="headerlink" title="5.final关键字用于修饰成员变量"></a>5.final关键字用于修饰成员变量</h2><p>对于成员变量来说，如果使用final关键字修饰，那么这个变量也照样是不可变的</p>
-<ol>
-<li>由于成员变量有默认值，所以用了final之后必须手动赋值，不会再有默认值。</li>
-<li>对于final的成员变量，要么使用直接赋值，要么通过构造方法赋值。</li>
-<li>必须保证类当中所有重载的构造方法，都最终会对final的成员变量进行赋值。</li>
-</ol>
-<h2 id="6-内部类的概念与分类"><a href="#6-内部类的概念与分类" class="headerlink" title="6.内部类的概念与分类"></a>6.内部类的概念与分类</h2><p>如果一个事物的内部包含另一个事物，那么这就是一个类内部包含另一个类。</p>
-<p>分类：</p>
-<ol>
-<li>成员内部类</li>
-<li>局部内部类(包含匿名内部类)</li>
-</ol>
-<h2 id="7-成员内部类的定义"><a href="#7-成员内部类的定义" class="headerlink" title="7.成员内部类的定义"></a>7.成员内部类的定义</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修饰符 class 外部类名称 &#123;</span><br><span class="line">修饰符 class 内部类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-DateFormat类和SimpleDateFormat"><a href="#6-DateFormat类和SimpleDateFormat" class="headerlink" title="6.DateFormat类和SimpleDateFormat"></a>6.DateFormat类和SimpleDateFormat</h2><p>DateFormat：是日期/时间格式化子类的抽象类</p>
+<p>作用：</p>
+<p>格式化(也就是日期-&gt;文本)、解析(文本-&gt;日期)</p>
+<p>成员方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String format(Date date)按照指定的模式，把Date日期，格式化为符合模式的字符串。</span><br><span class="line">Date parse(String source)把符合模式的字符串，解析为Date日期</span><br><span class="line">DateFormat类是一个抽象类，无法直接创建对象使用，可以使用DateFormat类的子类。</span><br></pre></td></tr></table></figure>
 
-<p>注意：内部类使用外部类，随意访问；外部类用内部类，需要内部类对象。</p>
-<h2 id="8-成员内部类的使用"><a href="#8-成员内部类的使用" class="headerlink" title="8.成员内部类的使用"></a>8.成员内部类的使用</h2><ol>
-<li>间接方式：在外部类的方法当中，使用内部类，然后main只是调用外部类的方法</li>
-<li>直接方式：公式：外部类名称.内部类名称 对象名 = new 外部类名称().new 内部类名称();</li>
-</ol>
-<h2 id="9-内部类的同名变量访问"><a href="#9-内部类的同名变量访问" class="headerlink" title="9.内部类的同名变量访问"></a>9.内部类的同名变量访问</h2><p>如果出现了重名现象，那么格式是：外部类名称.this.外部类成员变量名</p>
-<h2 id="10-局部内部类定义"><a href="#10-局部内部类定义" class="headerlink" title="10.局部内部类定义"></a>10.局部内部类定义</h2><p>如果一个类是定义在方法内部的，那么这就是一个局部内部类。</p>
-<p>“局部”：只有当前所属的方法才能使用他，出了这个方法外面就不能用了</p>
-<p>定义格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">修饰符 class 外部类名称&#123;</span><br><span class="line">修饰符 返回值类型 外部类方法名称(参数列表)&#123;</span><br><span class="line">class 局部内部类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SimpleDateFormate类<br>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat(String  pattern)</span><br></pre></td></tr></table></figure>
 
-<p>小结：</p>
-<p>类的权限修饰符：public&gt;protected&gt;(default)&gt;private</p>
-<ol>
-<li>外部类： public/(default)</li>
-<li>成员内部类:public/protected/(default)/private</li>
-<li>局部内部类：什么都不能写</li>
-</ol>
-<h2 id="11-局部内部类的final问题"><a href="#11-局部内部类的final问题" class="headerlink" title="11.局部内部类的final问题"></a>11.局部内部类的final问题</h2><p>局部内部类，如果希望访问所在的局部变量，那么这个局部变量必须是[有效final的]</p>
-<p>备注：从java8+开始，只要局部变量事实不变，那么final关键字可以省略</p>
-<h2 id="12-匿名内部类"><a href="#12-匿名内部类" class="headerlink" title="12.匿名内部类*"></a>12.匿名内部类*</h2><p>如果接口的实现类，(或者是父类的子类)只需要使用唯一的一次</p>
-<p>那么这种情况下就可以省略该类的定义，而改为使用[匿名内部类]</p>
-<p>匿名内部类的定义格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">接口名称 对象名 &#x3D; new 接口名称()&#123;</span><br><span class="line">&#x2F;&#x2F;覆盖重写所有抽象方法</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>用给定的模式和默认语言环境的日期格式符号构造</p>
+<p>参数：</p>
+<p>String pattern：传递指定的模式</p>
+<p>模式：区分大小写<br>y  年</p>
+<p>M 月<br>d  日</p>
+<p>H  时</p>
+<p>m  分</p>
+<p>s   秒</p>
+<p>例如：”yyyy-MM-dd HH:mm:ss”</p>
+<h2 id="7-DateFormat使用"><a href="#7-DateFormat使用" class="headerlink" title="7.DateFormat使用"></a>7.DateFormat使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1DateFormat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        demo02();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">demo02</span><span class="params">()</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">        Date parse = simpleDateFormat.parse(<span class="string">"2020-03-24 17:11:12"</span>);</span><br><span class="line">        System.out.println(parse);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">demo01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        String d = simpleDateFormat.format(date);</span><br><span class="line">        System.out.println(d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="13-匿名内部类的注意事项"><a href="#13-匿名内部类的注意事项" class="headerlink" title="13.匿名内部类的注意事项"></a>13.匿名内部类的注意事项</h2><p>对格式进行解析”new 接口名称(){…}”</p>
-<ol>
-<li>new代表创建对象的动作</li>
-<li>接口名称就是匿名内部类需要实现哪儿个接口</li>
-<li>{…}是匿名内部类的内容</li>
-</ol>
-<p>另外还要注意：</p>
-<ol>
-<li>匿名内部类，在创建对象时，只能使用唯一一次。</li>
-<li>匿名对象，在[调用方法]的时候，只能调用唯一一次，如果希望同一个对象，调用多次方法，必须取对象名。</li>
-<li>匿名内部类是省略了实现类或者子类，但是匿名对象是省略了对象名称。</li>
-</ol>
-<h2 id="14-随机红包实现"><a href="#14-随机红包实现" class="headerlink" title="14.随机红包实现"></a>14.随机红包实现</h2><p><img src="/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png" alt="avatar"></p>
+<h2 id="8-Calendar类介绍"><a href="#8-Calendar类介绍" class="headerlink" title="8.Calendar类介绍"></a>8.Calendar类介绍</h2><p>Calendar类是一个抽象类，里边提供了很多操作日历字段的方法</p>
+<p>Calendar类无法直接创建对象使用，里边有一个静态方法叫getInstance(),该方法返回了Calendar类的子类对象</p>
+<p>使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Calendar c = Calendar.getInstance();<span class="comment">//多态</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-Calendar常用方法"><a href="#9-Calendar常用方法" class="headerlink" title="9.Calendar常用方法"></a>9.Calendar常用方法</h2><p><del>~</del><br>public int get(int field):返回给定日历字段的值</p>
+<p>public void set(int field,int value):将给定的日历字段设置为给定值</p>
+<p>public abstract void add(int field,int amount):根据日历的规则，为给定的日历字段添加或减去指定的时间量。</p>
+<p>public Date getTime():返回一个表示此Calendar时间值(从历元到现在的毫秒偏移量)的Date对象</p>
+<p>成员方法的参数：<br>Int field：日历类的字段，可以使用Calendar类的静态成员变量获取（类名.成员变量名）<br>~~</p>
 
       
 
@@ -358,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/24/3-24java%E5%9F%BA%E7%A1%80-Object%E7%B1%BB%E5%92%8CDate%E7%B1%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -372,18 +345,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/24/3-24java%E5%9F%BA%E7%A1%80-Object%E7%B1%BB%E5%92%8CDate%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3.24java基础-Object类和Date类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3.21java基础-多态</div>
+    <a href="/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.23java基础-final关键字和内部类</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#final关键字和内部类"><span class="toc-number">1.</span> <span class="toc-text">final关键字和内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-final关键字的概念与四种用法"><span class="toc-number">1.1.</span> <span class="toc-text">1.final关键字的概念与四种用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-final关键字用于修饰类"><span class="toc-number">1.2.</span> <span class="toc-text">2.final关键字用于修饰类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-final关键字用来修饰成员方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.final关键字用来修饰成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-final关键字用于修饰局部变量"><span class="toc-number">1.4.</span> <span class="toc-text">4.final关键字用于修饰局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-final关键字用于修饰成员变量"><span class="toc-number">1.5.</span> <span class="toc-text">5.final关键字用于修饰成员变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-内部类的概念与分类"><span class="toc-number">1.6.</span> <span class="toc-text">6.内部类的概念与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-成员内部类的定义"><span class="toc-number">1.7.</span> <span class="toc-text">7.成员内部类的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-成员内部类的使用"><span class="toc-number">1.8.</span> <span class="toc-text">8.成员内部类的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-内部类的同名变量访问"><span class="toc-number">1.9.</span> <span class="toc-text">9.内部类的同名变量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-局部内部类定义"><span class="toc-number">1.10.</span> <span class="toc-text">10.局部内部类定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-局部内部类的final问题"><span class="toc-number">1.11.</span> <span class="toc-text">11.局部内部类的final问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-匿名内部类"><span class="toc-number">1.12.</span> <span class="toc-text">12.匿名内部类*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-匿名内部类的注意事项"><span class="toc-number">1.13.</span> <span class="toc-text">13.匿名内部类的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-随机红包实现"><span class="toc-number">1.14.</span> <span class="toc-text">14.随机红包实现</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java基础-Object类和Date类"><span class="toc-number">1.</span> <span class="toc-text">java基础-Object类和Date类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Object类的equals方法"><span class="toc-number">1.1.</span> <span class="toc-text">1.Object类的equals方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-重写Object类的equals方法"><span class="toc-number">1.2.</span> <span class="toc-text">2.重写Object类的equals方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Objects类的equals方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.Objects类的equals方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-日期时间类-Date类-毫秒值的概念和作用"><span class="toc-number">1.4.</span> <span class="toc-text">4.日期时间类-Date类-毫秒值的概念和作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Date类的构造方法和成员方法"><span class="toc-number">1.5.</span> <span class="toc-text">5.Date类的构造方法和成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-DateFormat类和SimpleDateFormat"><span class="toc-number">1.6.</span> <span class="toc-text">6.DateFormat类和SimpleDateFormat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-DateFormat使用"><span class="toc-number">1.7.</span> <span class="toc-text">7.DateFormat使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Calendar类介绍"><span class="toc-number">1.8.</span> <span class="toc-text">8.Calendar类介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Calendar常用方法"><span class="toc-number">1.9.</span> <span class="toc-text">9.Calendar常用方法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
