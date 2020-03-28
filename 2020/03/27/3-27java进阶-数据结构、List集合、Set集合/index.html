@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>3.23java基础-final关键字和内部类 | NoteBook</title>
+  <title>3.27java进阶-数据结构、List集合、Set集合 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="final关键字和内部类">
+  <meta name="description" content="java进阶-数据结构、List集合、Set集合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.23java基础-final关键字和内部类">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
+<meta property="og:title" content="3.27java进阶-数据结构、List集合、Set集合">
+<meta property="og:url" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="final关键字和内部类">
+<meta property="og:description" content="java进阶-数据结构、List集合、Set集合">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png">
-<meta property="article:published_time" content="2020-03-23T13:23:50.000Z">
-<meta property="article:modified_time" content="2020-03-24T13:35:33.626Z">
+<meta property="og:image" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E9%93%BE%E8%A1%A8.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E7%BA%A2%E9%BB%91%E6%A0%91.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E5%93%88%E5%B8%8C%E8%A1%A8.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E5%8E%9F%E7%90%86.png">
+<meta property="article:published_time" content="2020-03-27T13:18:16.000Z">
+<meta property="article:modified_time" content="2020-03-28T01:42:02.372Z">
 <meta property="article:author" content="青衫白衣">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E9%93%BE%E8%A1%A8.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -166,103 +169,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-3-23java基础-final关键字和内部类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-3-27java进阶-数据结构、List集合、Set集合" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      3.23java基础-final关键字和内部类
+      3.27java进阶-数据结构、List集合、Set集合
     </h1>
   
 
         
-        <a href="/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-23T13:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+        <a href="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-03-27T13:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="final关键字和内部类"><a href="#final关键字和内部类" class="headerlink" title="final关键字和内部类"></a>final关键字和内部类</h1><a id="more"></a>
-<h2 id="1-final关键字的概念与四种用法"><a href="#1-final关键字的概念与四种用法" class="headerlink" title="1.final关键字的概念与四种用法"></a>1.final关键字的概念与四种用法</h2><p>final关键字代表不可改变的</p>
-<p>用法：</p>
-<ol>
-<li>可以用来修饰一个类</li>
-<li>可以用来修饰一个方法</li>
-<li>可以用来修饰一个局部变量</li>
-<li>可以修饰一个成员变量</li>
-</ol>
-<h2 id="2-final关键字用于修饰类"><a href="#2-final关键字用于修饰类" class="headerlink" title="2.final关键字用于修饰类"></a>2.final关键字用于修饰类</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final class 类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>含义：当前这个类不能有任何的子类</p>
-<p>注意：一个类如果是final的，那么其中的所有成员方法都不能进行重写</p>
-<h2 id="3-final关键字用来修饰成员方法"><a href="#3-final关键字用来修饰成员方法" class="headerlink" title="3.final关键字用来修饰成员方法"></a>3.final关键字用来修饰成员方法</h2><p>当final关键字用来修饰一个方法时，这个方法不能被覆盖重写</p>
-<p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 final 返回值类型 方法名称(参数列表)&#123;</span><br><span class="line">&#x2F;&#x2F;方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：对于类、方法，abstract关键字和final关键字是不能同时使用的</p>
-<h2 id="4-final关键字用于修饰局部变量"><a href="#4-final关键字用于修饰局部变量" class="headerlink" title="4.final关键字用于修饰局部变量"></a>4.final关键字用于修饰局部变量</h2><p>一旦使用final用来修饰局部变量，那么这个变量就不能更改。</p>
-<ul>
-<li>对于基本类型来说，不可变说的是变量当中的数据不可改变</li>
-<li>对于引用类型来说，不可变说的是变量当中的地址值不可改变</li>
+        <h1 id="java进阶-数据结构、List集合、Set集合"><a href="#java进阶-数据结构、List集合、Set集合" class="headerlink" title="java进阶-数据结构、List集合、Set集合"></a>java进阶-数据结构、List集合、Set集合</h1><a id="more"></a>
+<h2 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1.数据结构"></a>1.数据结构</h2><ul>
+<li>栈：先进后出</li>
+<li>队列：先进先出</li>
+<li>数组：查询快，增删慢</li>
 </ul>
-<h2 id="5-final关键字用于修饰成员变量"><a href="#5-final关键字用于修饰成员变量" class="headerlink" title="5.final关键字用于修饰成员变量"></a>5.final关键字用于修饰成员变量</h2><p>对于成员变量来说，如果使用final关键字修饰，那么这个变量也照样是不可变的</p>
+<p>查询快：数组的地址是连续的，通过数组的首地址可以找到数组，通过数组的索引可以快速查找某一个元素</p>
+<p>增删慢：数组的长度是固定的，想要增加/删除一个元素，必须创建一个新数组，把源数组的数据复制过去。</p>
+<ul>
+<li>链表：查询慢，增删快</li>
+</ul>
+<p>查询慢：链表中地址不是连续的，每次查询元素，都必须从头开始查询</p>
+<p>增删快：链表结构，增加/删除一个元素，对链表的整体结构没有影响，所以增删快<br><img src="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E9%93%BE%E8%A1%A8.png" alt="avatar"></p>
+<ul>
+<li>红黑树<br><img src="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt="avatar"></li>
+</ul>
+<h2 id="2-List集合-介绍、常用方法"><a href="#2-List集合-介绍、常用方法" class="headerlink" title="2.List集合-介绍、常用方法"></a>2.List集合-介绍、常用方法</h2><p>List接口的特点：</p>
 <ol>
-<li>由于成员变量有默认值，所以用了final之后必须手动赋值，不会再有默认值。</li>
-<li>对于final的成员变量，要么使用直接赋值，要么通过构造方法赋值。</li>
-<li>必须保证类当中所有重载的构造方法，都最终会对final的成员变量进行赋值。</li>
+<li>有序的集合，存储元素和取出元素的顺序是一致的（存储123 取出123）</li>
+<li>有索引，包含了一些带索引的方法</li>
+<li>允许存储重复的元素<br>带索引的常用方法(特有)：</li>
 </ol>
-<h2 id="6-内部类的概念与分类"><a href="#6-内部类的概念与分类" class="headerlink" title="6.内部类的概念与分类"></a>6.内部类的概念与分类</h2><p>如果一个事物的内部包含另一个事物，那么这就是一个类内部包含另一个类。</p>
-<p>分类：</p>
+<ul>
+<li>-public void add(int index,E element):将指定的元素，添加到该集合中的指定位置上。</li>
+<li>-public E get(int index):返回集合中指定位置的元素。</li>
+<li>-public E remove(int index):移除列表中指定位置的元素，返回的是被移除的元素。</li>
+<li>-public E set(int index.E element):用指定元素替换集合中指定位置的元素，返回值的更新前的元素。<br>注意事项：</li>
+</ul>
+<p>操作索引的时候，一定要防止索引越界异常</p>
+<ul>
+<li>IndexOutOfBoundsException：索引越界异常</li>
+<li>ArrayIndexOutOfBoundsException：数组索引越界异常</li>
+<li>StringIndexOutOfBoundsException：字符串索引越界异常</li>
+</ul>
+<h2 id="3-List的子类"><a href="#3-List的子类" class="headerlink" title="3.List的子类"></a>3.List的子类</h2><p>ArrayList集合</p>
+<p>LinkedList集合的特点：</p>
 <ol>
-<li>成员内部类</li>
-<li>局部内部类(包含匿名内部类)</li>
+<li>底层是一个链表结构，查询慢，增删快</li>
+<li>里边包含了大量操作首尾元素的方法</li>
 </ol>
-<h2 id="7-成员内部类的定义"><a href="#7-成员内部类的定义" class="headerlink" title="7.成员内部类的定义"></a>7.成员内部类的定义</h2><p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修饰符 class 外部类名称 &#123;</span><br><span class="line">修饰符 class 内部类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：使用LinkedList集合特有的方法，不能使用多态</p>
+<ul>
+<li><p>-public void addFirst(E e):将指定元素插入此列表的开头。</p>
+</li>
+<li><p>-public void addLast(E e):将指定元素添加到此列表的结尾。</p>
+</li>
+<li><p>-public void push(E e):将元素推入此列表所表示的堆栈。等效于addFirst(E e)</p>
+</li>
+<li><p>-public E getFirst():返回此列表的第一个元素</p>
+</li>
+<li><p>-public E getLast():返回此列表的最后一个元素</p>
+</li>
+<li><p>-public E removeFirst():移除并返回此列表的第一个元素</p>
+</li>
+<li><p>-public E removeLast():移除并返回此列表的最后一个元素</p>
+</li>
+<li><p>-public E pop():从此列表所表示的堆栈处弹出一个元素,等效于removeFirst()</p>
+</li>
+<li><p>-public boolean isEmpty():如果列表不包含元素，则返回true</p>
+</li>
+</ul>
+<p>Vector集合</p>
+<h2 id="4-HashSet集合"><a href="#4-HashSet集合" class="headerlink" title="4.HashSet集合"></a>4.HashSet集合</h2><p>Set接口的特点：</p>
+<ol>
+<li>不允许存储重复的元素</li>
+<li>没有索引，没有带索引的方法，也不能使用普通的for循环遍历，使用迭代器遍历。</li>
+</ol>
+<p>HashSet集合特点：</p>
+<ol>
+<li>是一个无序的集合，存储元素和取出元素的顺序有可能不一致</li>
+<li>底层是一个哈希表结构（查询速度快）</li>
+</ol>
+<h2 id="5-HashSet集合存储结构（哈希表）"><a href="#5-HashSet集合存储结构（哈希表）" class="headerlink" title="5.HashSet集合存储结构（哈希表）"></a>5.HashSet集合存储结构（哈希表）</h2><p>哈希值：是一个十进制的整数，由系统随机给出（就是对象的地址值，是一个逻辑地址，不是数据实际存储的物理地址）</p>
+<p>在Object类有一个方法，可以获取对象的哈希值</p>
+<ul>
+<li>Int hashCode():返回该对象的哈希码值</li>
+</ul>
+<p><img src="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E5%93%88%E5%B8%8C%E8%A1%A8.png" alt="avatar"></p>
+<h2 id="6-Set集合存储元素不重复的原理"><a href="#6-Set集合存储元素不重复的原理" class="headerlink" title="6.Set集合存储元素不重复的原理"></a>6.Set集合存储元素不重复的原理</h2><p><img src="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/%E5%8E%9F%E7%90%86.png" alt="avatar"></p>
+<h2 id="7-HashSet存储自定义类型元素"><a href="#7-HashSet存储自定义类型元素" class="headerlink" title="7.HashSet存储自定义类型元素"></a>7.HashSet存储自定义类型元素</h2><p>Set集合报错元素唯一：</p>
+<p>存储的元素(String,Integer,…Student,Person…)必须重写hashCode方法和equals方法 工具可自动生成。</p>
+<h2 id="8-LinkedHashSet集合"><a href="#8-LinkedHashSet集合" class="headerlink" title="8.LinkedHashSet集合"></a>8.LinkedHashSet集合</h2><p>继承了HashSet集合</p>
+<p>LinkedHashSet集合的特点：</p>
+<p>底层是一个哈希表(数组+链表/红黑树)+链表：多了一条链表(记录元素的存储顺序)，保证元素有序。</p>
+<h2 id="9-TreeSet集合TreeSet集合特点："><a href="#9-TreeSet集合TreeSet集合特点：" class="headerlink" title="9.TreeSet集合TreeSet集合特点："></a>9.TreeSet集合TreeSet集合特点：</h2><p>元素有序，这里的顺序不是指存储和取出的顺序，而是按照一定规则进行排序，具体排序方式取决于构造方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TreeSet():根据其元素的自然排序进行排序</span><br><span class="line"></span><br><span class="line">TreeSet(Comparator comparator):根据指定的比较器进行排序</span><br></pre></td></tr></table></figure>
 
-<p>注意：内部类使用外部类，随意访问；外部类用内部类，需要内部类对象。</p>
-<h2 id="8-成员内部类的使用"><a href="#8-成员内部类的使用" class="headerlink" title="8.成员内部类的使用"></a>8.成员内部类的使用</h2><ol>
-<li>间接方式：在外部类的方法当中，使用内部类，然后main只是调用外部类的方法</li>
-<li>直接方式：公式：外部类名称.内部类名称 对象名 = new 外部类名称().new 内部类名称();</li>
-</ol>
-<h2 id="9-内部类的同名变量访问"><a href="#9-内部类的同名变量访问" class="headerlink" title="9.内部类的同名变量访问"></a>9.内部类的同名变量访问</h2><p>如果出现了重名现象，那么格式是：外部类名称.this.外部类成员变量名</p>
-<h2 id="10-局部内部类定义"><a href="#10-局部内部类定义" class="headerlink" title="10.局部内部类定义"></a>10.局部内部类定义</h2><p>如果一个类是定义在方法内部的，那么这就是一个局部内部类。</p>
-<p>“局部”：只有当前所属的方法才能使用他，出了这个方法外面就不能用了</p>
-<p>定义格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">修饰符 class 外部类名称&#123;</span><br><span class="line">修饰符 返回值类型 外部类方法名称(参数列表)&#123;</span><br><span class="line">class 局部内部类名称&#123;</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>没有带索引的方法，所以不能使用普通for循环遍历</p>
+<p>由于是Set集合，所以不包含重复元素的集合</p>
+<h2 id="10-自然排序Comparable的使用"><a href="#10-自然排序Comparable的使用" class="headerlink" title="10.自然排序Comparable的使用"></a>10.自然排序Comparable的使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//当返回一个正数值时，将按照升序排序</span></span><br><span class="line">        <span class="comment">//当返回一个复数值时，将按照降序排序</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//按照年龄大小排序</span></span><br><span class="line">        <span class="keyword">int</span> num = <span class="keyword">this</span>.age-s.age;</span><br><span class="line">        <span class="comment">//年龄相同时，按照姓名的字母排序</span></span><br><span class="line">        <span class="keyword">int</span> num2 = num==<span class="number">0</span>?<span class="keyword">this</span>.name.compareTo(s.name):num;</span><br><span class="line">        <span class="keyword">return</span> num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>小结：</p>
-<p>类的权限修饰符：public&gt;protected&gt;(default)&gt;private</p>
-<ol>
-<li>外部类： public/(default)</li>
-<li>成员内部类:public/protected/(default)/private</li>
-<li>局部内部类：什么都不能写</li>
-</ol>
-<h2 id="11-局部内部类的final问题"><a href="#11-局部内部类的final问题" class="headerlink" title="11.局部内部类的final问题"></a>11.局部内部类的final问题</h2><p>局部内部类，如果希望访问所在的局部变量，那么这个局部变量必须是[有效final的]</p>
-<p>备注：从java8+开始，只要局部变量事实不变，那么final关键字可以省略</p>
-<h2 id="12-匿名内部类"><a href="#12-匿名内部类" class="headerlink" title="12.匿名内部类*"></a>12.匿名内部类*</h2><p>如果接口的实现类，(或者是父类的子类)只需要使用唯一的一次</p>
-<p>那么这种情况下就可以省略该类的定义，而改为使用[匿名内部类]</p>
-<p>匿名内部类的定义格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">接口名称 对象名 &#x3D; new 接口名称()&#123;</span><br><span class="line">&#x2F;&#x2F;覆盖重写所有抽象方法</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="13-匿名内部类的注意事项"><a href="#13-匿名内部类的注意事项" class="headerlink" title="13.匿名内部类的注意事项"></a>13.匿名内部类的注意事项</h2><p>对格式进行解析”new 接口名称(){…}”</p>
-<ol>
-<li>new代表创建对象的动作</li>
-<li>接口名称就是匿名内部类需要实现哪儿个接口</li>
-<li>{…}是匿名内部类的内容</li>
-</ol>
-<p>另外还要注意：</p>
-<ol>
-<li>匿名内部类，在创建对象时，只能使用唯一一次。</li>
-<li>匿名对象，在[调用方法]的时候，只能调用唯一一次，如果希望同一个对象，调用多次方法，必须取对象名。</li>
-<li>匿名内部类是省略了实现类或者子类，但是匿名对象是省略了对象名称。</li>
-</ol>
-<h2 id="14-随机红包实现"><a href="#14-随机红包实现" class="headerlink" title="14.随机红包实现"></a>14.随机红包实现</h2><p><img src="/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/%E9%9A%8F%E6%9C%BA%E7%BA%A2%E5%8C%85.png" alt="avatar"></p>
+<h2 id="11-比较器排序Comparator的使用"><a href="#11-比较器排序Comparator的使用" class="headerlink" title="11.比较器排序Comparator的使用"></a>11.比较器排序Comparator的使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeSet&lt;Student&gt; ts = <span class="keyword">new</span> TreeSet&lt;&gt;(<span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student s1, Student s2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">int</span> num = s1.getAge()-s2.getAge();</span><br><span class="line">                <span class="keyword">int</span> num2 = num==<span class="number">0</span>?s1.getName().compareTo(s2.getName()):num;</span><br><span class="line">                <span class="keyword">return</span> num2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-可变参数"><a href="#12-可变参数" class="headerlink" title="12.可变参数"></a>12.可变参数</h2><ul>
+<li>使用前提：</li>
+</ul>
+<p>当方法的参数列表数据类型已经确定，但是参数的个数不缺定，就可以使用可变参数。</p>
+<ul>
+<li><p>使用格式：定义方法时使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(数据类型...变量名)&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可变参数的原理:</p>
+</li>
+</ul>
+<p>可变参数底层就是一个数组，根据传递参数个数不同，会创建不同长度的数组，来存储这些参数传递的参数个属于，可以使0个(不传递)，1，2…多个</p>
+<ul>
+<li>注意事项：</li>
+</ul>
+<p>1.一个方法的参数列表，只能有一个可变参数</p>
+<p>2.如果方法的参数有多个，那么可变参数必须卸载参数列表的末尾</p>
+<h2 id="13-Collection集合工具类的方法"><a href="#13-Collection集合工具类的方法" class="headerlink" title="13.Collection集合工具类的方法"></a>13.Collection集合工具类的方法</h2><p>java.utils.Collections是集合工具类，用来对集合进行操作。部分方法如下：</p>
+<ul>
+<li>-public static <T> boolean addAll(Collection<T> c,T…elements):往集合中添加一些元素。</T></T></li>
+<li>-public static void shuffle(List&lt;?&gt; list)打乱顺序：打乱集合的顺序 </li>
+<li>-public static <T> void sort(List<T> list):将集合中元素按照默认规则排序。<br>注意：使用前提，被排序的集合里面存储的元素，必须实现Comparable，重写CompareTo定义排序的规则</T></T></li>
+<li>-public static <T> void sort(List<T> list, Comparator&lt;? super T&gt;):将集合中元素按照指定规则排序</T></T></li>
+</ul>
 
       
 
@@ -358,7 +402,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/3-23java%E5%9F%BA%E7%A1%80-final%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E9%83%A8%E7%B1%BB/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -372,18 +416,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/24/3-24java%E5%9F%BA%E7%A1%80-Object%E7%B1%BB%E5%92%8CDate%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3.24java基础-Object类和Date类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/21/3-21java%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3.21java基础-多态</div>
+    <a href="/2020/03/26/3-26java%E8%BF%9B%E9%98%B6-System%E7%B1%BB%E3%80%81%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E3%80%81%E6%B3%9B%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.26java进阶-System类、集合框架、泛型</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,7 +445,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#final关键字和内部类"><span class="toc-number">1.</span> <span class="toc-text">final关键字和内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-final关键字的概念与四种用法"><span class="toc-number">1.1.</span> <span class="toc-text">1.final关键字的概念与四种用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-final关键字用于修饰类"><span class="toc-number">1.2.</span> <span class="toc-text">2.final关键字用于修饰类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-final关键字用来修饰成员方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.final关键字用来修饰成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-final关键字用于修饰局部变量"><span class="toc-number">1.4.</span> <span class="toc-text">4.final关键字用于修饰局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-final关键字用于修饰成员变量"><span class="toc-number">1.5.</span> <span class="toc-text">5.final关键字用于修饰成员变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-内部类的概念与分类"><span class="toc-number">1.6.</span> <span class="toc-text">6.内部类的概念与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-成员内部类的定义"><span class="toc-number">1.7.</span> <span class="toc-text">7.成员内部类的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-成员内部类的使用"><span class="toc-number">1.8.</span> <span class="toc-text">8.成员内部类的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-内部类的同名变量访问"><span class="toc-number">1.9.</span> <span class="toc-text">9.内部类的同名变量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-局部内部类定义"><span class="toc-number">1.10.</span> <span class="toc-text">10.局部内部类定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-局部内部类的final问题"><span class="toc-number">1.11.</span> <span class="toc-text">11.局部内部类的final问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-匿名内部类"><span class="toc-number">1.12.</span> <span class="toc-text">12.匿名内部类*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-匿名内部类的注意事项"><span class="toc-number">1.13.</span> <span class="toc-text">13.匿名内部类的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-随机红包实现"><span class="toc-number">1.14.</span> <span class="toc-text">14.随机红包实现</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-数据结构、List集合、Set集合"><span class="toc-number">1.</span> <span class="toc-text">java进阶-数据结构、List集合、Set集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据结构"><span class="toc-number">1.1.</span> <span class="toc-text">1.数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-List集合-介绍、常用方法"><span class="toc-number">1.2.</span> <span class="toc-text">2.List集合-介绍、常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-List的子类"><span class="toc-number">1.3.</span> <span class="toc-text">3.List的子类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-HashSet集合"><span class="toc-number">1.4.</span> <span class="toc-text">4.HashSet集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-HashSet集合存储结构（哈希表）"><span class="toc-number">1.5.</span> <span class="toc-text">5.HashSet集合存储结构（哈希表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Set集合存储元素不重复的原理"><span class="toc-number">1.6.</span> <span class="toc-text">6.Set集合存储元素不重复的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-HashSet存储自定义类型元素"><span class="toc-number">1.7.</span> <span class="toc-text">7.HashSet存储自定义类型元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-LinkedHashSet集合"><span class="toc-number">1.8.</span> <span class="toc-text">8.LinkedHashSet集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-TreeSet集合TreeSet集合特点："><span class="toc-number">1.9.</span> <span class="toc-text">9.TreeSet集合TreeSet集合特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-自然排序Comparable的使用"><span class="toc-number">1.10.</span> <span class="toc-text">10.自然排序Comparable的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-比较器排序Comparator的使用"><span class="toc-number">1.11.</span> <span class="toc-text">11.比较器排序Comparator的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-可变参数"><span class="toc-number">1.12.</span> <span class="toc-text">12.可变参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Collection集合工具类的方法"><span class="toc-number">1.13.</span> <span class="toc-text">13.Collection集合工具类的方法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
