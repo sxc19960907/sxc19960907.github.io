@@ -6,26 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>4.2java进阶-File类和递归 | NoteBook</title>
+  <title>4.4java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java进阶-File类和递归  1.File类概述Java.io.File类 文件和目录路径名的抽象表示形式 可以使用File类的方法  创建一个文件&#x2F;文件夹 删除文件&#x2F;文件夹 获取文件&#x2F;文件夹 判断文件&#x2F;文件夹是否存在 对文件夹进行遍历 获取文件的大小  file：文件 directory：文件夹&#x2F;目录 path：路径 2.File类的静态成员变量1234567static String pa">
+  <meta name="description" content="java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4.2java进阶-File类和递归">
-<meta property="og:url" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/index.html">
+<meta property="og:title" content="4.4java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化">
+<meta property="og:url" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="java进阶-File类和递归  1.File类概述Java.io.File类 文件和目录路径名的抽象表示形式 可以使用File类的方法  创建一个文件&#x2F;文件夹 删除文件&#x2F;文件夹 获取文件&#x2F;文件夹 判断文件&#x2F;文件夹是否存在 对文件夹进行遍历 获取文件的大小  file：文件 directory：文件夹&#x2F;目录 path：路径 2.File类的静态成员变量1234567static String pa">
+<meta property="og:description" content="java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E5%AE%9E%E4%BE%8B1.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%89%93%E5%8D%B0%E7%9B%AE%E5%BD%95.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A41.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A42.png">
-<meta property="article:published_time" content="2020-04-03T12:34:54.000Z">
-<meta property="article:modified_time" content="2020-04-03T12:45:17.314Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E7%BC%93%E5%86%B2%E6%B5%81%E7%9A%84%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F1.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F2.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F3.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E8%BD%AC%E6%8D%A2%E6%B5%81%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/OutputStreamWriter%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/InputStreamReader%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E6%B3%A8%E6%84%8F.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AE%9E%E7%8E%B0.png">
+<meta property="article:published_time" content="2020-04-05T11:33:40.000Z">
+<meta property="article:modified_time" content="2020-04-05T11:46:42.627Z">
 <meta property="article:author" content="青衫白衣">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E5%AE%9E%E4%BE%8B1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E7%BC%93%E5%86%B2%E6%B5%81%E7%9A%84%E5%8E%9F%E7%90%86.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -170,121 +176,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-4-2java进阶-File类和递归" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-4-4java进阶-Properties集合-缓冲流-转换流-序列化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      4.2java进阶-File类和递归
+      4.4java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化
     </h1>
   
 
         
-        <a href="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/" class="archive-article-date">
-  	<time datetime="2020-04-03T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+        <a href="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-04-05T11:33:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="java进阶-File类和递归"><a href="#java进阶-File类和递归" class="headerlink" title="java进阶-File类和递归"></a>java进阶-File类和递归</h1><!--mmore-->
+        <h1 id="java进阶-Properties集合-amp-缓冲流-amp-转换流-amp-序列化"><a href="#java进阶-Properties集合-amp-缓冲流-amp-转换流-amp-序列化" class="headerlink" title="java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化"></a>java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化</h1><a id="more"></a>
 
-<h2 id="1-File类概述"><a href="#1-File类概述" class="headerlink" title="1.File类概述"></a>1.File类概述</h2><p>Java.io.File类</p>
-<p>文件和目录路径名的抽象表示形式</p>
-<p>可以使用File类的方法</p>
-<ul>
-<li>创建一个文件/文件夹</li>
-<li>删除文件/文件夹</li>
-<li>获取文件/文件夹</li>
-<li>判断文件/文件夹是否存在</li>
-<li>对文件夹进行遍历</li>
-<li>获取文件的大小</li>
-</ul>
-<p>file：文件</p>
-<p>directory：文件夹/目录</p>
-<p>path：路径</p>
-<h2 id="2-File类的静态成员变量"><a href="#2-File类的静态成员变量" class="headerlink" title="2.File类的静态成员变量"></a>2.File类的静态成员变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static String pathSeparator:与系统有关的路径分隔符，为了方便，被表示为一个字符串（windows中是分号，linux是冒号）</span><br><span class="line"></span><br><span class="line">static char pathSeparatorChar:与系统有关的路径分隔符</span><br><span class="line"></span><br><span class="line">static String separator:与系统有关的默认名称分隔符，为了方便，被表示为一个字符串</span><br><span class="line"></span><br><span class="line">static char separator:与系统有关的默认名称分隔符（windows中是反斜杠\，linux中是正斜杠&#x2F;）</span><br></pre></td></tr></table></figure>
+<h2 id="1-使用Properties集合存储数据，遍历数据"><a href="#1-使用Properties集合存储数据，遍历数据" class="headerlink" title="1.使用Properties集合存储数据，遍历数据"></a>1.使用Properties集合存储数据，遍历数据</h2><p>Properties类表示了一个持久的属性集。Properties可保存在流中或从流中加载。</p>
+<p>Properties集合是一个唯一和IO流相结合的集合</p>
+<p>可以使用Properties集合中的方法store，把集合中的临时数据，持久化写入到硬盘中存储。</p>
+<p>可以使用Properties集合中的方法load，把硬盘中保存的文件(键值对)，读取到集合中使用。</p>
+<p>属性列表中每个键及其对应值都是一个字符串。</p>
+<hr>
+<p>Properties集合有一些操作字符串的特有方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object setProperty(String key,String value)调用Hashtable的方法put。</span><br><span class="line">String getProperty(String key)通过key找到value值，此方法相当于Map集合中的get(key)方法。</span><br><span class="line">Set&lt;String&gt; stringPropertyNames()返回此属性列表中的链集，其中该键及其对应值是字符串，此方法相当于Map集合中的keySet方法。</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-绝对路径和相对路径"><a href="#3-绝对路径和相对路径" class="headerlink" title="3.绝对路径和相对路径"></a>3.绝对路径和相对路径</h2><ul>
-<li>绝对路径：是一个完整的路径</li>
-</ul>
-<p>以盘符开始的路径（c:\a.txt）</p>
-<ul>
-<li>相对路径：是一个简化的路径</li>
-</ul>
-<p>相对指的是相对于当前项目的根目录</p>
-<p>如果使用当前项目的根目录，路径可以简化书写</p>
-<p>例如：c:\User\IdeaProjects\sxc\123.txt–&gt;简化为：123.txt(可以省略项目的根目录)</p>
+<h2 id="2-Properties集合中的store方法"><a href="#2-Properties集合中的store方法" class="headerlink" title="2.Properties集合中的store方法"></a>2.Properties集合中的store方法</h2><p>可以使用Properties集合中的方法store，把集合中的临时数据，持久化写入到硬盘中存储。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void store(OutputStream out,String comments)</span><br><span class="line">void store(Writer writer,String comments)</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OutputStream out：字节输出流，不能写入中文</span><br><span class="line">Writer writer：字符输出流，可以写入中文</span><br><span class="line">String comments：注释，用来解释说明保存的文件是做什么的</span><br><span class="line">不能使用中文，会产生乱码，默认是Unicode编码</span><br><span class="line">一般使用””空字符串</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建Properties集合对象，添加数据</li>
+<li>创建字节输出流/字符输出流对象，构造方法中绑定要输出的目的地</li>
+<li>使用Properties集合中的方法store，把集合中的临时数据，持久化写入到硬盘中存储</li>
+<li>释放资源</li>
+</ol>
+<h2 id="3-Properties集合中的load方法"><a href="#3-Properties集合中的load方法" class="headerlink" title="3.Properties集合中的load方法"></a>3.Properties集合中的load方法</h2><p>可以使用Properties集合中的方法load，把硬盘中保存的文件(键值对)，读取到集合中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void load(InputStream inStream)</span><br><span class="line">void load(Reader reader)</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStream inStream:字节输入流，不能读取含有中文的键值对</span><br><span class="line">Reader reader:字符输入流，能读取含有中文的键值对</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建Properties集合对象</li>
+<li>使用Properties集合对象中的方法load读取保存键值对的文件</li>
+<li>遍历Properties集合</li>
+</ol>
 <p>注意：</p>
 <ol>
-<li>路径不区分大小写</li>
-<li>路径由文件名称分隔符windows使用反斜杠，反斜杠是转义字符，两个反斜杠代表一个普通的反斜杠</li>
+<li>存储键值对的文件中，键与值默认的连接符号可以使用=，空格(其他符号)</li>
+<li>存储键值对的文件中，可以使用#进行注释，被注释的键值对不会再被读取</li>
+<li>存储键值对的文件中，键与值默认都是字符串，不用再加引号</li>
 </ol>
-<h2 id="4-File类的构造方法"><a href="#4-File类的构造方法" class="headerlink" title="4.File类的构造方法"></a>4.File类的构造方法</h2><p>File(String pathname):通过将给定路径名字符串转换为抽象路径名来创建一个新的File实例</p>
-<p>参数:</p>
-<p>String pathname:字符串的路径名称</p>
-<p>路径可以是以文件结尾，也可以是以文件夹结尾</p>
-<p>路径可以是相对路径，也可以是绝对路径</p>
-<p>路径可以使存在，也可以是不存在</p>
-<p>创建File对象，只是把字符串路径封装为File对象，不考虑路径的真假情况</p>
-<hr>
-<p>File(String parent,String child)根据parent路径名字符串和child路径名字符串创建一个新的File实例</p>
+<h2 id="4-缓冲流的原理"><a href="#4-缓冲流的原理" class="headerlink" title="4.缓冲流的原理"></a>4.缓冲流的原理</h2><p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E7%BC%93%E5%86%B2%E6%B5%81%E7%9A%84%E5%8E%9F%E7%90%86.png" alt="avatar"></p>
+<h2 id="5-BufferedOutputStream字节缓冲输出流"><a href="#5-BufferedOutputStream字节缓冲输出流" class="headerlink" title="5.BufferedOutputStream字节缓冲输出流"></a>5.BufferedOutputStream字节缓冲输出流</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedOutputStream(OutputStream out):创建一个新的缓冲输出流，以将数据写入指定的底层输出流</span><br><span class="line">BufferedOutputStream(OutputStream out,int size):创建一个新的缓冲输出流，以将具有指定缓冲区大小的数据写入指定的底层输出流</span><br></pre></td></tr></table></figure>
+
 <p>参数：</p>
-<p>String parent:父路径</p>
-<p>String child:子路径</p>
-<p>好处：</p>
-<p>父路径和子路径，可以单独书写，使用起来非常灵活；父路径和子路径都可以变化</p>
-<hr>
-<p>File(File parent,Sting child):根据parent抽象路径名和child路径名字符串创建一个新的File实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OutputStream out：字节输出流(可以传递FileOutputStream，缓冲流会给FileOutputStream增加一个缓冲区，提高FileOutputStream的写入效率)</span><br><span class="line">Int size：指定缓冲流内部缓冲区的大小，不指定默认</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤(重点)：</p>
+<ol>
+<li>创建FileOutputStream对象，构造方法中绑定要输出的目的地</li>
+<li>创建BufferedOutputStream对象，构造方法中传递FileOutputStream对象，提高FileOutputStream对象效率</li>
+<li>使用BufferedOutStream对象中的方法write，把数据写入到内部缓冲区中</li>
+<li>使用BufferedOutputStream对象中的方法flush，把内部缓冲区中的数据，刷新到文件中</li>
+<li>释放资源(会先调用flush方法刷新数据，第四步可以省略)</li>
+</ol>
+<h2 id="6-BufferedInputStream字节缓冲输入流"><a href="#6-BufferedInputStream字节缓冲输入流" class="headerlink" title="6.BufferedInputStream字节缓冲输入流"></a>6.BufferedInputStream字节缓冲输入流</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedInputStream(InputStream in)创建一个BufferedInputStream并保存其参数</span><br><span class="line">BufferedInputStream(InputStream in,int size)创建具有指定缓冲区大小的BufferedInputStream并保存其参数</span><br></pre></td></tr></table></figure>
+
 <p>参数：</p>
-<p>File parent:父路径</p>
-<p>String child:子路径</p>
-<p>好处：</p>
-<p>父路径和子路径，可以单独书写，使用起来非常灵活；父路径和子路径都可以变化</p>
-<p>父路径是File类型，可以使用File的方法对路径进行一些操作，在使用路径创建对象</p>
-<h2 id="5-File的常用方法-获取功能的方法"><a href="#5-File的常用方法-获取功能的方法" class="headerlink" title="5.File的常用方法-获取功能的方法"></a>5.File的常用方法-获取功能的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-public String getAbsolutePath():返回此File的绝对路径名字符串</span><br><span class="line">获取的构造方法中传递的路径</span><br><span class="line">无论路径是绝对的还是相对的，getAbsolutePath方法返回的都是绝对路径</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-public String getPath():将此File转换为路径名字符串</span><br><span class="line">获取的构造方法中传递的路径</span><br><span class="line">toString方法调用的就是getPath方法</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-public String getName():返回由此File表示的文件或目录的名称</span><br><span class="line">获取的就是构造方法传递路径的结尾部分(文件&#x2F;文件夹)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-public long length():返回由此File表示的文件的长度</span><br><span class="line">获取的是构造方法指定的文件的大小，以字节为单位</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStream in：字节输入流(可以传递FileInputStream，缓冲流会给FileInputStream增加一个缓冲区，提高FileInputStream的读取效率)</span><br><span class="line">Int size：指定缓冲流内部缓冲区的大小，不指定默认</span><br></pre></td></tr></table></figure>
 
-<p>注意：<br>文件夹是没有大小概念的，不能获取文件夹的大小<br>如果构造方法中给出的路径不存在，那么length方法返回0</p>
-<h2 id="6-File的常用方法-判断功能的方法"><a href="#6-File的常用方法-判断功能的方法" class="headerlink" title="6.File的常用方法-判断功能的方法"></a>6.File的常用方法-判断功能的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-public boolean exists():此File表示的文件或目录是否实际存在</span><br><span class="line">-public boolean isDirectory():此File类表示的是否为目录</span><br><span class="line">-public boolean isFile():此File表示的是否为文件</span><br></pre></td></tr></table></figure>
+<p>使用步骤(重点)：</p>
+<ol>
+<li>创建FileInputStream对象，构造方法中绑定要读取的数据源</li>
+<li>创建BufferedInputStream对象，构造方法中传递FileInputStream对象，提高FileInputStream对象的读取效率</li>
+<li>使用BufferedInputStream对象中的方法read，读取文件</li>
+<li>释放资源</li>
+</ol>
+<h2 id="7-BufferedWriter字符缓冲输出流"><a href="#7-BufferedWriter字符缓冲输出流" class="headerlink" title="7.BufferedWriter字符缓冲输出流"></a>7.BufferedWriter字符缓冲输出流</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter(Writer out)创建一个使用默认大小输出缓冲区的缓冲字符输出流</span><br><span class="line">BufferedWriter(Writer out,int sz)创建一个使用给定大小输出缓冲区的新缓冲字符输出流</span><br></pre></td></tr></table></figure>
 
-<p>注意：<br>后两个方法必须要求路径实际存在，如果路径不存在则直接返回false</p>
-<h2 id="7-File的常用方法-创建删除功能的方法"><a href="#7-File的常用方法-创建删除功能的方法" class="headerlink" title="7.File的常用方法-创建删除功能的方法"></a>7.File的常用方法-创建删除功能的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-public boolean createNewFile():当且仅当具有该名称的文件尚不存在时，创建一个新的空文件</span><br><span class="line"></span><br><span class="line">-public boolean delete():删除由此File表示的文件或目录</span><br><span class="line"></span><br><span class="line">-public boolean mkdir():创建由此File表示的目录</span><br><span class="line"></span><br><span class="line">-public boolean mkdirs():创建由此File表示的目录，包括任何必需但不存在的父目录）（可以创建多级文件夹）</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Writer out：字符输出流(可以传递FileWriter，缓冲流会给FileWriter增加一个缓冲区，提高FileWriter的写入效率)</span><br><span class="line">Int sz：指定缓冲区的大小，不写默认大小</span><br></pre></td></tr></table></figure>
 
-<h2 id="8-目录的遍历"><a href="#8-目录的遍历" class="headerlink" title="8.目录的遍历"></a>8.目录的遍历</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-public String[] list():返回一个String数组，表示该File目录中的所有子文件或目录</span><br><span class="line"></span><br><span class="line">-public File[] listFiles():返回一个File数组，表示该File目录中的所有子文件或目录</span><br></pre></td></tr></table></figure>
+<p>特有的成员方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void newLine()写入一个行分隔符。会根据不同的操作系统，获取不同的行分隔符。</span><br></pre></td></tr></table></figure>
 
+<p>使用步骤：</p>
+<ol>
+<li>创建字符缓冲输出流对象，构造方法中传递字符输出流</li>
+<li>调用字符缓冲输出流中的方法writer，把数据写入到内存缓冲区中</li>
+<li>调用字符缓冲输出流中的方法flush，把内存缓冲区中的数据，刷新到文件中</li>
+<li>释放资源</li>
+</ol>
+<h2 id="8-BufferedReader字符缓冲输入流"><a href="#8-BufferedReader字符缓冲输入流" class="headerlink" title="8.BufferedReader字符缓冲输入流"></a>8.BufferedReader字符缓冲输入流</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader(Reader in)创建一个使用默认大小输入缓冲区的缓冲字符输入流</span><br><span class="line">BufferedReader(Reader in,int sz)创建一个使用指定大小输入缓冲区的缓冲字符输入流</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Reader in:字符输入流(可以传递FileReader，缓冲流会给FileReader增加一个缓冲区，提高FileReader的读取效率)</span><br><span class="line">特有的成员方法：</span><br><span class="line">String readLine()读取一个文本行。读取一行数据。</span><br><span class="line">行的终止符号：通过下列字符之一即可认为某行已终止：换行(‘\n’)、回车(‘\r’)或回车后直接跟着换行(\r\n)</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">包含该行内容的字符串，不包含任何终止符，如果已到达流末尾，则返回null</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建字符缓冲输入流对象，构造方法中传递字符输入流</li>
+<li>使用字符缓冲输入流对象中的方法read/readLine读取文本</li>
+<li>释放资源</li>
+</ol>
+<h2 id="9-对文本内容进行排序"><a href="#9-对文本内容进行排序" class="headerlink" title="9.对文本内容进行排序"></a>9.对文本内容进行排序</h2><p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F1.png" alt="avatar"><br><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F2.png" alt="avatar"><br><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E6%8E%92%E5%BA%8F3.png" alt="avatar"></p>
+<h2 id="10-转换流的原理"><a href="#10-转换流的原理" class="headerlink" title="10.转换流的原理"></a>10.转换流的原理</h2><p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E8%BD%AC%E6%8D%A2%E6%B5%81%E5%8E%9F%E7%90%86.png" alt="avatar"></p>
+<h2 id="11-OutputStreamWriter介绍和代码实现"><a href="#11-OutputStreamWriter介绍和代码实现" class="headerlink" title="11.OutputStreamWriter介绍和代码实现"></a>11.OutputStreamWriter介绍和代码实现</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OutputStreamWriter(OutputStream out)创建使用默认字符的OutputStreamWriter</span><br><span class="line">OutputStreamWriter(OutputStream out,String charsetName)创建使用指定字符集的OutputStreamWriter</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OutputStream out：字节输出流，可以用来写转换之后的字节到文件中</span><br><span class="line">String charsetName：指定的编码表名称，不区分大小写，可以使utf-8&#x2F;UTF-8,gbk&#x2F;GBK,...不指定默认使用UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建OutputStreamWriter对象，构造方法中传递字节输出流和指定的编码表名称</li>
+<li>使用OutputStreamWriter对象中的方法writer，把字符转换为字节存储缓冲区中(编码)</li>
+<li>使用OutputStreamWriter对象中的方法flush，把内存缓冲区中的字节刷新到文件中(使用字节流写字节的过程)</li>
+<li>释放资源</li>
+</ol>
+<p>实现：<br><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/OutputStreamWriter%E5%AE%9E%E7%8E%B0.png" alt="avatar"></p>
+<h2 id="12-InputStreamReader介绍和代码实现"><a href="#12-InputStreamReader介绍和代码实现" class="headerlink" title="12.InputStreamReader介绍和代码实现"></a>12.InputStreamReader介绍和代码实现</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader(InputStream in)创建一个使用默认字符集的InputStreamReader。</span><br><span class="line">InputStreamReader(InputStream in,String charsetName)创建使用指定字符集的InputStreamReader。</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStream in：字节输入流，用来读取文件中保存的字节</span><br><span class="line">String charsetName：指定的编码表名称，不区分大小写</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建InputStreamReader对象，构造方法中传递字节输入流和指定的编码表名称</li>
+<li>使用InputStreamReader对象中的方法read读取文件</li>
+<li>释放资源</li>
+</ol>
 <p>注意：</p>
-<p>List方法和listFiles方法遍历的是构造方法中给出的目录</p>
-<p>如果构造方法中给出的目录的路径不存在，会抛出空指针异常</p>
-<p>如果构造方法中给出的路径不是一个目录，也会抛出空指针异常</p>
-<h2 id="9-递归的概述"><a href="#9-递归的概述" class="headerlink" title="9.递归的概述"></a>9.递归的概述</h2><p>递归：方法自己调用自己</p>
-<p>-递归的分类：</p>
-<p>-递归分为两种，直接递归和间接递归</p>
-<ul>
-<li>直接递归成为方法自身调用自己</li>
-<li>间接递归可以A方法调用B方法，B方法调用C方法，C方法调用A方法</li>
-</ul>
-<p>注意事项：</p>
-<ul>
-<li>递归一定要有条件限定，保证递归能够停止下来，否则会发生栈内存溢出</li>
-<li>在递归中虽然有限定条件，但是递归次数不能太多，否则也会发生栈内存溢出</li>
-<li>构造方法，禁止递归</li>
-</ul>
-<p>递归的使用前提：</p>
-<p>当调用方法的时候，方法的主题不变，每次调用方法的参数不同，可以使用递归</p>
-<h2 id="10-递归练习-使用递归计算1-n之间的和"><a href="#10-递归练习-使用递归计算1-n之间的和" class="headerlink" title="10.递归练习-使用递归计算1-n之间的和"></a>10.递归练习-使用递归计算1-n之间的和</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Recurison</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = sum(<span class="number">3</span>);</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n+sum(n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E5%AE%9E%E4%BE%8B1.png" alt="avatar"></p>
-<h2 id="11-递归练习-递归求阶乘"><a href="#11-递归练习-递归求阶乘" class="headerlink" title="11.递归练习-递归求阶乘"></a>11.递归练习-递归求阶乘</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Recurison</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> jc = jc(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(jc);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">jc</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n * jc(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造方法中指定的编码表名称要和文件的编码相同，否则会发生乱码</p>
+<p>实现：<br><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/InputStreamReader%E5%AE%9E%E7%8E%B0.png" alt="avatar"></p>
+<h2 id="13-序列化和反序列化的概述"><a href="#13-序列化和反序列化的概述" class="headerlink" title="13.序列化和反序列化的概述"></a>13.序列化和反序列化的概述</h2><p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96.png" alt="avatar"></p>
+<h2 id="14-对象的序列化流ObjectOutputStream"><a href="#14-对象的序列化流ObjectOutputStream" class="headerlink" title="14.对象的序列化流ObjectOutputStream"></a>14.对象的序列化流ObjectOutputStream</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ObjectOutputStream(OutputStream out)创建写入指定OutputStream的ObjectOutputStream</span><br></pre></td></tr></table></figure>
 
-<h2 id="12-递归练习-递归打印多级目录"><a href="#12-递归练习-递归打印多级目录" class="headerlink" title="12.递归练习-递归打印多级目录"></a>12.递归练习-递归打印多级目录</h2><p><img src="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%89%93%E5%8D%B0%E7%9B%AE%E5%BD%95.png" alt="avatar"></p>
-<h2 id="13-综合案例-文件搜索"><a href="#13-综合案例-文件搜索" class="headerlink" title="13.综合案例-文件搜索"></a>13.综合案例-文件搜索</h2><p><img src="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2.png" alt="avatar"></p>
-<h2 id="14-文件过滤器"><a href="#14-文件过滤器" class="headerlink" title="14.文件过滤器"></a>14.文件过滤器</h2><p><img src="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A41.png" alt="avatar"></p>
-<p><img src="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A42.png" alt="avatar"></p>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OutputStream out:字节输出流</span><br></pre></td></tr></table></figure>
+
+<p>特有的成员方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void writerObject(Object obj):将指定的对象写入ObjectOutputStream。</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建ObjectOutputStream对象，构造方法中传递字节输出流</li>
+<li>使用ObjectOutputStream对象中的方法writeObject，把对象写入到文件中</li>
+<li>释放资源</li>
+</ol>
+<p>实现：</p>
+<p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E5%AE%9E%E7%8E%B0.png" alt="avatar"></p>
+<p>注意：</p>
+<p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E6%B3%A8%E6%84%8F.png" alt="avatar"></p>
+<h2 id="15-对象的反序列化流-ObjectInputStream"><a href="#15-对象的反序列化流-ObjectInputStream" class="headerlink" title="15.对象的反序列化流-ObjectInputStream"></a>15.对象的反序列化流-ObjectInputStream</h2><p>构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ObjectInputStream(InputStream in)创建从指定InputStream读取的ObjectInputStream。</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStraem in：字节输入流</span><br><span class="line">特有的成员方法：</span><br><span class="line">Object readObject():从ObjectInputStream读取对象</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>创建ObjectInputStream对象，构造方法中传递字节输入流</li>
+<li>使用ObjectInputStream对象中的方法readObject读取保存对象的文件</li>
+<li>释放资源</li>
+<li>使用读取出来的对象(打印)</li>
+</ol>
+<p>实现：</p>
+<p><img src="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AE%9E%E7%8E%B0.png" alt="avatar"></p>
 
       
 
@@ -380,7 +453,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -394,18 +467,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/04/4-3java%E8%BF%9B%E9%98%B6-IO%E6%B5%81/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          4.3java进阶-IO流
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/01/4-1java%E8%BF%9B%E9%98%B6-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8CLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">4.1java进阶-线程池和Lambda表达式</div>
+    <a href="/2020/04/04/4-3java%E8%BF%9B%E9%98%B6-IO%E6%B5%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.3java进阶-IO流</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -432,7 +496,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-File类和递归"><span class="toc-number">1.</span> <span class="toc-text">java进阶-File类和递归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-File类概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.File类概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-File类的静态成员变量"><span class="toc-number">1.2.</span> <span class="toc-text">2.File类的静态成员变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-绝对路径和相对路径"><span class="toc-number">1.3.</span> <span class="toc-text">3.绝对路径和相对路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-File类的构造方法"><span class="toc-number">1.4.</span> <span class="toc-text">4.File类的构造方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-File的常用方法-获取功能的方法"><span class="toc-number">1.5.</span> <span class="toc-text">5.File的常用方法-获取功能的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-File的常用方法-判断功能的方法"><span class="toc-number">1.6.</span> <span class="toc-text">6.File的常用方法-判断功能的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-File的常用方法-创建删除功能的方法"><span class="toc-number">1.7.</span> <span class="toc-text">7.File的常用方法-创建删除功能的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-目录的遍历"><span class="toc-number">1.8.</span> <span class="toc-text">8.目录的遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-递归的概述"><span class="toc-number">1.9.</span> <span class="toc-text">9.递归的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-递归练习-使用递归计算1-n之间的和"><span class="toc-number">1.10.</span> <span class="toc-text">10.递归练习-使用递归计算1-n之间的和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-递归练习-递归求阶乘"><span class="toc-number">1.11.</span> <span class="toc-text">11.递归练习-递归求阶乘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-递归练习-递归打印多级目录"><span class="toc-number">1.12.</span> <span class="toc-text">12.递归练习-递归打印多级目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-综合案例-文件搜索"><span class="toc-number">1.13.</span> <span class="toc-text">13.综合案例-文件搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-文件过滤器"><span class="toc-number">1.14.</span> <span class="toc-text">14.文件过滤器</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-Properties集合-amp-缓冲流-amp-转换流-amp-序列化"><span class="toc-number">1.</span> <span class="toc-text">java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用Properties集合存储数据，遍历数据"><span class="toc-number">1.1.</span> <span class="toc-text">1.使用Properties集合存储数据，遍历数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Properties集合中的store方法"><span class="toc-number">1.2.</span> <span class="toc-text">2.Properties集合中的store方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Properties集合中的load方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.Properties集合中的load方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-缓冲流的原理"><span class="toc-number">1.4.</span> <span class="toc-text">4.缓冲流的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-BufferedOutputStream字节缓冲输出流"><span class="toc-number">1.5.</span> <span class="toc-text">5.BufferedOutputStream字节缓冲输出流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-BufferedInputStream字节缓冲输入流"><span class="toc-number">1.6.</span> <span class="toc-text">6.BufferedInputStream字节缓冲输入流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-BufferedWriter字符缓冲输出流"><span class="toc-number">1.7.</span> <span class="toc-text">7.BufferedWriter字符缓冲输出流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-BufferedReader字符缓冲输入流"><span class="toc-number">1.8.</span> <span class="toc-text">8.BufferedReader字符缓冲输入流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-对文本内容进行排序"><span class="toc-number">1.9.</span> <span class="toc-text">9.对文本内容进行排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-转换流的原理"><span class="toc-number">1.10.</span> <span class="toc-text">10.转换流的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-OutputStreamWriter介绍和代码实现"><span class="toc-number">1.11.</span> <span class="toc-text">11.OutputStreamWriter介绍和代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-InputStreamReader介绍和代码实现"><span class="toc-number">1.12.</span> <span class="toc-text">12.InputStreamReader介绍和代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-序列化和反序列化的概述"><span class="toc-number">1.13.</span> <span class="toc-text">13.序列化和反序列化的概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-对象的序列化流ObjectOutputStream"><span class="toc-number">1.14.</span> <span class="toc-text">14.对象的序列化流ObjectOutputStream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-对象的反序列化流-ObjectInputStream"><span class="toc-number">1.15.</span> <span class="toc-text">15.对象的反序列化流-ObjectInputStream</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
