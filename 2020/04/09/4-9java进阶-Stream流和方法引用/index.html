@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/4 | NoteBook</title>
+  <title>4.9java进阶-Stream流和方法引用 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta name="description" content="java进阶-Stream流和方法引用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.9java进阶-Stream流和方法引用">
+<meta property="og:url" content="http://yoursite.com/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="java进阶-Stream流和方法引用">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-09T13:05:14.000Z">
+<meta property="article:modified_time" content="2020-04-09T13:18:52.245Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
@@ -159,36 +164,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-4-9java进阶-Stream流和方法引用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      4.9java进阶-Stream流和方法引用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" class="archive-article-date">
+
+        
+        <a href="/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" class="archive-article-date">
   	<time datetime="2020-04-09T13:05:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/">4.9java进阶-Stream流和方法引用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java进阶-Stream流和方法引用"><a href="#java进阶-Stream流和方法引用" class="headerlink" title="java进阶-Stream流和方法引用"></a>java进阶-Stream流和方法引用</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="1-两种获取Stream流的方式"><a href="#1-两种获取Stream流的方式" class="headerlink" title="1.两种获取Stream流的方式"></a>1.两种获取Stream流的方式</h2><ul>
+<li>所有的Collection集合都可以通过stream默认方法获取流</li>
+<li>Stream接口的静态方法of可以获取数组对应的流<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stactic&lt;T&gt; Stream&lt;T&gt; of(T... values)</span><br><span class="line">参数是一个可变参数，可以传递一个数组</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="2-Stream流常用方法-forEach"><a href="#2-Stream流常用方法-forEach" class="headerlink" title="2.Stream流常用方法-forEach"></a>2.Stream流常用方法-forEach</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void forEach(Consumer&lt;? super T&gt; action);</span><br></pre></td></tr></table></figure>
+
+<p>该方法接收一个Consumer接口函数，会将每一个流元素交给该函数进行处理。</p>
+<p>Consumer接口是一个消费型的函数式接口，可以传递Lambda表达式，消费数据</p>
+<p>简单记：</p>
+<p>forEach方法，用来遍历流中的数据</p>
+<p>是一个终结方法，遍历之后不能继续调用Stream流中的其他方法</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stream_forEach</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">"小明"</span>, <span class="string">"小红"</span>, <span class="string">"小蓝"</span>);</span><br><span class="line"></span><br><span class="line">        stream.forEach(str-&gt;System.out.println(str));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Stream流中常用的方法-filter"><a href="#3-Stream流中常用的方法-filter" class="headerlink" title="3.Stream流中常用的方法-filter"></a>3.Stream流中常用的方法-filter</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);</span><br></pre></td></tr></table></figure>
+
+<p>filter方法的参数Predicate是一个函数式接口，所以可以传递Lambda表达式，对数据进行过滤</p>
+<p>Predicate中的抽象方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean test(T t);</span><br></pre></td></tr></table></figure>
+
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stream_filter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">"小明"</span>, <span class="string">"小红"</span>, <span class="string">"小蓝"</span>,<span class="string">"大明"</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream1 = stream.filter(str -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> str.endsWith(<span class="string">"明"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        stream1.forEach(str-&gt; System.out.println(str));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Stream流中的常用方法-map"><a href="#4-Stream流中的常用方法-map" class="headerlink" title="4.Stream流中的常用方法-map"></a>4.Stream流中的常用方法-map</h2><p>如果需要将流中的元素映射到另一个流中，可以使用map方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T,? extends R&gt; mapper);</span><br></pre></td></tr></table></figure>
+
+<p>该接口需要一个Function函数式参数，可以将当前流中的T类型转换为另一种R类型的流。</p>
+<p>Function中的抽象方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R apply(T t);</span><br></pre></td></tr></table></figure>
+
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stream_map</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;Integer&gt; stream1 = stream.map(str -&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Integer.parseInt(str);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        stream1.forEach(str-&gt;&#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Stream流中常用的方法-count，limit，skip"><a href="#5-Stream流中常用的方法-count，limit，skip" class="headerlink" title="5.Stream流中常用的方法-count，limit，skip"></a>5.Stream流中常用的方法-count，limit，skip</h2><p>count:用于统计Stream流中的元素个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long count();</span><br></pre></td></tr></table></figure>
+
+<p>count方法是一个终结方法，返回值是一个long类型的整数</p>
+<p>所以不能再继续调用Stream流中的其他方法了</p>
+<hr>
+<p>limit:用于截取流中的元素</p>
+<p>limit方法可以对流进行截取，只取用前n个。</p>
+<p>方法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;T&gt; limit(long maxSize);</span><br></pre></td></tr></table></figure>
+<p>参数是一个long型，如果集合当前长度大于参数则进行截取，否则不进行操作</p>
+<p>limit方法是一个延迟方法，只是对流中的元素进行截取，返回的是一个新的流，所以可以继续调用Stream流中的其他方法</p>
+<hr>
+<p>skip：用于跳过元素</p>
+<p>如果希望跳过前几个元素，可以使用skip方法获取一个截取之后的新流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;T&gt;  skip(long n);</span><br></pre></td></tr></table></figure>
+
+<p>如果流的当前长度大于n，则跳过前n个;否则将会得到一个长度为0的空流。</p>
+<hr>
+<p>concat：合并两个流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;T&gt; concat(Stream&lt;? extends T&gt; a,Stream&lt;? extends T&gt;b);</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-通过对象名引用成员方法"><a href="#6-通过对象名引用成员方法" class="headerlink" title="6.通过对象名引用成员方法"></a>6.通过对象名引用成员方法</h2><p>通过对象名引用成员方法</p>
+<p>使用前提是对象名已经存在的，成员方法也是已经存在</p>
+<p>就可以使用对象名来引用成员方法</p>
+<p>实现：<br>Printable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Printable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printable</span><span class="params">(String str)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MethodReObject类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodReObject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printUpper</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        System.out.println(str.toUpperCase());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoMethodReObject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printString</span><span class="params">(Printable printable)</span></span>&#123;</span><br><span class="line">        printable.printable(<span class="string">"Hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Lambda方式</span></span><br><span class="line">        MethodReObject mro = <span class="keyword">new</span> MethodReObject();</span><br><span class="line">        printString((str)-&gt;&#123;</span><br><span class="line">            mro.printUpper(str);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法引用</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        使用方法引用优化Lambda，对象是已经存在的MethodReObject 成员方法也是已经存在的，所以可以使用对象名引用方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        printString(mro::printUpper);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-通过类名引用静态成员方法"><a href="#7-通过类名引用静态成员方法" class="headerlink" title="7.通过类名引用静态成员方法"></a>7.通过类名引用静态成员方法</h2><p>通过类名引用静态成员方法</p>
+<p>类已经存在，静态成员方法也已经存在</p>
+<p>就可以通过类名直接引用静态成员方法</p>
+<p>Calcable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Calcable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSub</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoMethodStatic</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getSub</span><span class="params">(<span class="keyword">int</span> n,Calcable cal)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sub = cal.getSub(n);</span><br><span class="line">        <span class="keyword">return</span> sub;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sub = getSub(-<span class="number">10</span>, (n) -&gt; &#123;</span><br><span class="line">            <span class="keyword">int</span> abs = Math.abs(n);</span><br><span class="line">            <span class="keyword">return</span> abs;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        System.out.println(sub);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sub1 = getSub(-<span class="number">10</span>, Math::abs);</span><br><span class="line"></span><br><span class="line">        System.out.println(sub1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-通过super引用成员方法"><a href="#8-通过super引用成员方法" class="headerlink" title="8.通过super引用成员方法"></a>8.通过super引用成员方法</h2><p>Greetable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Greetable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Huam类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"你好，父类"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">method</span> <span class="keyword">extends</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"你好，世界"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">m</span><span class="params">(Greetable gr)</span></span>&#123;</span><br><span class="line">        gr.greet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Human hm = <span class="keyword">new</span> Human();</span><br><span class="line">        m(()-&gt;&#123;</span><br><span class="line">            hm.say();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        m(<span class="keyword">super</span>::say);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        method md = <span class="keyword">new</span> method();</span><br><span class="line">        md.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-通过this引用成员方法"><a href="#9-通过this引用成员方法" class="headerlink" title="9.通过this引用成员方法"></a>9.通过this引用成员方法</h2><p>Richable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Richable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Husband类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Husband</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"买东西"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">marry</span><span class="params">(Richable ra)</span></span>&#123;</span><br><span class="line">        ra.buy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beHappy</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//        marry(()-&gt;this.buy());</span></span><br><span class="line">        marry(<span class="keyword">this</span>::buy);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Husband().beHappy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="10-通过构造方法引用成员方法"><a href="#10-通过构造方法引用成员方法" class="headerlink" title="10.通过构造方法引用成员方法"></a>10.通过构造方法引用成员方法</h2><p>personBuilder接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">personBuilder</span> </span>&#123;</span><br><span class="line">    <span class="function">Person <span class="title">builder</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Person类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoPersonBuilder</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">build</span><span class="params">(String name,personBuilder pb)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pb.builder(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String name = <span class="string">"胡歌"</span>;</span><br><span class="line">        Person person = build(name,Person::<span class="keyword">new</span>);</span><br><span class="line">        System.out.println(person.getName());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-数组的构造器引用"><a href="#11-数组的构造器引用" class="headerlink" title="11.数组的构造器引用"></a>11.数组的构造器引用</h2><p>ArrayBuilder接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ArrayBuilder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] buildArray(<span class="keyword">int</span> length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoArray</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] builder(<span class="keyword">int</span> length,ArrayBuilder ab)&#123;</span><br><span class="line">        <span class="keyword">int</span>[] array = ab.buildArray(length);</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] ints1 = builder(<span class="number">5</span>, (length) -&gt; &#123;</span><br><span class="line">            <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">            <span class="keyword">return</span> ints;</span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println(ints1.length);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ints2 = builder(<span class="number">5</span>, <span class="keyword">int</span>[]::<span class="keyword">new</span>);</span><br><span class="line">        System.out.println(ints2.length);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,285 +332,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/4-8java%E8%BF%9B%E9%98%B6-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2020-04-08T13:40:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/08/4-8java%E8%BF%9B%E9%98%B6-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.8java进阶-函数式接口</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/4-8java%E8%BF%9B%E9%98%B6-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/">4.8java进阶-函数式接口</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-Stream流和方法引用"><span class="toc-number">1.</span> <span class="toc-text">java进阶-Stream流和方法引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-两种获取Stream流的方式"><span class="toc-number">1.1.</span> <span class="toc-text">1.两种获取Stream流的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Stream流常用方法-forEach"><span class="toc-number">1.2.</span> <span class="toc-text">2.Stream流常用方法-forEach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Stream流中常用的方法-filter"><span class="toc-number">1.3.</span> <span class="toc-text">3.Stream流中常用的方法-filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Stream流中的常用方法-map"><span class="toc-number">1.4.</span> <span class="toc-text">4.Stream流中的常用方法-map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Stream流中常用的方法-count，limit，skip"><span class="toc-number">1.5.</span> <span class="toc-text">5.Stream流中常用的方法-count，limit，skip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-通过对象名引用成员方法"><span class="toc-number">1.6.</span> <span class="toc-text">6.通过对象名引用成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-通过类名引用静态成员方法"><span class="toc-number">1.7.</span> <span class="toc-text">7.通过类名引用静态成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-通过super引用成员方法"><span class="toc-number">1.8.</span> <span class="toc-text">8.通过super引用成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-通过this引用成员方法"><span class="toc-number">1.9.</span> <span class="toc-text">9.通过this引用成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-通过构造方法引用成员方法"><span class="toc-number">1.10.</span> <span class="toc-text">10.通过构造方法引用成员方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-数组的构造器引用"><span class="toc-number">1.11.</span> <span class="toc-text">11.数组的构造器引用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/06/4-6java%E8%BF%9B%E9%98%B6-TCP%E9%80%9A%E4%BF%A1/" class="archive-article-date">
-  	<time datetime="2020-04-06T12:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/06/4-6java%E8%BF%9B%E9%98%B6-TCP%E9%80%9A%E4%BF%A1/">4.6java进阶-TCP通信</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-04-05T11:33:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/05/4-4java%E8%BF%9B%E9%98%B6-Properties%E9%9B%86%E5%90%88-%E7%BC%93%E5%86%B2%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81-%E5%BA%8F%E5%88%97%E5%8C%96/">4.4java进阶-Properties集合&amp;缓冲流&amp;转换流&amp;序列化</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/04/4-3java%E8%BF%9B%E9%98%B6-IO%E6%B5%81/" class="archive-article-date">
-  	<time datetime="2020-04-04T11:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/04/4-3java%E8%BF%9B%E9%98%B6-IO%E6%B5%81/">4.3java进阶-IO流</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/" class="archive-article-date">
-  	<time datetime="2020-04-03T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/03/4-2java%E8%BF%9B%E9%98%B6-File%E7%B1%BB%E5%92%8C%E9%80%92%E5%BD%92/">4.2java进阶-File类和递归</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/01/4-1java%E8%BF%9B%E9%98%B6-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8CLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-04-01T11:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/01/4-1java%E8%BF%9B%E9%98%B6-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8CLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">4.1java进阶-线程池和Lambda表达式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/01/3-31java%E8%BF%9B%E9%98%B6-%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-04-01T11:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/01/3-31java%E8%BF%9B%E9%98%B6-%E7%BA%BF%E7%A8%8B/">3.31java进阶-线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -504,8 +470,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
