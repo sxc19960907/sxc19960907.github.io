@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>4.11java进阶-反射&amp;注解 | NoteBook</title>
+  <title>4.13数据库(查询，约束) | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java进阶-反射&amp;注解">
+  <meta name="description" content="数据库(查询，约束)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4.11java进阶-反射&amp;注解">
-<meta property="og:url" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:title" content="4.13数据库(查询，约束)">
+<meta property="og:url" content="http://yoursite.com/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="java进阶-反射&amp;注解">
+<meta property="og:description" content="数据库(查询，约束)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E4%BB%A3%E7%A0%81%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B1.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B2.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E6%B3%A8%E8%A7%A3.png">
-<meta property="article:published_time" content="2020-04-11T13:44:10.000Z">
-<meta property="article:modified_time" content="2020-04-11T14:23:32.946Z">
+<meta property="article:published_time" content="2020-04-13T12:16:42.000Z">
+<meta property="article:modified_time" content="2020-04-13T13:03:49.089Z">
 <meta property="article:author" content="青衫白衣">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E4%BB%A3%E7%A0%81%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -169,273 +164,161 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-4-11java进阶-反射-注解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-4-13数据库-查询，约束" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      4.11java进阶-反射&amp;注解
+      4.13数据库(查询，约束)
     </h1>
   
 
         
-        <a href="/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-04-11T13:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+        <a href="/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
+  	<time datetime="2020-04-13T12:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="java进阶-反射-amp-注解"><a href="#java进阶-反射-amp-注解" class="headerlink" title="java进阶-反射&amp;注解"></a>java进阶-反射&amp;注解</h1><a id="more"></a>
+        <h1 id="数据库-查询，约束"><a href="#数据库-查询，约束" class="headerlink" title="数据库(查询，约束)"></a>数据库(查询，约束)</h1><a id="more"></a>
 
-<h2 id="1-Junit测试概述"><a href="#1-Junit测试概述" class="headerlink" title="1.Junit测试概述"></a>1.Junit测试概述</h2><ul>
-<li>测试分类：</li>
+<h2 id="DQL-查询语句"><a href="#DQL-查询语句" class="headerlink" title="DQL:查询语句"></a>DQL:查询语句</h2><ol>
+<li><p>排序查询</p>
+<ul>
+<li>语法：order by 子句<ul>
+<li>order by 排序字段1 排序方式1, 排序字段2 排序方式2…</li>
 </ul>
+</li>
+<li>排序方式：<ul>
+<li>ASC:升序，默认</li>
+<li>DESC:降序。</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>聚合函数：将一列数据作为一个整体，进行纵向计算</p>
 <ol>
-<li>黑盒测试：不需要写代码，给输入值，看程序是否能够输出期望的值。</li>
-<li>白盒测试：需要写代码。关注程序具体的执行流程。</li>
+<li>count：计算个数<ol>
+<li>一般选择非空的列：主键</li>
+<li>count(*)</li>
 </ol>
-<h2 id="2-Junit使用：白盒测试"><a href="#2-Junit使用：白盒测试" class="headerlink" title="2.Junit使用：白盒测试"></a>2.Junit使用：白盒测试</h2><ul>
-<li>步骤：</li>
-</ul>
-<ol>
-<li>定义一个测试类(测试用例)<ul>
-<li>建议：</li>
-<li>测试类名：被测试的类名+Test</li>
-<li>包名：xxx.xxxx.xx.test</li>
-</ul>
 </li>
-<li>定义测试方法：可以独立运行<ul>
-<li>建议：</li>
-<li>方法名：test+测试的方法名</li>
-<li>返回值：void</li>
-<li>参数：空参</li>
-</ul>
-</li>
-<li>给方法加@Test</li>
-<li>导入junit依赖环境<ul>
-<li>判定结果：</li>
-<li>红色：失败</li>
-<li>绿色：成功</li>
-<li>一般会使用断言操作来处理结果</li>
-<li>Assert.assertEquals(期望的结果，运算的结果);</li>
-</ul>
-</li>
+<li>max:计算最大值</li>
+<li>min：计算最小值</li>
+<li>sum：计算和</li>
+<li>avg：计算平均值</li>
 </ol>
 <ul>
-<li>补充：<ul>
-<li>@Before：<ul>
-<li>修饰的方法会在测试方法之前自动执行</li>
+<li><p>注意：聚合函数的计算，排除null值</p>
+<p>  解决方案：</p>
+<pre><code>1. 选择不包含非空的列进行计算
+
+2. IFNULL函数  </code></pre></li>
 </ul>
 </li>
-<li>@After：<ul>
-<li>修饰的方法会在测试方法之后自动执行</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-反射概述"><a href="#3-反射概述" class="headerlink" title="3.反射概述"></a>3.反射概述</h2><ul>
-<li>框架：半成品的软件，可以在框架的基础上进行软件开发，简化编码</li>
-<li>反射：将类的各个组成部分封装为其他对象，这就是反射机制<ul>
-<li>好处：<ol>
-<li>可以在程序运行过程中，操作这些对象。</li>
-<li>可以解耦</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E4%BB%A3%E7%A0%81%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5.png" alt="avatar"></p>
-<h2 id="4-反射-获取字节码Class对象的三种方式"><a href="#4-反射-获取字节码Class对象的三种方式" class="headerlink" title="4.反射-获取字节码Class对象的三种方式"></a>4.反射-获取字节码Class对象的三种方式</h2><ol>
-<li>Class.forName(“全类名”)：将字节码文件加载进内存，返回Class对象<ul>
-<li>多用于配置文件，将类名定义在配置文件中。读取文件，加载类</li>
-</ul>
-</li>
-<li>类名.class:通过类名的属性class获取<ul>
-<li>多用于参数的传递</li>
-</ul>
-</li>
-<li>对象.getClass():getClass()方法在Object类中定义着，<ul>
-<li>多用于对象的获取字节码的方式</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>结论：</li>
-</ul>
-<p>同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪儿一种方式获取的Class对象都是同一个。</p>
-<h2 id="5-反射-Class对象功能概述"><a href="#5-反射-Class对象功能概述" class="headerlink" title="5.反射-Class对象功能概述"></a>5.反射-Class对象功能概述</h2><hr>
+<li><p>分组查询</p>
 <ol>
-<li>获取成员变量们<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Field[] getFields()：获取所有public修饰的成员变量</span><br><span class="line">* Field getField(String name)：获取指定名称的public修饰的成员变量</span><br><span class="line"></span><br><span class="line">* Field[] getDeclaredFields()：获取所有的成员变量，不考虑修饰符</span><br><span class="line">* Field getDeclaredField(String name)</span><br></pre></td></tr></table></figure>
-Field：成员变量</li>
+<li>语法：group by 分组字段;</li>
+<li>注意:<ol>
+<li>分组之后查询的字段：分组字段、聚合函数</li>
+<li>where 和 having的区别？<ol>
+<li>where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果，则不会被查询出来</li>
+<li>where后不可以跟聚合函数<br>SELECT sex ,AVG(math),COUNT(id) 人数 FROM student WHERE math &gt; 70 GROUP BY sex HAVING 人数 &gt; 2;</li>
 </ol>
-<ul>
-<li>操作：</li>
-</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>分页查询</p>
 <ol>
-<li>设置值<ul>
-<li>void set(Object obj,Object value)</li>
-</ul>
-</li>
-<li>获取值<ul>
-<li>get(Object obj)</li>
-</ul>
-</li>
-<li>忽略访问权限修饰符的安全检查<ul>
-<li>setAccessible(true):暴力反射</li>
-</ul>
-</li>
+<li>语法：limit  开始的索引，每页查询的条数</li>
+<li>公式：开始的索引 = (当前的页码 - 1) * 每页显示的条数</li>
 </ol>
-<hr>
-<ol start="2">
-<li>获取构造方法们<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Constructor&lt;?&gt;[] getConstructors()</span><br><span class="line">* Constructor&lt;T&gt; getConstructor(类&lt;?&gt;...parameterTypes)</span><br><span class="line"></span><br><span class="line">* Constructor&lt;?&gt;[] getDeclaredConstructors()</span><br><span class="line">* Constructor&lt;T&gt; getDeclaredConstructor(类&lt;?&gt;...parameterTypes)</span><br></pre></td></tr></table></figure>
-Constructor：构造方法</li>
-</ol>
-<ul>
-<li><p>创建对象：</p>
-</li>
-<li><p>T newInstance(Object… initargs)</p>
-</li>
-<li><p>如果使用空参数构造方法创建对象，操作可以简化：Class对象的newInstance方法</p>
-</li>
-</ul>
-<hr>
+<p> – 每页显示3条记录</p>
+<p> SELECT * FROM student LIMIT 0,3;– 第1页<br> SELECT * FROM student LIMIT 3,3;– 第2页<br> SELECT * FROM student LIMIT 6,3;– 第3页</p>
 <ol start="3">
-<li>获取成员方法们<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* Method[] getMethods()</span><br><span class="line">* Method getMethod(String name,类&lt;?&gt;... parameterTypes)</span><br><span class="line"></span><br><span class="line">* Method[] getDeclaredMethods()</span><br><span class="line">* Method getDeclaredMethod(String name,类&lt;?&gt;... parameterTypes)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>Method:方法对象</p>
-<ul>
-<li>执行方法：</li>
-<li>Object invoke(Object obj,Object…args)</li>
-<li>获取方法名称：</li>
-<li>String getName：获取方法名</li>
-</ul>
-<hr>
-<ol start="4">
-<li>获取类名的名称</li>
-</ol>
-<ul>
-<li>String getName()</li>
-</ul>
-<hr>
-<h2 id="6-反射案例"><a href="#6-反射案例" class="headerlink" title="6.反射案例"></a>6.反射案例</h2><p>案例：</p>
-<ul>
-<li>需求：写一个“框架”，可以帮助创建任意类的对象，并且执行其中的任意方法<ul>
-<li>实现：<ol>
-<li>配置文件</li>
-<li>反射    </li>
+<li>limit只能在mysql中使用</li>
 </ol>
 </li>
-</ul>
+</ol>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ol>
+<li><p>概念：对表中的数据进行限定，保证数据的正确性、有效性和完整性。</p>
 </li>
-<li>步骤：</li>
-</ul>
+<li><p>分类：</p>
 <ol>
-<li>将需要创建的对象的全类名和需要执行的方法定义在配置文件中</li>
-<li>在程序中加载读取配置文件</li>
-<li>使用反射技术来加载类文件进内存</li>
-<li>创建对象</li>
-<li>执行方法</li>
-</ol>
-<p><img src="/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B1.png" alt="avatar"><br><img src="/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B2.png" alt="avatar"></p>
-<h2 id="7-注解概念"><a href="#7-注解概念" class="headerlink" title="7.注解概念"></a>7.注解概念</h2><ul>
-<li><p>概念：说明程序的。给计算机看</p>
-</li>
-<li><p>注释：用文字描述程序的。给程序员看</p>
-</li>
-<li><p>定义：注解，也叫元数据。一种代码级别的说明。是JDK1.5以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
-</li>
-<li><p>概念描述：</p>
-<ul>
-<li>JDK1.5之后的新特性</li>
-<li>说明程序的</li>
-<li>作用分类：<ol>
-<li>编写文档：通过代码里标识的注解生成文档</li>
-<li>代码分析：通过代码里标识的注解对代码进行分析【使用反射】</li>
-<li>编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查【Override】</li>
+<li><p>主键约束：primary key</p>
+<ol>
+<li>注意：<ol>
+<li>含义：非空且唯一</li>
+<li>一张表只能有一个字段为主键</li>
+<li>主键就是表中记录的唯一标识</li>
 </ol>
 </li>
-</ul>
-</li>
-<li><p>JDK中预定义的一些注解</p>
-<ul>
-<li>@Override：检测该注解标注的方法是否继承自父类(接口)的</li>
-<li>@Deprecated：该注解标注的内容，表示已经过时</li>
-<li>@SuppressWarnings：压制警告<ul>
-<li>一般传递参数all @SuppressWarnings(“all”)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>自定义注解</p>
-<ul>
-<li>格式：</li>
-</ul>
-</li>
-</ul>
-<p>元注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> 注解名称&#123;</span><br><span class="line">属性列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>本质：注解本质上就是一个接口，该接口默认继承Annotation接口<ul>
-<li>public interface MyAnno extends java.lang.annoation.Annotation{}</li>
-<li>属性：接口中的抽象方法</li>
-<li>要求：<ol>
-<li>属性的返回值类型有下列取值</li>
-</ol>
-<ul>
-<li>基本数据类型</li>
-<li>String</li>
-<li>枚举</li>
-<li>注解</li>
-<li>以上类型的数组</li>
-</ul>
-<ol start="2">
-<li>定义了属性，在使用时需要给属性赋值<ol>
-<li>如果定义属性时，使用default关键字给属性默认初始化值，则使用注解时，可以不进行属性的赋值。</li>
-<li>如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可。</li>
-<li>数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}省略 </li>
+<li>在创建表时，添加主键约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> CREATE TABLE stu(</span><br><span class="line">    id INT PRIMARY KEY,-- 给id添加主键约束</span><br><span class="line">    name VARCHAR(20)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+<li>删除主键 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure></li>
+<li>创建完表后，添加主键 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY id INT PRIMARY KEY;</span><br></pre></td></tr></table></figure></li>
+<li>自动增长：<ol>
+<li>概念：如果某一列是数值类型，使用auto_increment 可以来完成值的自动增长</li>
+<li>在创建表时，添加主键约束，并且完成主键增长 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    CREATE TABLE stu(</span><br><span class="line">    id INT PRIMARY KEY auto_increment,-- 给id添加主键约束</span><br><span class="line">    name VARCHAR(20)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+<li>删除自动增长 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY id INT;</span><br></pre></td></tr></table></figure></li>
+<li>添加自动增长 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY id INT auto_increment;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 </ol>
 </li>
-</ul>
-</li>
-<li>元注解：用于描述注解的注解<ul>
-<li>@Target：描述注解能够作用的位置<ul>
-<li>ElementType取值：</li>
-<li>TYPE:可以作用于类上</li>
-<li>METHOD:可以作用于方法上</li>
-<li>FIELD:可以作用于成员边梁上</li>
-</ul>
-</li>
-<li>@Retention：描述注解被保留的阶段<ul>
-<li>@Retention(RetentionPolicy.RUNNTIME):当前描述的注解，会保留到class字节码文件中，并被JVM读取到</li>
-</ul>
-</li>
-<li>@Documented：描述注解是否被抽取到api文档中</li>
-<li>@Inherited：描述注解是否被子类继承</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>在程序使用(解析)注解：获取注解中定义的属性值<ol>
-<li>获取注解定义的位置的对象(Class,Method,Field)</li>
-<li>获取指定的注解<ul>
-<li>getAnnotation(Class)</li>
-</ul>
-</li>
-<li>调用注解的抽象方法获取配置的属性值</li>
+<li><p>非空约束：not null</p>
+<ol>
+<li>创建表时添加约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu(</span><br><span class="line">    id INT,</span><br><span class="line">    NAME VARCHAR(20) NOT NULL -- name非空</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+<li>创建表完后，添加非空约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY NAME VARCHA(R20) NOT NULL;</span><br></pre></td></tr></table></figure></li>
+<li>删除name的非空约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY NAME VARCHAR(20);</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
+<li><p>唯一约束：unique</p>
+<ol>
+<li>创建表时，添加唯一约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu(</span><br><span class="line">    id INT,</span><br><span class="line">    phone_number VARCHAR(20) UNIQUE -- 添加了唯一约束</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意mysql中，唯一约束限定的列的值可以有多个null</li>
 </ul>
-<p><img src="/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/%E6%B3%A8%E8%A7%A3.png" alt="avatar"></p>
+</li>
+<li>删除唯一约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu DROP INDEX phone_number;</span><br></pre></td></tr></table></figure></li>
+<li>在创建表后，添加唯一的约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE stu MODIFY phone_number VARCHAR(20) UNIQUE;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>外键约束:foreign key,让表与表产生关系，从而保证数据的正确性</p>
+<ol>
+<li>在创建表时，可以添加外键<ul>
+<li>语法：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">    ...</span><br><span class="line">    外键列</span><br><span class="line">    constraint 外键名称 foreign key (外键列名称) reference 主表名称(主表列名称)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>删除外键 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP FOREIGN KEY 外键列名称;</span><br></pre></td></tr></table></figure></li>
+<li>创建表之后，添加外键 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD constraint 外键名称 foreign key (外键列名称) reference 主表名称(主表列名称)</span><br></pre></td></tr></table></figure></li>
+<li>级联操作<ol>
+<li>添加级联操作<ul>
+<li>语法：<pre><code>ALTER TABLE 表名 ADD constraint 外键名称 foreign key (外键列名称) reference 主表名称(主表列名称) ON UPDATE CASCADE ON DELETE CASCADE;</code></pre></li>
+</ul>
+</li>
+<li>分类:<ol>
+<li>级联更新：ON UPDATE CASCADE</li>
+<li>级联删除：ON DELETE CASCADE</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 
       
 
@@ -475,7 +358,7 @@ Constructor：构造方法</li>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -531,7 +414,7 @@ Constructor：构造方法</li>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/11/4-11java%E8%BF%9B%E9%98%B6-%E5%8F%8D%E5%B0%84-%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -545,18 +428,9 @@ Constructor：构造方法</li>
   
 <nav id="article-nav">
   
-    <a href="/2020/04/12/4-12%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          4.12数据库学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/09/4-9java%E8%BF%9B%E9%98%B6-Stream%E6%B5%81%E5%92%8C%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">4.9java进阶-Stream流和方法引用</div>
+    <a href="/2020/04/12/4-12%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.12数据库学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -583,7 +457,7 @@ Constructor：构造方法</li>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-反射-amp-注解"><span class="toc-number">1.</span> <span class="toc-text">java进阶-反射&amp;注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Junit测试概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.Junit测试概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Junit使用：白盒测试"><span class="toc-number">1.2.</span> <span class="toc-text">2.Junit使用：白盒测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-反射概述"><span class="toc-number">1.3.</span> <span class="toc-text">3.反射概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-反射-获取字节码Class对象的三种方式"><span class="toc-number">1.4.</span> <span class="toc-text">4.反射-获取字节码Class对象的三种方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-反射-Class对象功能概述"><span class="toc-number">1.5.</span> <span class="toc-text">5.反射-Class对象功能概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-反射案例"><span class="toc-number">1.6.</span> <span class="toc-text">6.反射案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-注解概念"><span class="toc-number">1.7.</span> <span class="toc-text">7.注解概念</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库-查询，约束"><span class="toc-number">1.</span> <span class="toc-text">数据库(查询，约束)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DQL-查询语句"><span class="toc-number">1.1.</span> <span class="toc-text">DQL:查询语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#约束"><span class="toc-number">1.2.</span> <span class="toc-text">约束</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
