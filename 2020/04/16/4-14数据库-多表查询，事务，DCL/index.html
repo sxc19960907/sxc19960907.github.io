@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | NoteBook</title>
+  <title>4.14数据库(多表查询，事务，DCL) | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="数据库(多表查询，事务，DCL)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.14数据库(多表查询，事务，DCL)">
+<meta property="og:url" content="http://yoursite.com/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="数据库(多表查询，事务，DCL)">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81.png">
+<meta property="article:published_time" content="2020-04-16T01:18:24.000Z">
+<meta property="article:modified_time" content="2020-04-16T02:18:31.858Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -159,405 +166,389 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-4-14数据库-多表查询，事务，DCL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      4.14数据库(多表查询，事务，DCL)
+    </h1>
+  
+
+        
+        <a href="/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/" class="archive-article-date">
+  	<time datetime="2020-04-16T01:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库-多表查询，事务，DCL"><a href="#数据库-多表查询，事务，DCL" class="headerlink" title="数据库(多表查询，事务，DCL)"></a>数据库(多表查询，事务，DCL)</h1><a id="more"></a>
+
+<h2 id="多表查询的分类"><a href="#多表查询的分类" class="headerlink" title="多表查询的分类"></a>多表查询的分类</h2><ol>
+<li><p>内连接查询</p>
+<ol>
+<li><p>隐式内连接：使用where条件消除无用数据</p>
+<ul>
+<li>例子：</li>
+</ul>
+<p> – 查询所有员工信息和对应的部门信息<br> SELECT * FROM emp,dept WHERE emp.’dept_id’ = dept.’id’;<br> – 查询员工表的名称，性别，部门表的名称<br> SELECT emp.name,emp.gender,dept.name FROM emp,dept WHERE emp.’dept_id’ = dept.’id’;</p>
+</li>
+<li><p>显式内连接 </p>
+<ul>
+<li>语法：select 字段列表 from 表名1 inner join 表名2 on 条件;</li>
+<li>例如：<ul>
+<li>SELECT * FROM emp INNER JOIN dept ON emp.’dept_id’ = dept.’id’;</li>
+<li>SELECT * FROM emp JOIN dept ON emp.’dept_id’ = dept.’id’;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内连接查询：</p>
+<ol>
+<li>从哪儿些表中查询数据</li>
+<li>条件是什么</li>
+<li>查询哪儿些字段</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>外连接查询</p>
+<ol>
+<li>左外连接<ul>
+<li>语法：select 字段列表 from 表1 right [outer] join 表2 on 条件;</li>
+<li>查询的是左表所有数据以及其交集部分。</li>
+<li>例子：<br>  – 查询所有员工信息，如果员工有部门，则查询部门名称，没有部门，则不显示部门名称<br>  SELECT t1.*,t2.’name’ FROM 表1 right [outer] join 表2 on 条件;</li>
+</ul>
+</li>
+<li>右外连接<ul>
+<li>语法：select 字段列表 from 表1 right [outer] join 表2 on 条件;</li>
+<li>查询的是右表所有数据以及其交集部分</li>
+<li>例子：<br>  SELECT * FROM dept t2 RIGHT JOIN emp t1 ON t1.’dept_id’ = t2.’id’;</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>子查询</p>
+<ul>
+<li><p>概念：查询中嵌套查询，称嵌套查询为子查询<br>  – 1 查询工资最高是多少<br>  SELECT MAX(salary) FROM emp;</p>
+<p>  – 2 查询员工信息，并且工资等于9000的<br>  SELECT * FROM emp WHERE emp.’salary’ = 9000;</p>
+<p>  – 一条sql就完成这个操作，子查询<br>  SELECT * FROM emp WHERE emp.’salary’ = (SELECT MAX(salary) FROM emp);</p>
+</li>
+<li><p>子查询不同情况</p>
+<ol>
+<li><p>子查询的结果是单行单列的：</p>
+<ul>
+<li>子查询可以作为条件，使用运算符去判断。运算符：&gt; &gt;= &lt; &lt;= =</li>
+</ul>
+<p> – 查询员工工资小于平均工资的人<br> SELECT * FROM emp WHERE emp.’salary’ &lt; (SELECT AVG(salary) FROM emp);</p>
+</li>
+<li><p>子查询的结果是多行单列的：</p>
+<ul>
+<li>子查询可以作为条件，使用运算符in来判断</li>
+</ul>
+<p> – 查询’财务部’和’市场部’所有员工信息<br> SELECT id FROM dept WHERE NAME = ‘财务部’ ON NAME = ‘市场部’;</p>
+<p> SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;</p>
+<p> – 子查询</p>
+<p> SELECT * FROM emp WHERE dept_id IN ( SELECT id FROM dept WHERE NAME = ‘财务部’ ON NAME = ‘市场部’);</p>
+</li>
+<li><p>子查询的结果是多行多列的</p>
+<ul>
+<li>子查询可以作为一张虚拟表参与查询</li>
+</ul>
+<p> – 查询员工入职日期是2011-11-11日之后的员工信息和部门信息</p>
+<p> –子查询</p>
+<p> SELECT * FROM dept t1,(SELECT * FROM emp WHERE emp.’join_date’&gt;’2011-11-11’) t2<br> WHERE t1.id = t2.dept_Id;</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ol>
+<li>事务的基本介绍<ol>
+<li>概念：<ul>
+<li>如果一个包含多个步骤的业务操作，被事务管理，要么这些操作要么同时成功，要么同时失败。</li>
+</ul>
+</li>
+<li>操作：<ol>
+<li>开启事务： start transaction;</li>
+<li>回滚：rollback;</li>
+<li>提交： commit;</li>
+</ol>
+</li>
+<li>MySQL数据库中事务默认自动提交<ul>
+<li>事务提交的两种方式：<ul>
+<li>自动提交：<ul>
+<li>mysql就是自动提交的</li>
+<li>一条DML(增删改)语句会自动提交一个事务。</li>
+</ul>
+</li>
+<li>手动提交：<ul>
+<li>Oracle数据库默认是手动提交事务</li>
+<li>需要先开启事务，在提交</li>
+</ul>
+</li>
+<li>修改事务的默认提交方式：<ul>
+<li>查看事务的默认提交方式：SELECT @@autocommit;– 1 代表自动提交 0 代表手动提交</li>
+<li>修改默认提交方式： set @@autocommit = 0;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>事务的四大特征<ol>
+<li>原子性：是不可分割的最小操作单位，要么同时成功，要么同时失败。</li>
+<li>持久性：当事务提交或回滚后，数据库会持久化的保存数据。</li>
+<li>隔离性：多个事务之间。相互独立。</li>
+<li>一致性：事务操作前后，数据总量不变。</li>
+</ol>
+</li>
+<li>事务的隔离级别(了解)<ul>
+<li>概念：多个事务之间隔离的，相互独立的，但是如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别就可以解决这些问题</li>
+<li>存在的问题：<ol>
+<li>脏读：一个事务，读取到另一个事务中没有提交的数据</li>
+<li>不可重复读(虚读)：在同一个事务中，两个读取到的数据不一样。</li>
+<li>幻读：一个事务操作(DML)数据表中所有记录，另一个事务添加了一条数据，则第一个事务查询不到自己的修改。</li>
+</ol>
+</li>
+<li>隔离级别<ol>
+<li>read uncommitted：读未提交<ul>
+<li>产生的问题：脏读，不可重复读，幻读</li>
+</ul>
+</li>
+<li>read commited：读已提交<ul>
+<li>产生的问题：不可重复度，幻读</li>
+</ul>
+</li>
+<li>repeatable read：可重复度 (MySQL默认)<ul>
+<li>产生的问题：幻读</li>
+</ul>
+</li>
+<li>serializable：串行化<ul>
+<li>可以解决所有问题</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>注意：隔离级别从小到大安全性越改越高，但是效率越来越低</li>
+<li>数据库查询隔离级别：<ul>
+<li>select @@tx_isoiation;</li>
+</ul>
+</li>
+<li>数据库设置隔离级别：<ul>
+<li>set global transaction isolation level 级别字符串;<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>SQL分类：</p>
+<ol>
+<li>DDL:操作数据库和表</li>
+<li>DML:增删改表中的数据</li>
+<li>DQL:查询表中数据</li>
+<li>DCL:管理用户，授权</li>
+</ol>
+</li>
+<li><p>DCL:管理用户，授权</p>
+<ol>
+<li><p>管理用户</p>
+<ol>
+<li><p>添加用户:</p>
+<ul>
+<li>语法：CREATE USER ‘用户名‘@’主机名’ IDENTIFIED BY ‘密码’;</li>
+</ul>
+</li>
+<li><p>删除用户：<br> DROP USER ‘用户名‘@’主机名’;</p>
+</li>
+<li><p>修改用户密码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE USER SET PASSWORD &#x3D; PASSWORD(新密码) WHERE USER&#x3D;&#39;用户名&#39;;</span><br><span class="line"></span><br><span class="line">SET PASSWORD FOR &#39;用户名&#39;@&#39;主机名&#39; &#x3D; PASSWORD(&#39;新密码&#39;);</span><br></pre></td></tr></table></figure>
+<p> <img src="/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81.png" alt="avatar"></p>
+</li>
+<li><p>查询用户：<br> – 1.切换到mysql数据库<br> USER mysql;<br> – 2.查询USER表<br> SELECT * FROM USER;</p>
+<ul>
+<li>通配符：% 表示可以在任意主机使用用户登录数据库</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>权限管理：</p>
+<ol>
+<li>查询权限：<br> – 查询权限<br> SHOW GRANTS FOR ‘用户名‘@’主机名’;</li>
+<li>授予权限：<br> – 授予权限<br> grant 权限列表 on 数据库名.表名 to ‘用户名‘@’主机名’;</li>
+<li>撤销权限：<br> – 撤销权限<br> revoke 权限列表 on 数据库名.表名 from ‘用户名‘@’主机名’;       </li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/19/3-19java%E5%9F%BA%E7%A1%80-%E6%8A%BD%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2020-03-19T08:56:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/19/3-19java%E5%9F%BA%E7%A1%80-%E6%8A%BD%E8%B1%A1/">3.19java基础-抽象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/18/3-18java%E5%9F%BA%E7%A1%80-%E7%BB%A7%E6%89%BF/" class="archive-article-date">
-  	<time datetime="2020-03-18T12:06:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.13数据库(查询，约束)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/18/3-18java%E5%9F%BA%E7%A1%80-%E7%BB%A7%E6%89%BF/">3.18java基础-继承</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库-多表查询，事务，DCL"><span class="toc-number">1.</span> <span class="toc-text">数据库(多表查询，事务，DCL)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多表查询的分类"><span class="toc-number">1.1.</span> <span class="toc-text">多表查询的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">1.2.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DCL"><span class="toc-number">1.3.</span> <span class="toc-text">DCL</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/17/3-17java%E5%9F%BA%E7%A1%80-%E9%9D%99%E6%80%81static/" class="archive-article-date">
-  	<time datetime="2020-03-17T11:01:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/17/3-17java%E5%9F%BA%E7%A1%80-%E9%9D%99%E6%80%81static/">3.17java基础-静态static与几个工具类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/17/3-17java%E5%9F%BA%E7%A1%80-String%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-  	<time datetime="2020-03-17T10:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/17/3-17java%E5%9F%BA%E7%A1%80-String%E5%AD%97%E7%AC%A6%E4%B8%B2/">3.17java基础-String字符串</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/" class="archive-article-date">
-  	<time datetime="2020-03-16T11:25:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/16/3-16java%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E7%9A%84API/">3.16java基础-常用的API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/" class="archive-article-date">
-  	<time datetime="2020-03-15T11:08:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15pandas%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E4%BA%8C/">3.15pandas基础操作(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-15T10:53:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/3-15java%E5%9F%BA%E7%A1%80-%E7%B1%BB/">3.15java基础-类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-14T11:46:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14-pandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">3.14 pandas基本操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-03-14T10:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/3-14java%E5%9F%BA%E7%A1%80-%E6%95%B0%E7%BB%84/">3.14java基础-数组</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-03-13T13:34:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/13/3-13-numpy%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">3.13 numpy基础操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -584,8 +575,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
