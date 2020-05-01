@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | NoteBook</title>
+  <title>5.1js基础-BOM、DOM案例 | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="js基础-BOM、DOM案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.1js基础-BOM、DOM案例">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="js基础-BOM、DOM案例">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-01T07:28:23.000Z">
+<meta property="article:modified_time" content="2020-05-01T08:08:13.786Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
@@ -159,36 +164,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-5-1js基础-BOM、DOM案例" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      5.1js基础-BOM、DOM案例
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/" class="archive-article-date">
+
+        
+        <a href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/" class="archive-article-date">
   	<time datetime="2020-05-01T07:28:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/">5.1js基础-BOM、DOM案例</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js基础-BOM、DOM案例"><a href="#js基础-BOM、DOM案例" class="headerlink" title="js基础-BOM、DOM案例"></a>js基础-BOM、DOM案例</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="电灯开关"><a href="#电灯开关" class="headerlink" title="电灯开关"></a>电灯开关</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=<span class="string">"../img/off.gif"</span> id=<span class="string">"light_off"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *   分析：</span></span><br><span class="line"><span class="comment">    *       1. 获取图片对象</span></span><br><span class="line"><span class="comment">    *       2. 给图片对象绑定单击事件</span></span><br><span class="line"><span class="comment">    *       3. 每次点击切换图片</span></span><br><span class="line"><span class="comment">    *           * 若灯是开的 on， 切换图片为off</span></span><br><span class="line"><span class="comment">    *           * 若灯是关的 off, 切换图片为on</span></span><br><span class="line"><span class="comment">    *           可以使用flag标记来完成</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取图片对象</span></span><br><span class="line">    <span class="keyword">var</span> light_off = document.getElementById(<span class="string">"light_off"</span>);</span><br><span class="line">    <span class="comment">// alert(light_off.src);</span></span><br><span class="line">    <span class="comment">// 给Light_off设置单击事件</span></span><br><span class="line">    <span class="keyword">var</span> flag = <span class="keyword">false</span>; <span class="comment">// 灯泡是关闭的状态</span></span><br><span class="line">    light_off.onclick = function () &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            light_off.src = <span class="string">"../img/off.gif"</span>;</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            light_off.src = <span class="string">"../img/on.gif"</span>;</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;轮播图&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        img &#123;</span><br><span class="line">            width: <span class="number">100</span>%;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=<span class="string">"../img/banner_1.jpg"</span> id=<span class="string">"img1"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//分析</span></span><br><span class="line">    <span class="comment">//1. 在页面上使用img标签展示图片</span></span><br><span class="line">    <span class="comment">//2. 定义一个方法, 修改图片对象的src属性</span></span><br><span class="line">    <span class="comment">//3. 定义一个定时器,每隔3秒调用方法一次</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> img1 = document.getElementById(<span class="string">"img1"</span>);</span><br><span class="line">    <span class="keyword">var</span> number = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">function <span class="title">modifyImage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        number++;</span><br><span class="line">        <span class="keyword">if</span> (number &gt; <span class="number">3</span>) &#123;</span><br><span class="line">            number = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        img1.src = <span class="string">"../img/banner_"</span> + number + <span class="string">".jpg"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setInterval(modifyImage, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自动跳转"><a href="#自动跳转" class="headerlink" title="自动跳转"></a>自动跳转</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;自动跳转&lt;/title&gt;</span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        .time &#123;</span><br><span class="line">            color: red;</span><br><span class="line">            font-weight: bold;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        p &#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;span class="time"&gt;5&lt;/span&gt;秒之后,自动跳转到百度...</span><br><span class="line">&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">// 分析</span></span><br><span class="line">    <span class="comment">//1. 显示页面效果</span></span><br><span class="line">    <span class="comment">//2. 倒计时读秒效果实现</span></span><br><span class="line">        <span class="comment">//2.1 定义一个方法,获取span标签,修改span标签体的内容,时间--</span></span><br><span class="line">        <span class="comment">//2. 定义一个定时器, 1s执行一次该方法</span></span><br><span class="line">    <span class="comment">//3. 在方法中判断时间若&lt;=0, 则跳转到百度界面</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> second = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">var</span> span_time = document.getElementsByClassName(<span class="string">"time"</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="function">function <span class="title">modifyTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        second--;</span><br><span class="line">        <span class="keyword">if</span> (second &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">            location.href = <span class="string">"https://www.baidu.com"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        span_time.innerHTML = second +<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setInterval(modifyTime, <span class="number">1000</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="window弹框"><a href="#window弹框" class="headerlink" title="window弹框"></a>window弹框</h2><p>index.html</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">用户编号:&lt;input id=<span class="string">"uid"</span> type=<span class="string">"text"</span>&gt;&lt;br&gt;</span><br><span class="line">用户姓名:&lt;input id=<span class="string">"uname"</span> type=<span class="string">"text"</span>&gt;&lt;br&gt;</span><br><span class="line">&lt;input id=<span class="string">"btn"</span> type=<span class="string">"button"</span> value=<span class="string">"选择"</span> onclick=<span class="string">"open1()"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">//1. 创建一个页面</span></span><br><span class="line">        <span class="comment">//1.1 有两个输入项和一个按钮</span></span><br><span class="line">        <span class="comment">//1.2 按钮上有一个时间: 弹出一个新窗口open</span></span><br><span class="line">    <span class="comment">//2. 创建弹出页面</span></span><br><span class="line">        <span class="comment">//2.1 在页面上创建一个表格</span></span><br><span class="line">        <span class="comment">//2.2 每一行有一个按钮和编号和姓名</span></span><br><span class="line">        <span class="comment">//2.3 按钮上有一个事件: 把当前的编号和姓名,赋值到页面1的两个输入框内</span></span><br><span class="line"></span><br><span class="line">    <span class="function">function <span class="title">open1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        window.open(<span class="string">"user.html"</span>,<span class="string">""</span>,<span class="string">"width=250,height==150"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<p>user.html</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;table border=<span class="string">"1"</span>&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;编号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="选择" onclick="s('100','张三');"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;100&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="选择" onclick="s('101','李四');"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;101&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;李四&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="选择" onclick="s('102','王五');"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;102&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;王五&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function">function <span class="title">s</span><span class="params">(uid, uname)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 跨页面传值,需要用到window的opener属性,创建当前页面父页面的引用</span></span><br><span class="line">        <span class="keyword">var</span> fwindow = window.opener;</span><br><span class="line">        fwindow.document.getElementById(<span class="string">"uid"</span>).value = uid;</span><br><span class="line">        fwindow.document.getElementById(<span class="string">"uname"</span>).value = uname;</span><br><span class="line">        <span class="comment">// 关闭窗口</span></span><br><span class="line">        window.close();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="省市联动"><a href="#省市联动" class="headerlink" title="省市联动"></a>省市联动</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;select id=<span class="string">"countryID"</span> onchange=<span class="string">"add1(this.value)"</span>&gt; &lt;!--<span class="keyword">this</span>.value,当前点击的是哪个option就是谁的值--&gt;</span><br><span class="line">    &lt;option value="0"&gt;--请选择--&lt;/option&gt;</span><br><span class="line">    &lt;option value="中国"&gt;中国&lt;/option&gt;</span><br><span class="line">    &lt;option value="美国"&gt;美国&lt;/option&gt;</span><br><span class="line">    &lt;option value="德国"&gt;德国&lt;/option&gt;</span><br><span class="line">    &lt;option value="日本"&gt;日本&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;select id="cityID"&gt;&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个二维数组存储数据</span></span><br><span class="line">    <span class="keyword">var</span> arr = <span class="keyword">new</span> Array(<span class="number">4</span>);</span><br><span class="line">    arr[<span class="number">0</span>] = [<span class="string">"中国"</span>, <span class="string">"河南"</span>, <span class="string">"台湾"</span>, <span class="string">"香港"</span>, <span class="string">"澳门"</span>];</span><br><span class="line">    arr[<span class="number">1</span>] = [<span class="string">"美国"</span>, <span class="string">"纽约"</span>, <span class="string">"华盛顿"</span>, <span class="string">"旧金山"</span>, <span class="string">"夏威夷"</span>];</span><br><span class="line">    arr[<span class="number">2</span>] = [<span class="string">"德国"</span>, <span class="string">"柏林"</span>, <span class="string">"慕尼黑"</span>, <span class="string">"狼堡"</span>, <span class="string">"法兰克林"</span>];</span><br><span class="line">    arr[<span class="number">3</span>] = [<span class="string">"日本"</span>, <span class="string">"北海道"</span>, <span class="string">"广岛"</span>, <span class="string">"长崎"</span>, <span class="string">"大阪"</span>, <span class="string">"东京"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="function">function <span class="title">add1</span><span class="params">(val)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *   1. 遍历二维数组</span></span><br><span class="line"><span class="comment">        *   2. 得到也是一个数组(国家对应关系)</span></span><br><span class="line"><span class="comment">        *   3. 拿到数组的第一个值和传递过来的值作比较</span></span><br><span class="line"><span class="comment">        *   4. 如果相同, 获取到的第一个值后面的元素</span></span><br><span class="line"><span class="comment">        *   5. 得到city的select</span></span><br><span class="line"><span class="comment">        *   6. 添加过去, 使用appendChild的方法</span></span><br><span class="line"><span class="comment">        *       - 创建option(三步)</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *   由于每次都要想city里面添加option</span></span><br><span class="line"><span class="comment">        *   第二次添加, 追加</span></span><br><span class="line"><span class="comment">        *   - 每次添加之前, 判断一下city里面是否有option,如果有就删除</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取city的select</span></span><br><span class="line">        <span class="keyword">var</span> city1 = document.getElementById(<span class="string">"cityID"</span>);</span><br><span class="line">        <span class="keyword">var</span> options1 = city1.getElementsByTagName(<span class="string">"option"</span>);</span><br><span class="line">        <span class="comment">// 遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; options1.length; m++) &#123;</span><br><span class="line">            <span class="comment">// 得到每一个option</span></span><br><span class="line">            <span class="keyword">var</span> op = options1[m];</span><br><span class="line">            <span class="comment">// 删除这个option,通过父节点删除</span></span><br><span class="line">            city1.removeChild(op);</span><br><span class="line">            m--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历二维数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="comment">// 得到二维数组里面的每一个数组</span></span><br><span class="line">            <span class="keyword">var</span> arr1 = arr[i];</span><br><span class="line">            <span class="comment">// 得到遍历之后的数组的第一个值</span></span><br><span class="line">            <span class="keyword">var</span> firstValue = arr1[<span class="number">0</span>];</span><br><span class="line">            <span class="comment">// 判断传递过来的值和第一个值是否相同</span></span><br><span class="line">            <span class="keyword">if</span> (firstValue == val) &#123;</span><br><span class="line">                <span class="comment">// 获取第一个值后面的元素</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; arr1.length; j++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> value1 = arr1[j]; <span class="comment">// 得到城市的名称</span></span><br><span class="line">                    <span class="comment">// 创建option</span></span><br><span class="line">                    <span class="keyword">var</span> option1 = document.createElement(<span class="string">"option"</span>);</span><br><span class="line">                    <span class="comment">// 创建文本</span></span><br><span class="line">                    <span class="keyword">var</span> text1 = document.createTextNode(value1);</span><br><span class="line">                    <span class="comment">// 把文本添加到option1里面</span></span><br><span class="line">                    option1.appendChild(text1);</span><br><span class="line">                    <span class="comment">// 添加值到city1里面</span></span><br><span class="line">                    city1.appendChild(option1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="表格全选"><a href="#表格全选" class="headerlink" title="表格全选"></a>表格全选</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;表格全选&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        table &#123;</span><br><span class="line">            border: <span class="number">1</span>px solid;</span><br><span class="line">            width: <span class="number">500</span>px;</span><br><span class="line">            margin-left: <span class="number">30</span>%;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        td, th &#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">            border: <span class="number">1</span>px solid;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        div &#123;</span><br><span class="line">            margin-top: <span class="number">10</span>px;</span><br><span class="line">            margin-left: <span class="number">30</span>%;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .out &#123;</span><br><span class="line">            background-color: white;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .over &#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">//1. 在页面加载完后绑定事件</span></span><br><span class="line">    window.onload = function () &#123;</span><br><span class="line">        <span class="comment">//2. 给全选按钮绑定单击事件</span></span><br><span class="line">        document.getElementById(<span class="string">"selectAll"</span>).onclick = function () &#123;</span><br><span class="line">            <span class="keyword">var</span> cbs = document.getElementsByName(<span class="string">"cb"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; cbs.length; i++) &#123;</span><br><span class="line">                cbs[i].checked = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        document.getElementById(<span class="string">"unSelectAll"</span>).onclick = function () &#123;</span><br><span class="line">            <span class="keyword">var</span> cbs = document.getElementsByName(<span class="string">"cb"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; cbs.length; i++) &#123;</span><br><span class="line">                cbs[i].checked = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        document.getElementById(<span class="string">"selectRev"</span>).onclick = function () &#123;</span><br><span class="line">            <span class="keyword">var</span> cbs = document.getElementsByName(<span class="string">"cb"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; cbs.length; i++) &#123;</span><br><span class="line">                <span class="comment">// 设置每一个cb状态为相反</span></span><br><span class="line">                cbs[i].checked = !cbs[i].checked;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        document.getElementById(<span class="string">"firstCb"</span>).onclick = function () &#123;</span><br><span class="line">            <span class="keyword">var</span> cbs = document.getElementsByName(<span class="string">"cb"</span>);</span><br><span class="line">            <span class="comment">// 获取第一个Cb</span></span><br><span class="line">            <span class="comment">// 因为给第一个添加了事件, 当前的this就是第一个checkbox</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; cbs.length; i++) &#123;</span><br><span class="line">                <span class="comment">// 设置每一个cb状态和第一个cb状态相同</span></span><br><span class="line">                cbs[i].checked = <span class="keyword">this</span>.checked;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 给所有tr绑定鼠标移到元素之上和移出元素事件</span></span><br><span class="line">        <span class="keyword">var</span> trs = document.getElementsByTagName(<span class="string">"tr"</span>);</span><br><span class="line">        <span class="comment">// 遍历</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; trs.length; i++) &#123;</span><br><span class="line">            <span class="comment">// 移到元素之上</span></span><br><span class="line">            trs[i].onmouseover = function () &#123;</span><br><span class="line">                <span class="keyword">this</span>.className = <span class="string">"over"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 移除元素</span></span><br><span class="line">            trs[i].onmouseout = function () &#123;</span><br><span class="line">                <span class="keyword">this</span>.className = <span class="string">"out"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;caption&gt;学生信息表&lt;/caption&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;&lt;input type="checkbox" name="cb" id="firstCb"&gt;&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;编号&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;性别&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="checkbox" name="cb"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;1&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;令狐冲&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;男&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="checkbox" name="cb"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;任我行&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;男&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="checkbox" name="cb"&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;岳不群&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;?&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> id=<span class="string">"selectAll"</span> value=<span class="string">"全选"</span> onclick=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> id=<span class="string">"unSelectAll"</span> value=<span class="string">"全不选"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"button"</span> id=<span class="string">"selectRev"</span> value=<span class="string">"反选"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,364 +245,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM/" class="archive-article-date">
-  	<time datetime="2020-05-01T05:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.1js基础-BOM、DOM</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM/">5.1js基础-BOM、DOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js基础-BOM、DOM案例"><span class="toc-number">1.</span> <span class="toc-text">js基础-BOM、DOM案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#电灯开关"><span class="toc-number">1.1.</span> <span class="toc-text">电灯开关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮播图"><span class="toc-number">1.2.</span> <span class="toc-text">轮播图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动跳转"><span class="toc-number">1.3.</span> <span class="toc-text">自动跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window弹框"><span class="toc-number">1.4.</span> <span class="toc-text">window弹框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#省市联动"><span class="toc-number">1.5.</span> <span class="toc-text">省市联动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表格全选"><span class="toc-number">1.6.</span> <span class="toc-text">表格全选</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/4-29JS%E5%9F%BA%E7%A1%801/" class="archive-article-date">
-  	<time datetime="2020-04-30T11:18:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/4-29JS%E5%9F%BA%E7%A1%801/">4.29JS基础1</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/4-28css%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-04-28T14:15:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/4-28css%E5%9F%BA%E7%A1%80/">4.28css基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/25/4-25HTML%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-04-25T12:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/25/4-25HTML%E5%9F%BA%E7%A1%80/">4.25HTML基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/22/4-22JDBC%E5%86%85%E5%AE%B91/" class="archive-article-date">
-  	<time datetime="2020-04-22T08:13:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/22/4-22JDBC%E5%86%85%E5%AE%B91/">4.22JDBC内容1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/4-17JDBC%E5%86%85%E5%AE%B9/" class="archive-article-date">
-  	<time datetime="2020-04-17T12:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/4-17JDBC%E5%86%85%E5%AE%B9/">4.17JDBC内容</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/" class="archive-article-date">
-  	<time datetime="2020-04-16T01:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/16/4-14%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%8C%E4%BA%8B%E5%8A%A1%EF%BC%8CDCL/">4.14数据库(多表查询，事务，DCL)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
-  	<time datetime="2020-04-13T12:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/4-13%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%BA%A6%E6%9D%9F/">4.13数据库(查询，约束)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/4-12%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-12T11:30:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/4-12%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/">4.12数据库学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="page-number" href="/archives/2020/page/4/">4</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -584,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
