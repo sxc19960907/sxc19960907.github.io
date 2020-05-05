@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>5.4-BootStrap | NoteBook</title>
+  <title>5.5-xml | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BootStrap">
+  <meta name="description" content="xml">
 <meta property="og:type" content="article">
-<meta property="og:title" content="5.4-BootStrap">
-<meta property="og:url" content="http://yoursite.com/2020/05/04/5-4-BootStrap/index.html">
+<meta property="og:title" content="5.5-xml">
+<meta property="og:url" content="http://yoursite.com/2020/05/05/5-5-xml/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="BootStrap">
+<meta property="og:description" content="xml">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-04T01:44:17.000Z">
-<meta property="article:modified_time" content="2020-05-04T11:19:47.228Z">
+<meta property="article:published_time" content="2020-05-05T01:34:17.000Z">
+<meta property="article:modified_time" content="2020-05-05T07:58:11.005Z">
 <meta property="article:author" content="青衫白衣">
-<meta property="article:tag" content="BootStrap">
+<meta property="article:tag" content="javaweb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
@@ -164,96 +164,243 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-5-4-BootStrap" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-5-5-xml" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      5.4-BootStrap
+      5.5-xml
     </h1>
   
 
         
-        <a href="/2020/05/04/5-4-BootStrap/" class="archive-article-date">
-  	<time datetime="2020-05-04T01:44:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
+        <a href="/2020/05/05/5-5-xml/" class="archive-article-date">
+  	<time datetime="2020-05-05T01:34:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="BootStrap"><a href="#BootStrap" class="headerlink" title="BootStrap"></a>BootStrap</h1><a id="more"></a>
+        <h1 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h1><a id="more"></a>
 
-<h2 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h2><ul>
-<li><p>实现：依赖于栅格系统：将一行平均分成12个格子，可以指定元素占几个格子</p>
+<h2 id="xml概述"><a href="#xml概述" class="headerlink" title="xml概述"></a>xml概述</h2><ol>
+<li>概念：Extensible Markup Language 可扩展标记语言<ul>
+<li>可扩展：标签都是自定义的。</li>
+</ul>
 </li>
-<li><p>步骤：</p>
+<li>功能<ul>
+<li>存储数据<ol>
+<li>配置文件</li>
+<li>在网络中传输</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>xml与html的区别<ol>
+<li>xml标签都是自定义的，html标签是预定义。</li>
+<li>xml的语法严格，html语法松散。</li>
+<li>xml是存储数据的，html是展示数据。<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>基本语法：</p>
 <ol>
-<li>定义容器。相当于之前的table.<ul>
-<li>容器分类：<ol>
-<li>container：两边留白</li>
-<li>container-fluid：每一行设备都是100%宽度</li>
+<li>xml文档的后缀名 .xml</li>
+<li>xml第一行必须定义为文档声明</li>
+<li>xml文档中有且仅有一个根标签</li>
+<li>属性值必须使用引号(单双都可)引起来</li>
+<li>标签必须正确关闭</li>
+<li>xml标签名称区分大小写 </li>
+</ol>
+</li>
+<li><p>快速入门：</p>
+<pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">users</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">'1'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>zhangsan<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>23<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>male<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span> <span class="attr">id</span>=<span class="string">'2'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisi<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>24<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">gender</span>&gt;</span>female<span class="tag">&lt;/<span class="name">gender</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">users</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>组成部分：</p>
+<ol>
+<li><p>文档声明</p>
+<ol>
+<li>格式：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml 属性列表 ?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>属性列表：<ul>
+<li>version:版本号，必须的属性</li>
+<li>encoding：编码方式。告知解析引擎当前文档使用的字符集，默认ISO-8859-1</li>
+<li>standalone:是否独立<ul>
+<li>取值：<ul>
+<li>yes：不依赖其他文件</li>
+<li>no：依赖其他文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>指令(了解)：结合css的</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/css" href="a.css" ?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>标签:标签名称自定义的</p>
+<ul>
+<li>规则：<ul>
+<li>名称可以包含字母、数字以及其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>名称不能以字母xml(或者 XML、Xml等等)开始</li>
+<li>名称不能包含空格</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<p> id属性唯一</p>
+</li>
+<li><p>文本</p>
+<ul>
+<li>CDATA区：在该区域中的数据会被原样展示<ul>
+<li>格式：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[ 数据 ]]&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="xml约束概述"><a href="#xml约束概述" class="headerlink" title="xml约束概述"></a>xml约束概述</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>约束：规定xml文档的书写规则</p>
+<ul>
+<li>作为框架的使用者<ol>
+<li>能够在xml中引入约束文档</li>
+<li>能够简单的读懂约束文档</li>
+</ol>
+</li>
+<li>分类：<ol>
+<li>DTD:一种简单的约束技术</li>
+<li>Schema：一种复杂的约束技术<h2 id="xml约束-DTD"><a href="#xml约束-DTD" class="headerlink" title="xml约束-DTD"></a>xml约束-DTD</h2></li>
 </ol>
 </li>
 </ul>
 </li>
-<li>定义行。相当于之前的tr 样式：row</li>
-<li>定义元素。指定该元素在不同的设备上，所占的格子数目。样式：col-设备代号-格子数目<ul>
-<li>设备代号：<ol>
-<li>xs：超小屏幕 手机(&lt;768px&gt;):col-xs-12</li>
-<li>sm：小屏幕 平板(&gt;=768px)</li>
-<li>md：中等屏幕  桌面显示器(&gt;=992px)</li>
-<li>lg：大屏幕 大桌面显示器(&gt;=1200px)</li>
-</ol>
+<li><p>引入dtd文档到xml文档中</p>
+<ul>
+<li><p>内部dtd：将约束规则定义在xml文档中</p>
+</li>
+<li><p>外部dtd：将约束的规则定义在外部的dtd文件中</p>
+<ul>
+<li>本地：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE 根标签名 <span class="meta-keyword">SYSTEM</span> <span class="meta-string">"dtd文件的位置"</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>网络：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE 根标签名 <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"dtd文件名字"</span> <span class="meta-string">"dtd文件的位置URL"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+DTD约束 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT students(student*)&gt;</span><br><span class="line">&lt;!ELEMENT student (name,age,sex)&gt;</span><br><span class="line">&lt;!ELEMENT name (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT age (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT sex (#PCDATA)&gt;</span><br><span class="line">&lt;!ATTLIST student number ID #REQUIRED&gt;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
+<h2 id="xml约束-schema"><a href="#xml约束-schema" class="headerlink" title="xml约束-schema"></a>xml约束-schema</h2></li>
+</ul>
+<ol>
+<li><p>填写xml文档的根元素</p>
+</li>
+<li><p>引入xsi前缀。xmlns:xsi=”<a href="http://www.w3.org/2001/XMLScheam-instance&quot;" target="_blank" rel="noopener">http://www.w3.org/2001/XMLScheam-instance&quot;</a></p>
+</li>
+<li><p>引入xsd文件名空间。xsi:schemaLocation=”<a href="http://www.itcast.cn/xml" target="_blank" rel="noopener">http://www.itcast.cn/xml</a> student.xsd”</p>
+</li>
+<li><p>为每一个xsd约束声明一个前缀，作为标识。xmlns=”<a href="http://www.itcast.cn/xml&quot;(xmlns后若没有前缀名，则为默认前缀)" target="_blank" rel="noopener">http://www.itcast.cn/xml&quot;(xmlns后若没有前缀名，则为默认前缀)</a></p>
+<h2 id="xml解析方式"><a href="#xml解析方式" class="headerlink" title="xml解析方式"></a>xml解析方式</h2><p>解析：操作xml文档，将文档中的数据读取到内存中</p>
 </li>
 </ol>
 <ul>
-<li>注意：<ol>
-<li>一行中如果格子数目超过12，则超出部分自动换行</li>
-<li>栅格类属性可以向上兼容。栅格类适用于与屏幕宽度大于或等于分界点大小的设备。</li>
-<li>如果真实设备宽度小于了设置栅格类属性的设备代码的最小值，会一个元素占满一整行。</li>
+<li>操作xml文档<ol>
+<li>解析(读取)：将文档中的数据读取到内存中</li>
+<li>写入：将内存中的数据保存到xml文档中。持久化的存储</li>
+</ol>
+</li>
+<li>解析xml的方式：<ol>
+<li>DOM:将标记语言文档一次性加载进内存，在内存中形成一棵DOM树<ul>
+<li>优点：操作方便，可以对文档进行CRUD的所有操作</li>
+<li>缺点：占内存</li>
+</ul>
+</li>
+<li>SAX:逐行读取，基于事件驱动<ul>
+<li>优点：不占内存</li>
+<li>缺点：只能读取，不能增删改<h2 id="xml常见的解析器"><a href="#xml常见的解析器" class="headerlink" title="xml常见的解析器"></a>xml常见的解析器</h2></li>
+</ul>
+</li>
 </ol>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="css样式和js插件"><a href="#css样式和js插件" class="headerlink" title="css样式和js插件"></a>css样式和js插件</h2><ol>
-<li>全局CSS样式</li>
+<ol>
+<li>JAXP:sun公司提供的解析器，支持dom和sax两种思想</li>
+<li>DOM4J：一款非常优秀的解析器</li>
+<li>Jsoup：jsoup是一款Java的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常胜利的API，可通过DOM,CSS以及类似于jQuery的操作方法来取出和操作数据。</li>
+<li>PULL：Android操作系统内置的解析器，sax方式。<h2 id="Jsoup-快速入门"><a href="#Jsoup-快速入门" class="headerlink" title="Jsoup-快速入门"></a>Jsoup-快速入门</h2></li>
 </ol>
-<ul>
-<li>按钮：class=”btn-default”</li>
-<li>图片：<ul>
-<li>class=”img-responsive”:图片在任意尺寸都占100%</li>
-<li>图片形状  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;...&quot; alt&#x3D;&quot;...&quot; class&#x3D;&quot;img-rounded&quot;&gt;:方形</span><br><span class="line"></span><br><span class="line">&lt;img src&#x3D;&quot;...&quot; alt&#x3D;&quot;...&quot; class&#x3D;&quot;img-circle&quot;&gt;:圆形</span><br><span class="line"></span><br><span class="line">&lt;img src&#x3D;&quot;...&quot; alt&#x3D;&quot;...&quot; class&#x3D;&quot;img-thumbnail&quot;&gt;:相框</span><br></pre></td></tr></table></figure></li>
-</ul>
 </li>
-<li>表格<ul>
-<li>table</li>
-<li>table-bordered</li>
-<li>table-hover</li>
-</ul>
-</li>
-<li>表单<ul>
-<li>给表单项添加：class=”form-control”</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>组件：<ul>
-<li>导航条</li>
-<li>分页条</li>
-</ul>
-</li>
-<li>插件：<ul>
-<li>轮播图</li>
-</ul>
+<li><p>步骤</p>
+<ol>
+<li>导入jar包</li>
+<li>获取Document对象</li>
+<li>获取对应的标签Element对线</li>
+<li>获取数据<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> throw IOException</span>&#123;</span><br><span class="line">    <span class="comment">//2.获取Document对象，根据xml文档获取</span></span><br><span class="line">    <span class="comment">//2.1获取student.xml的path</span></span><br><span class="line">    String path = JsoupDemo1.class.getClassLoader().getResource("student.xml").getPath();</span><br><span class="line">    <span class="comment">//2.2解析xml文档，加载文档进内存，获取dom树---&gt;Document</span></span><br><span class="line">    Document document = Jsoup.parse(<span class="keyword">new</span> File(path),<span class="string">"utf-8"</span>);</span><br><span class="line">    <span class="comment">//3.获取元素对象 Element</span></span><br><span class="line">    Elements elements = document.getElementsByTag(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.1获取第一个name的Element对象</span></span><br><span class="line">    Element element = elements.get(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//3.2获取数据</span></span><br><span class="line">    String name = element.text();</span><br><span class="line">    System.out.println(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charsets = <span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Conpatible"</span> content=<span class="string">"IE=edge"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;Bootstrap HelloWorld&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;link href=<span class="string">"css/bootstrap.min.css"</span> rels=<span class="string">"stylesheet"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src="js/jquery-3.2.1.min.js"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .paddtop&#123;</span><br><span class="line">            padding-top: <span class="number">10</span>px;</span><br><span class="line">            border:1px solid #ffc990;</span><br><span class="line">            width:<span class="number">90</span>px;</span><br><span class="line">            height:<span class="number">35</span>px;</span><br><span class="line">            background-color:#ffc990;</span><br><span class="line">            text-align:center;</span><br><span class="line">            line-height:<span class="number">35</span>px;</span><br><span class="line">            margin-top:<span class="number">15</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        .search_input&#123;</span><br><span class="line">            <span class="keyword">float</span>:left;</span><br><span class="line">            border:2px solid #ffc990;</span><br><span class="line">            width:<span class="number">400</span>px;</span><br><span class="line">            height:<span class="number">35</span>px;</span><br><span class="line">            padding-left:<span class="number">5</span>px;</span><br><span class="line">            margin-top:<span class="number">15</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        .search_btn&#123;</span><br><span class="line">            <span class="keyword">float</span>:left;</span><br><span class="line">        &#125;</span><br><span class="line">        .jx&#123;</span><br><span class="line">            border-bottom: 2px solid #ffc990;</span><br><span class="line">            padding <span class="number">5</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        .company&#123;</span><br><span class="line">            height:<span class="number">40</span>px;</span><br><span class="line">            background-color=#ffc900;</span><br><span class="line">            text-align:center;</span><br><span class="line">            line-height:<span class="number">40</span>px;</span><br><span class="line">            font-size:<span class="number">8</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class="container-fluid"&gt;&lt;/div&gt;</span><br><span class="line">        &lt;header&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">                &lt;img src=<span class="string">"img/top_banner.jpg"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"img-responsive"</span>&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row paddtop"</span>&gt;</span><br><span class="line">                &lt;div class="col-md-3"&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/logo.jpg"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"img-responsive"</span>&gt;</span><br><span class="line">                &lt;div class="col-md-5"&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;input  <span class="class"><span class="keyword">class</span></span>=<span class="string">"search-input"</span> placeholder=<span class="string">"请输入线路名称"</span>&gt;</span><br><span class="line">                    &lt;a class="search-btn" href="#"&gt;搜索&lt;/a&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/hotel_tel.png"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"img-responsive"</span>&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">                &lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar navbar-default"</span>&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container-fluid"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-header"</span>&gt;</span><br><span class="line">                            &lt;!--定义汉堡按钮--&gt;</span><br><span class="line">                            &lt;button type=<span class="string">"button"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-toggle collapsed"</span> data-toggle=<span class="string">"collapse"</span> data-target=<span class="string">"#bs-example-navbar-collapse-1"</span> aria-expanded=<span class="string">"false"</span>&gt;</span><br><span class="line">                                &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;</span><br><span class="line">                                &lt;span class="icon-bar"&gt;&lt;/span&gt;</span><br><span class="line">                                &lt;span class="icon-bar"&gt;&lt;/span&gt;</span><br><span class="line">                                &lt;span class="icon-bar"&gt;&lt;/span&gt;</span><br><span class="line">                            &lt;/button&gt;</span><br><span class="line">                            &lt;a class="navbar-brand" href="#"&gt;首页&lt;/a&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse navbar-collapse"</span> id=<span class="string">"bs-example-navbar-collapse-1"</span>&gt;</span><br><span class="line">                            &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">                                &lt;li class="active"&gt;&lt;a href="#"&gt;Link &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                            &lt;/ul&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/nav&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;!--轮播图--&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">                &lt;div id=<span class="string">"carousel-example-generic"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"carousel slide"</span> data-ride=<span class="string">"carousel"</span>&gt;</span><br><span class="line">                    &lt;!-- Indicators --&gt;</span><br><span class="line">                    &lt;ol <span class="class"><span class="keyword">class</span></span>=<span class="string">"carousel-indicators"</span>&gt;</span><br><span class="line">                        &lt;li data-target="#carousel-example-generic" data-slide-to="0" class="active"&gt;&lt;/li&gt;</span><br><span class="line">                        &lt;li data-target="#carousel-example-generic" data-slide-to="1"&gt;&lt;/li&gt;</span><br><span class="line">                        &lt;li data-target="#carousel-example-generic" data-slide-to="2"&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;/ol&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;!-- Wrapper <span class="keyword">for</span> slides --&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"carousel-inner"</span> role=<span class="string">"listbox"</span>&gt;</span><br><span class="line">                            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"item active"</span>&gt;</span><br><span class="line">                                &lt;img src=<span class="string">"img/banner_1.jpg"</span> alt=<span class="string">"..."</span>&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"item"</span>&gt;</span><br><span class="line">                                &lt;img src=<span class="string">"img/banner_2.jpg"</span> alt=<span class="string">"..."</span>&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"item"</span>&gt;</span><br><span class="line">                                &lt;img src=<span class="string">"img/banner_3.jpg"</span> alt=<span class="string">"..."</span>&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;!-- Controls --&gt;</span><br><span class="line">                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"left carousel-control"</span> href=<span class="string">"#carousel-example-generic"</span> role=<span class="string">"button"</span> data-slide=<span class="string">"prev"</span>&gt;</span><br><span class="line">                        &lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true"&gt;&lt;/span&gt;</span><br><span class="line">                        &lt;span class="sr-only"&gt;Previous&lt;/span&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"right carousel-control"</span> href=<span class="string">"#carousel-example-generic"</span> role=<span class="string">"button"</span> data-slide=<span class="string">"next"</span>&gt;</span><br><span class="line">                        &lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true"&gt;&lt;/span&gt;</span><br><span class="line">                        &lt;span class="sr-only"&gt;Next&lt;/span&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/header&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container-fluid"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row jx"</span>&gt;</span><br><span class="line">            &lt;img src=<span class="string">"img/icon_5.jpg"</span>&gt;</span><br><span class="line">            &lt;span&gt;黑马精选&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-3"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                    &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                    &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-3"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                    &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                    &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-3"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                    &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                    &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-3"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                    &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                    &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                    &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row jx"</span>&gt;</span><br><span class="line">            &lt;img src=<span class="string">"img/icon_6.jpg"</span>&gt;</span><br><span class="line">            &lt;span&gt;国内游&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row paddtop"</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                &lt;img src=<span class="string">"img/guonei_1.jpg"</span>&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-8"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-4"</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"thumbnail"</span>&gt;</span><br><span class="line">                            &lt;img src=<span class="string">"img/jingxuan_3.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">                            &lt;p&gt;上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)&lt;/p&gt;</span><br><span class="line">                            &lt;font colors="red"&gt;699&lt;/font&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container-fluid"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">            &lt;img src=<span class="string">"img/footer_service.png"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"img-responsive"</span>&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row company"</span>&gt;</span><br><span class="line">            gagagagagagaaggaaaaaaaaaaaaa</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Jsoup-Jsoup对象"><a href="#Jsoup-Jsoup对象" class="headerlink" title="Jsoup-Jsoup对象"></a>Jsoup-Jsoup对象</h2><ol>
+<li>Jsoup：工具类，可以解析html或xml文档，返回Document<ul>
+<li>parse：解析html或xml文档，返回Document<ul>
+<li>parse(File in,String charsetName):解析xml或html文件</li>
+<li>parse(String html):解析xml或html字符串</li>
+<li>parse(URL url,int timeoutMillis):通过网络路径获取指定的html或xml的文档对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Document：文档对象。代表内存中dom树<ul>
+<li>获取Element对象<ul>
+<li>getElementById(String id):根据id属性值获取唯一的element对象</li>
+<li>getElementsByTag(String tagName):根据标签名称获取元素对象集合</li>
+<li>getElementsByAttribute(String key):根据属性名称获取元素对象集合</li>
+<li>getElementsByAttributeValue(String key,String value):根据对应的属性名和属性值获取元素对象集合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elements：元素Element对象的集合。可以当做ArrayList来使用</li>
+<li>Element：元素对象<ol>
+<li>获取子元素对象<ul>
+<li>getElementById(String id):根据id属性值获取唯一的element对象</li>
+<li>getElementsByTag(String tagName):根据标签名称获取元素对象集合</li>
+<li>getElementsByAttribute(String key):根据属性名称获取元素对象集合</li>
+<li>getElementsByAttributeValue(String key,String value):根据对应的属性名和属性值获取元素对象集合</li>
+</ul>
+</li>
+<li>获取属性值<ul>
+<li>String attr(String key):根据属性名获取属性值</li>
+</ul>
+</li>
+<li>获取文本内容<ul>
+<li>String text():获取文本内容</li>
+<li>String html():获取标签体的所有内容(包括子标签的标签和文本内容)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Node：节点对象<ul>
+<li>是Document和Element的父类<h2 id="快捷查询方式"><a href="#快捷查询方式" class="headerlink" title="快捷查询方式"></a>快捷查询方式</h2></li>
+</ul>
+</li>
+<li>selector：选择器<ul>
+<li>使用的方法：Elements select(String cssQuery)<ul>
+<li>语法：参考Selector类中定义的语法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>XPath：XPath即为XML路径语言，它是一种用来确定XML(标准通用标记语言的子集)文档中某部分位置的语言<ul>
+<li>使用Jsoup的XPath需要额外导入jar包</li>
+<li>查询w3cschool参考手册，使用XPath的语法完成查询。</li>
+</ul>
+</li>
+</ol>
+
       
 
       
@@ -292,7 +439,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">BootStrap</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
         		</li>
       		
 		</ul>
@@ -348,7 +495,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/04/5-4-BootStrap/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/05/5-5-xml/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +509,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/5-5-xml/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          5.5-xml
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/01/5-1js%E5%9F%BA%E7%A1%80-BOM%E3%80%81DOM%E6%A1%88%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">5.1js基础-BOM、DOM案例</div>
+    <a href="/2020/05/04/5-4-BootStrap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.4-BootStrap</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +538,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BootStrap"><span class="toc-number">1.</span> <span class="toc-text">BootStrap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栅格系统"><span class="toc-number">1.1.</span> <span class="toc-text">栅格系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css样式和js插件"><span class="toc-number">1.2.</span> <span class="toc-text">css样式和js插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例"><span class="toc-number">1.3.</span> <span class="toc-text">案例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xml"><span class="toc-number">1.</span> <span class="toc-text">xml</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xml概述"><span class="toc-number">1.1.</span> <span class="toc-text">xml概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml约束概述"><span class="toc-number">1.3.</span> <span class="toc-text">xml约束概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml约束-DTD"><span class="toc-number">1.4.</span> <span class="toc-text">xml约束-DTD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml约束-schema"><span class="toc-number">1.5.</span> <span class="toc-text">xml约束-schema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml解析方式"><span class="toc-number">1.6.</span> <span class="toc-text">xml解析方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml常见的解析器"><span class="toc-number">1.7.</span> <span class="toc-text">xml常见的解析器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jsoup-快速入门"><span class="toc-number">1.8.</span> <span class="toc-text">Jsoup-快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jsoup-Jsoup对象"><span class="toc-number">1.9.</span> <span class="toc-text">Jsoup-Jsoup对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷查询方式"><span class="toc-number">1.10.</span> <span class="toc-text">快捷查询方式</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
