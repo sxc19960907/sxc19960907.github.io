@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>3.28java进阶-Map | NoteBook</title>
+  <title>5.6javaweb服务(tomcat、Servlet) | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java进阶-Map集合">
+  <meta name="description" content="javaweb服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.28java进阶-Map">
-<meta property="og:url" content="http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/index.html">
+<meta property="og:title" content="5.6javaweb服务(tomcat、Servlet)">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/5-6javaweb%E6%9C%8D%E5%8A%A1-tomcat%E3%80%81Servlet/index.html">
 <meta property="og:site_name" content="NoteBook">
-<meta property="og:description" content="java进阶-Map集合">
+<meta property="og:description" content="javaweb服务">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/Map%E9%81%8D%E5%8E%86.png">
-<meta property="og:image" content="http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/Entry%E9%94%AE%E5%80%BC.png">
-<meta property="og:image" content="http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/%E6%96%97%E5%9C%B0%E4%B8%BB.png">
-<meta property="article:published_time" content="2020-03-28T13:01:02.000Z">
-<meta property="article:modified_time" content="2020-03-28T13:07:14.331Z">
+<meta property="article:published_time" content="2020-05-06T01:49:38.000Z">
+<meta property="article:modified_time" content="2020-05-06T08:51:44.321Z">
 <meta property="article:author" content="青衫白衣">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="javaweb">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/Map%E9%81%8D%E5%8E%86.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -168,82 +164,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-3-28java进阶-Map" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-5-6javaweb服务-tomcat、Servlet" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      3.28java进阶-Map
+      5.6javaweb服务(tomcat、Servlet)
     </h1>
   
 
         
-        <a href="/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/" class="archive-article-date">
-  	<time datetime="2020-03-28T13:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
+        <a href="/2020/05/06/5-6javaweb%E6%9C%8D%E5%8A%A1-tomcat%E3%80%81Servlet/" class="archive-article-date">
+  	<time datetime="2020-05-06T01:49:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="java进阶-Map集合"><a href="#java进阶-Map集合" class="headerlink" title="java进阶-Map集合"></a>java进阶-Map集合</h1><a id="more"></a>
-<h2 id="1-Map集合概述"><a href="#1-Map集合概述" class="headerlink" title="1.Map集合概述"></a>1.Map集合概述</h2><p>Map&lt;k,v&gt;集合特点：</p>
+        <h1 id="javaweb服务"><a href="#javaweb服务" class="headerlink" title="javaweb服务"></a>javaweb服务</h1><a id="more"></a>
+
+<h2 id="web相关概念回顾"><a href="#web相关概念回顾" class="headerlink" title="web相关概念回顾"></a>web相关概念回顾</h2><ol>
+<li>软件架构<ol>
+<li>C/S:客户端/服务器端</li>
+<li>B/S:浏览器/服务器端</li>
+</ol>
+</li>
+<li>资源分类<ol>
+<li>静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源，静态资源可以直接被浏览器解析。</li>
+<li>动态资源：每个用户访问相同资源后，得到的结果可能不一样，称为动态资源。动态资源被访问后，需要先转换为静态资源，再返回给浏览器<ul>
+<li>如：servlet/jsp,php,asp</li>
+</ul>
+</li>
+<li>网络通信三要素<ol>
+<li>IP:电子设备(计算机)在网络上中的唯一标识。</li>
+<li>端口：应用程序在计算机中的唯一标识。</li>
+<li>传输协议：规定了数据传输的规则<ol>
+<li>基础协议：<ol>
+<li>tcp:安全协议，三次握手。速度稍慢</li>
+<li>udp:不安全协议。速度快<h2 id="web服务器软件"><a href="#web服务器软件" class="headerlink" title="web服务器软件"></a>web服务器软件</h2></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>服务器：安装了服务器软件的计算机</li>
+<li>服务器软件：接收用户的请求，处理请求，做出响应</li>
+<li>web服务器软件：接收用户的请求，处理请求，做出响应。<ul>
+<li>在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目</li>
+<li>web容器</li>
+</ul>
+</li>
+<li>常见的java相关的web服务器软件：  <ul>
+<li>webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费。</li>
+<li>webSphere：IBM公司,大型的JavaEE服务器，支持所有的JavaEE规范，收费。</li>
+<li>JBOSS:JBOSS公司的，大型的JaveEE服务器，支持所有的JavaEE规范，收费。</li>
+<li>Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源</li>
+</ul>
+</li>
+<li>JavaEE:Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范。</li>
+</ul>
+<h2 id="Tomcat：web服务器软件"><a href="#Tomcat：web服务器软件" class="headerlink" title="Tomcat：web服务器软件"></a>Tomcat：web服务器软件</h2><ol>
+<li><p>下载:<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p>
+</li>
+<li><p>安装：解压压缩包即可</p>
+<ul>
+<li>注意：安装目录建议不要有中文和空格</li>
+</ul>
+</li>
+<li><p>卸载：删除目录</p>
+</li>
+<li><p>启动：</p>
+<ul>
+<li><p>bin/startup.bat,双击运行该文件即可</p>
+</li>
+<li><p>访问：浏览器输入:<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 回车访问自己</p>
+<p>http://别人的ip:8080 访问别人</p>
+</li>
+<li><p>可能遇到的问题：</p>
 <ol>
-<li>Map集合是一个双列集合，一个元素包含两个值(一个key，一个value)</li>
-<li>Map集合中的元素，key和value的数据类型可以相同，也可以不同</li>
-<li>Map集合中的元素，key是不允许重复的，value是可以重复的</li>
-<li>Map集合中的元素，key和value是一一对应的</li>
+<li>黑窗口一闪而过：<ul>
+<li>原因：没有正确配置JAVA_HOME环境变量</li>
+<li>解决方案：正确配置JAVA_HOME环境变量</li>
+</ul>
+</li>
+<li>启动报错：<ol>
+<li>暴力解决：找到占用的端口号，并且找到对应的进程，杀死该进程<ul>
+<li>netstat -ano</li>
+</ul>
+</li>
+<li>温柔解决：修改自身的端口号 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf&#x2F;server.xml</span><br><span class="line">&lt;Connector port&#x3D;&quot;8888&quot; protocal&#x3D;&quot;HTTP&#x2F;1.1&quot; connectionTimeout&#x3D;&quot;20000&quot; redirectPort&#x3D;&quot;8445&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一般会将tomcat的默认端口号修改为80.80端口号是http协议的默认端口号。<ul>
+<li>好处：在访问时不用输入端口号</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="2-Map常用的子类"><a href="#2-Map常用的子类" class="headerlink" title="2.Map常用的子类"></a>2.Map常用的子类</h2><p>HashMap集合的特点：</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>关闭</p>
 <ol>
-<li>HashMap集合底层是哈希表：查询速度快</li>
-<li>HashMap集合是一个无序的集合，存储元素和取出元素的顺序有可能不一致</li>
+<li>正常关闭：<ul>
+<li>bin/shutdown.bat</li>
+<li>ctrl+c</li>
+</ul>
+</li>
+<li>强制关闭：<ul>
+<li>关闭启动窗口</li>
+</ul>
+</li>
 </ol>
-<p>LinkedHashMap的特点：</p>
+</li>
+<li><p>配置</p>
+<ul>
+<li><p>部署项目的方式：</p>
 <ol>
-<li>LinkedHashMap集合底层是哈希表+链表(保证迭代的顺序)</li>
-<li>LinkedHashMap集合是一个有序的集合，存储元素和取出元素的顺序是一致的</li>
+<li>直接将项目放到webapps目录下即可<ul>
+<li>/hello:项目的访问路径–&gt;虚拟目录</li>
+<li>简化部署：将项目达成一个war包，再将war包放置到webapps目录下。<ul>
+<li>war包会自动解压缩</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置conf/server.xml文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在&lt;Host&gt;标签体中配置</span><br><span class="line">&lt;Context docBase&#x3D;&quot;D:\hello&quot; path&#x3D;&quot;&#x2F;hehe&quot; &#x2F;&gt;</span><br><span class="line">docBase:项目存放的路径</span><br><span class="line">path：虚拟目录</span><br></pre></td></tr></table></figure></li>
+<li>在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase&#x3D;&quot;D:\hello&quot; &#x2F;&gt;</span><br><span class="line">虚拟目录：xml文件的名称</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="3-Map接口的常用方法"><a href="#3-Map接口的常用方法" class="headerlink" title="3.Map接口的常用方法"></a>3.Map接口的常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-public V put(K key,V value):把指定的键与指定的值添加到Map集合中</span><br><span class="line">返回值:V</span><br><span class="line">存储键值对的时候，key不重复，返回值V是null</span><br><span class="line">存储键值对的时候，key重复，会使用新的value替换map中重复的value，返回被替换的value值</span><br><span class="line"></span><br><span class="line">-public V remove(Object key):把指定的键所对应的的键值对元素 在Map集合中删除，返回被删除元素的值</span><br><span class="line"></span><br><span class="line">-public V get(Object key):根据指定的键，在Map集合中获取对应的值</span><br><span class="line"></span><br><span class="line">-boolen containsKey(Object key):判断集合中是否包含指定的键</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Map集合遍历键找值方式"><a href="#4-Map集合遍历键找值方式" class="headerlink" title="4.Map集合遍历键找值方式"></a>4.Map集合遍历键找值方式</h2><p><img src="/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/Map%E9%81%8D%E5%8E%86.png" alt="avatar"></p>
-<p>Map集合的第一种遍历方式：通过键找值的方式<br>Map集合中的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;K&gt; keySet():返回此映射中包含的键的Set视图</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建Map集合对象</span></span><br><span class="line">        Map&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">"小明"</span>,<span class="number">185</span>);</span><br><span class="line">        map.put(<span class="string">"小红"</span>,<span class="number">168</span>);</span><br><span class="line">        map.put(<span class="string">"小蓝"</span>,<span class="number">175</span>);</span><br><span class="line">        <span class="comment">//1.使用Map集合中的方法keySet()，把Map集合所有的key取出来，存储到一个Set集合中</span></span><br><span class="line">        Set&lt;String&gt; set = map.keySet();</span><br><span class="line">        Iterator&lt;String&gt; it = set.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String i = it.next();</span><br><span class="line">            <span class="comment">//3.通过Map集合中的方法get(key),通过key找到value</span></span><br><span class="line">            System.out.println(i + <span class="string">" "</span>+ map.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"_________________________________________"</span>);</span><br><span class="line">        <span class="comment">//增强for来遍历集合</span></span><br><span class="line">        <span class="keyword">for</span> (String key:set) &#123;</span><br><span class="line">            Integer value = map.get(key);</span><br><span class="line">            System.out.println(key+<span class="string">" "</span>+value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-Entry键值对对象"><a href="#5-Entry键值对对象" class="headerlink" title="5.Entry键值对对象"></a>5.Entry键值对对象</h2><p><img src="/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/Entry%E9%94%AE%E5%80%BC.png" alt="avatar"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建Map集合对象</span></span><br><span class="line">        Map&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">"小明"</span>,<span class="number">185</span>);</span><br><span class="line">        map.put(<span class="string">"小红"</span>,<span class="number">168</span>);</span><br><span class="line">        map.put(<span class="string">"小蓝"</span>,<span class="number">175</span>);</span><br><span class="line">        Set&lt;Map.Entry&lt;String, Integer&gt;&gt; en = map.entrySet();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; e: en) &#123;</span><br><span class="line">            System.out.println(e.getKey()+<span class="string">" "</span>+e.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-HashMap存储自定义类型键值"><a href="#6-HashMap存储自定义类型键值" class="headerlink" title="6.HashMap存储自定义类型键值"></a>6.HashMap存储自定义类型键值</h2><p>Map集合保证key是唯一的：</p>
-<p>作为key的元素，必须重写hashCode方法和equals方法，以保证key唯一。</p>
-<h2 id="7-LinkedHashMap集合"><a href="#7-LinkedHashMap集合" class="headerlink" title="7.LinkedHashMap集合"></a>7.LinkedHashMap集合</h2><p>继承了HashMap&lt;K,V&gt; Map接口的哈希表和链接列表实现，具有可预知的迭代顺序。</p>
-<p>底层原理：</p>
-<p>哈希表+链表(记录元素的顺序)</p>
-<h2 id="8-Hashtable集合"><a href="#8-Hashtable集合" class="headerlink" title="8.Hashtable集合"></a>8.Hashtable集合</h2><p>Hashtable集合，不能存储null值，null键</p>
-<h2 id="9-练习：计算一个字符串中每个字符出现的次数"><a href="#9-练习：计算一个字符串中每个字符出现的次数" class="headerlink" title="9.练习：计算一个字符串中每个字符出现的次数"></a>9.练习：计算一个字符串中每个字符出现的次数</h2><p>分析：</p>
+</li>
+<li><p>静态项目和动态项目</p>
+<ul>
+<li>目录结构<ul>
+<li>java动态项目的目录结构：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">项目的根目录</span><br><span class="line">    WEB-INF目录：</span><br><span class="line">        web.xml:web项目的核心配置文件</span><br><span class="line">        classes目录：放置字节码文件的目录</span><br><span class="line">        lib目录：放置依赖的jar包</span><br></pre></td></tr></table></figure>
+<h2 id="Servlet-server-applet"><a href="#Servlet-server-applet" class="headerlink" title="Servlet:server applet"></a>Servlet:server applet</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>概念：运行在服务器端的小程序</p>
+<ul>
+<li>Servlet就是一个接口，定义了Java类被浏览器访问到(tomcat识别)的规则。</li>
+<li>将来自定义一个类，实现Servlet接口，复写方法。</li>
+</ul>
+</li>
+<li><p>快速入门：</p>
 <ol>
-<li>使用Scanner获取用户输入的字符串</li>
-<li>创建Map集合，key是字符串中的字符，value是字符串的个数</li>
-<li>遍历字符串，获取每一个字符</li>
-<li>使用获取到的字符，去Map集合判断key是否存在</li>
-</ol>
-<p>key存在：</p>
-<p>通过字符(key)，获取value(字符个数)</p>
-<p>value++</p>
-<p>put(key,value)把新的value存储到Map集合中</p>
-<p>key不存在：</p>
-<p>put(key,1)</p>
-<ol start="5">
-<li>遍历Map集合，输出结果</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02Practise</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.使用Scanner获取用户输入的字符串</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"请输入一串字符串："</span>);</span><br><span class="line">        String str = sc.next();</span><br><span class="line">        <span class="comment">//2.创建Map集合，key是字符串中的字符，value是字符串的个数</span></span><br><span class="line">        HashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.遍历字符串，获取每一个字符</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c:str.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">//Key存在：</span></span><br><span class="line">            <span class="comment">//通过字符(key)，获取value(字符个数)</span></span><br><span class="line">            <span class="comment">//value++</span></span><br><span class="line">            <span class="comment">//Put(key,value)把新的value存储到Map集合中</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(c))&#123;</span><br><span class="line">                Integer value = map.get(c);</span><br><span class="line">                value++;</span><br><span class="line">                map.put(c,value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//Key不存在：</span></span><br><span class="line">            <span class="comment">//Put(key,value)</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                map.put(c,<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//5.遍历Map集合，输出结果</span></span><br><span class="line">        <span class="keyword">for</span> (Character key:map.keySet()) &#123;</span><br><span class="line">            System.out.println(key+<span class="string">"-&gt;"</span>+map.get(key));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>创建JavaEE项目</li>
+<li>定义一个类，实现Servlet接口 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletDemo1</span> <span class="keyword">implements</span> <span class="title">Servlet</span></span></span><br></pre></td></tr></table></figure></li>
+<li>实现接口中的抽象方法</li>
+<li>配置Servlet<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置Servlet--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demo1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>web.servlet.Servlet.ServletDemo1<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demo1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo1<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="10-斗地主案例-分析"><a href="#10-斗地主案例-分析" class="headerlink" title="10.斗地主案例-分析"></a>10.斗地主案例-分析</h2><p><img src="/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/%E6%96%97%E5%9C%B0%E4%B8%BB.png" alt="avatar"></p>
-<h2 id="11-斗地主-代码实现"><a href="#11-斗地主-代码实现" class="headerlink" title="11.斗地主-代码实现"></a>11.斗地主-代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DouDiZhu</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.准备牌</span></span><br><span class="line">        HashMap&lt;Integer, String&gt; poker = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; pokerIndex = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        String[] colors = &#123;<span class="string">"♠"</span>, <span class="string">"♦"</span>, <span class="string">"♥"</span>, <span class="string">"♣"</span>&#125;;</span><br><span class="line">        String[] numbers = &#123;<span class="string">"2"</span>, <span class="string">"A"</span>, <span class="string">"K"</span>, <span class="string">"Q"</span>, <span class="string">"J"</span>, <span class="string">"10"</span>, <span class="string">"9"</span>, <span class="string">"8"</span>, <span class="string">"7"</span>, <span class="string">"6"</span>, <span class="string">"5"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        poker.put(index, <span class="string">"大王"</span>);</span><br><span class="line">        pokerIndex.add(index);</span><br><span class="line">        index++;</span><br><span class="line">        poker.put(index, <span class="string">"小王"</span>);</span><br><span class="line">        pokerIndex.add(index);</span><br><span class="line">        index++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String number : numbers) &#123;</span><br><span class="line">            <span class="keyword">for</span> (String color : colors) &#123;</span><br><span class="line">                poker.put(index, color + number);</span><br><span class="line">                pokerIndex.add(index);</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//System.out.println(poker);</span></span><br><span class="line">        <span class="comment">//System.out.println(pokerIndex);</span></span><br><span class="line">        <span class="comment">//2.洗牌</span></span><br><span class="line">        Collections.shuffle(pokerIndex);</span><br><span class="line">        <span class="comment">//3.发牌</span></span><br><span class="line">        ArrayList&lt;Integer&gt; player01 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; player02 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; player03 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; diPai = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pokerIndex.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = pokerIndex.get(i);</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">51</span>) &#123;</span><br><span class="line">                diPai.add(num);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                player01.add(num);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                player02.add(num);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">2</span>) &#123;</span><br><span class="line">                player03.add(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//System.out.println(player01);</span></span><br><span class="line">        <span class="comment">//System.out.println(diPai);</span></span><br><span class="line"></span><br><span class="line">        Collections.sort(player01);</span><br><span class="line">        Collections.sort(player02);</span><br><span class="line">        Collections.sort(player03);</span><br><span class="line">        Collections.sort(diPai);</span><br><span class="line"></span><br><span class="line">        look(<span class="string">"小明"</span>,poker,player01);</span><br><span class="line">        look(<span class="string">"小红"</span>,poker,player02);</span><br><span class="line">        look(<span class="string">"小蓝"</span>,poker,player03);</span><br><span class="line">        look(<span class="string">"底牌"</span>,poker,diPai);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">look</span><span class="params">(String name,HashMap&lt;Integer,String&gt; poker,ArrayList&lt;Integer&gt; player)</span></span>&#123;</span><br><span class="line">        System.out.print(name+<span class="string">":"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Integer index:player) &#123;</span><br><span class="line">            String value = poker.get(index);</span><br><span class="line">            System.out.print(value+<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Servlet执行原理"><a href="#Servlet执行原理" class="headerlink" title="Servlet执行原理"></a>Servlet执行原理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 当服务器接受到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径</span><br><span class="line">2. 查找web.xml文件，是否有对应的&lt;url-pattern&gt;标签体内容</span><br><span class="line">3. 如果有，则在找到对应的&lt;servlet-class&gt;全类名</span><br><span class="line">4. tomcat会将字节码文件加载进内存，并且创建其对象</span><br><span class="line">5. 调用其方法</span><br></pre></td></tr></table></figure>
 
+<h2 id="Servlet中的生命周期方法"><a href="#Servlet中的生命周期方法" class="headerlink" title="Servlet中的生命周期方法"></a>Servlet中的生命周期方法</h2><ol>
+<li>被创建：执行init方法，只执行一次<ul>
+<li>Servlet什么时候被创建？<ul>
+<li>默认情况下，第一次被访问时，Servlet被创建</li>
+<li>可以配置执行Servlet的创建时机。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在&lt;servlet&gt;标签下配置</span><br><span class="line">1. 第一次被访问时，创建</span><br><span class="line">&lt;load-on-startup&gt;的值为负数</span><br><span class="line">2. 在服务器启动时，创建</span><br><span class="line">&lt;load-on-startup&gt;的值为0或者正整数</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的<ul>
+<li>多个用户同时访问时，可能存在线程安全问题</li>
+<li>解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要修改值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>提供服务：执行service方法，执行多次<ul>
+<li>每次访问Servlet时，Service方法都会被调用一次。</li>
+</ul>
+</li>
+<li>被销毁：执行destroy方法，只执行一次<ul>
+<li>Servlet被销毁时执行。服务器关闭时，Servlet方法都会被调用一次。</li>
+<li>只有服务器正常关闭时，才会执行destroy方法。</li>
+<li>destroy方法在Servlet被销毁之前执行，一般用于释放资源。</li>
+</ul>
+</li>
+</ol>
+<h2 id="Servlet3-0"><a href="#Servlet3-0" class="headerlink" title="Servlet3.0"></a>Servlet3.0</h2><ul>
+<li>好处：<ul>
+<li>支持注解配置。可以不需要web.xml</li>
+</ul>
+</li>
+<li>步骤：<ol>
+<li>创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml</li>
+<li>定义一个类，实现Servlet接口</li>
+<li>复写方法</li>
+<li>在类上使用@WebServlet注解，进行配置<ul>
+<li>@WebServelt(“资源路径”)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="IDEA与tomcat的相关配置"><a href="#IDEA与tomcat的相关配置" class="headerlink" title="IDEA与tomcat的相关配置"></a>IDEA与tomcat的相关配置</h2>
       
 
       
@@ -282,7 +416,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
         		</li>
       		
 		</ul>
@@ -338,7 +472,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/28/3-28java%E8%BF%9B%E9%98%B6-Map/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/06/5-6javaweb%E6%9C%8D%E5%8A%A1-tomcat%E3%80%81Servlet/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -352,18 +486,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/30/3-30java%E8%BF%9B%E9%98%B6-%E5%BC%82%E5%B8%B8%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3.30java进阶-异常与多线程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/27/3-27java%E8%BF%9B%E9%98%B6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%81List%E9%9B%86%E5%90%88%E3%80%81Set%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3.27java进阶-数据结构、List集合、Set集合</div>
+    <a href="/2020/05/05/5-5-xml/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.5-xml</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -390,7 +515,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java进阶-Map集合"><span class="toc-number">1.</span> <span class="toc-text">java进阶-Map集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Map集合概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.Map集合概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Map常用的子类"><span class="toc-number">1.2.</span> <span class="toc-text">2.Map常用的子类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Map接口的常用方法"><span class="toc-number">1.3.</span> <span class="toc-text">3.Map接口的常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Map集合遍历键找值方式"><span class="toc-number">1.4.</span> <span class="toc-text">4.Map集合遍历键找值方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Entry键值对对象"><span class="toc-number">1.5.</span> <span class="toc-text">5.Entry键值对对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-HashMap存储自定义类型键值"><span class="toc-number">1.6.</span> <span class="toc-text">6.HashMap存储自定义类型键值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-LinkedHashMap集合"><span class="toc-number">1.7.</span> <span class="toc-text">7.LinkedHashMap集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Hashtable集合"><span class="toc-number">1.8.</span> <span class="toc-text">8.Hashtable集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-练习：计算一个字符串中每个字符出现的次数"><span class="toc-number">1.9.</span> <span class="toc-text">9.练习：计算一个字符串中每个字符出现的次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-斗地主案例-分析"><span class="toc-number">1.10.</span> <span class="toc-text">10.斗地主案例-分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-斗地主-代码实现"><span class="toc-number">1.11.</span> <span class="toc-text">11.斗地主-代码实现</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javaweb服务"><span class="toc-number">1.</span> <span class="toc-text">javaweb服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web相关概念回顾"><span class="toc-number">1.1.</span> <span class="toc-text">web相关概念回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web服务器软件"><span class="toc-number">1.2.</span> <span class="toc-text">web服务器软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat：web服务器软件"><span class="toc-number">1.3.</span> <span class="toc-text">Tomcat：web服务器软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet-server-applet"><span class="toc-number">1.4.</span> <span class="toc-text">Servlet:server applet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet执行原理"><span class="toc-number">1.5.</span> <span class="toc-text">Servlet执行原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet中的生命周期方法"><span class="toc-number">1.6.</span> <span class="toc-text">Servlet中的生命周期方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet3-0"><span class="toc-number">1.7.</span> <span class="toc-text">Servlet3.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA与tomcat的相关配置"><span class="toc-number">1.8.</span> <span class="toc-text">IDEA与tomcat的相关配置</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
