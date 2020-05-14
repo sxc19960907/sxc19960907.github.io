@@ -8,15 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>5.12javaweb-jsp、MVC、EL、JSTL | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="javaweb-jsp、MVC、EL、JSTL">
+<meta property="og:type" content="article">
 <meta property="og:title" content="5.12javaweb-jsp、MVC、EL、JSTL">
 <meta property="og:url" content="http://yoursite.com/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="javaweb-jsp、MVC、EL、JSTL">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/%E4%B8%89%E5%B1%82.png">
 <meta property="article:published_time" content="2020-05-12T02:03:53.000Z">
-<meta property="article:modified_time" content="2020-05-12T02:03:53.765Z">
+<meta property="article:modified_time" content="2020-05-13T08:24:38.008Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="javaweb">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/%E4%B8%89%E5%B1%82.png">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
   
@@ -181,7 +186,257 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="javaweb-jsp、MVC、EL、JSTL"><a href="#javaweb-jsp、MVC、EL、JSTL" class="headerlink" title="javaweb-jsp、MVC、EL、JSTL"></a>javaweb-jsp、MVC、EL、JSTL</h1><a id="more"></a>
+
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><ol>
+<li><p>指令</p>
+<ul>
+<li><p>作用：用于配置JSP页面，导入资源文件</p>
+</li>
+<li><p>格式：<br>  &lt;%@ 指令名称 属性名1=属性值1 属性名2=属性值2 …%&gt;</p>
+</li>
+<li><p>分类：</p>
+<ol>
+<li><p>page：配置JSP页面的</p>
+<ul>
+<li>contentType：等同于response.setContentType()<ol>
+<li>设置响应体的mime类型以及字符集</li>
+<li>设置当前jsp页面的编码(只能是高级的IDE才能生效，如果使用低级工具，则需要设置pageEncoding属性设置当前页面的字符集)</li>
+</ol>
+</li>
+<li>import：导包</li>
+<li>errorPage：当前页面发生异常后，会自动跳转到指定的错误页面</li>
+<li>isErrorPage：标识当前页面是否是错误页面<ul>
+<li>true：是，可以使用内置对象exception</li>
+<li>false：否。默认值。不可以使用内置对象exception</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>include：页面包含的。导入页面的资源文件</p>
+<ul>
+<li>可以导入公共的页面部分</li>
+</ul>
+</li>
+<li><p>taglib：导入资源</p>
+<ul>
+<li>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;<ul>
+<li>prefix:前缀，自定义</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ol>
+<li>html注释<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- --&gt;:只能注释html代码片段</span><br></pre></td></tr></table></figure></li>
+<li>jsp注释:推荐使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- %--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>内置对象</p>
+<ul>
+<li><p>在jsp页面中不需要创建，直接使用的对象</p>
+</li>
+<li><p>一共有9个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    变量名      真实类型            作用</span><br><span class="line">pageContext     PageContext         当前页面共享数据，还可以获取其他八个内置对象</span><br><span class="line">request         HttpServletRequest  一次请求访问的多个资源(转发)</span><br><span class="line">session         HTTPSession         一次会话的多个请求间</span><br><span class="line">application     ServletContext      所有用户间共享数据</span><br><span class="line">response        HttpServletResponse 响应对象</span><br><span class="line">page            Object              当前页面(Servlet)的对象 this</span><br><span class="line">out             JspWriter           输出对象，数据输出到页面上</span><br><span class="line">config          ServletConfig       Servlet的配置对象</span><br><span class="line">exception       Throwable           异常对象</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="MVC：开发模式"><a href="#MVC：开发模式" class="headerlink" title="MVC：开发模式"></a>MVC：开发模式</h2><ol>
+<li><p>jsp演变历史</p>
+<ol>
+<li>早期只有servlet，只能使用response输出标签数据，非常麻烦</li>
+<li>后来有jsp，简化了Servlet的开发，如果过度使用jsp，在jsp中既写大量的java代码，又写html表，造成难于维护，难于分工协作</li>
+<li>再后来，java的web开发，借鉴mvc开发模式，使得程序的设计更加合理性</li>
+</ol>
+</li>
+<li><p>MVC：</p>
+<ol>
+<li>M:Model，模型。JavaBean<ul>
+<li>完成具体的业务操作，如：查询数据库，封装对象</li>
+</ul>
+</li>
+<li>V:View，视图。JSP<ul>
+<li>展示数据</li>
+</ul>
+</li>
+<li>C：Controller，控制器。Servlet<ul>
+<li>获取用户的输入</li>
+<li>调用模型</li>
+<li>将数据交给视图进行展示</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>优缺点：<ol>
+<li>优点：<ol>
+<li>耦合性低，方便维护，可以利于分工协作</li>
+<li>重用性高</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>使得项目架构变得复杂，对开发人员要求高</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><ol>
+<li><p>概念：Expression Language 表达式语言</p>
+</li>
+<li><p>作用：替换和简化jsp页面中java代码的编写</p>
+</li>
+<li><p>语法：${表达式}</p>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>jsp默认支持el表达式。如果要忽略el表达式<ol>
+<li>设置jsp中page指令中:isELIgnored=”true”忽略当前jsp页面中所有el表达式</li>
+<li>${表达式}：忽略当前这个el表达式</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>使用：</p>
+<ol>
+<li><p>运算</p>
+<ul>
+<li>运算符<ol>
+<li>算术运算符：+ - * /(div) %(mod)</li>
+<li>比较运算符：&gt; &lt; &gt;= &lt;= == !=</li>
+<li>逻辑运算符：&amp;&amp;(and) ||(or) !(not)</li>
+<li>空运算符：empty<ul>
+<li>功能：用于判断字符串、集合、数组对象是否为null并且长度是否为0</li>
+<li>${empty list}:表示判断字符串、集合、数组对象是否为null或者长度&gt;0</li>
+<li>${not empty str}:表示判断字符串、集合、数组对象是否不为null并且长度&gt;0</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>获取值</p>
+<ol>
+<li><p>el表达式只能从域对象中获取值</p>
+</li>
+<li><p>语法：</p>
+<ol>
+<li><p>${域名称.键名}：从指定域中获取指定键的值</p>
+<ul>
+<li><p>域名城：</p>
+<ol>
+<li>pageScope            –&gt;pageContext</li>
+<li>requestScope         –&gt;request</li>
+<li>sessionScope         –&gt;session</li>
+<li>applicationScope     –&gt;application(ServletContext)</li>
+</ol>
+</li>
+<li><p>举例：在request域中存储了name=张三</p>
+</li>
+<li><p>获取：${requestScope.name}</p>
+</li>
+</ul>
+</li>
+<li><p>${键名}：表示依次从最小的域中查找是否有该键对应的值，直到找到为止</p>
+</li>
+<li><p>获取对象、List集合、Map集合的值</p>
+<ol>
+<li>对象：${域名称.键名.属性名}<ul>
+<li>本质上会去调用对象的getter方法</li>
+</ul>
+</li>
+<li>List集合：${域名称.键名[索引]}</li>
+<li>Map集合：<ul>
+<li>${域名称.键名.key名称}</li>
+<li>${域名称.键名[“key名称”]}</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>隐式对象</p>
+<ul>
+<li>el表达式中有11个隐式对象</li>
+<li>pageContext：<ul>
+<li>获取jsp其他八个内置对象<ul>
+<li>${pageContext.request.contextPath}:动态获取虚拟目录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><ol>
+<li><p>概念：JavaServer Pages Tag Library JSP标准标签库</p>
+<ul>
+<li>是由Apache组织提供的开源的免费的jsp标签</li>
+</ul>
+</li>
+<li><p>作用：用于简化和替换jsp页面上的java代码</p>
+</li>
+<li><p>使用步骤：</p>
+<ol>
+<li>导入jstl相关的jar包</li>
+<li>引入标签库：taglib指令：&lt;%@ taglib %&gt;</li>
+<li>使用标签</li>
+</ol>
+</li>
+<li><p>常用的JSTL标签</p>
+<ol>
+<li><p>if：相当于java代码的if语句</p>
+<ol>
+<li>属性：<ul>
+<li>test必须属性，接受boolean表达式<ul>
+<li>如果表达式为true，则显示if标签体内容，如果为false，则不显示标签体内容</li>
+<li>一般情况下，test属性会结合el表达式一起使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>c:if标签没有else情况，想要使用else，则可以在定义一个c:if标签</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>choose：相当于java代码的switch语句</p>
+<ol>
+<li>使用choose标签声明                   相当于switch声明</li>
+<li>使用when标签做判断                   相当于case</li>
+<li>使用otherwise标签做其他情况的声明     相当于default</li>
+</ol>
+</li>
+<li><p>foreach:相当于java代码的for语句</p>
+<ol>
+<li><p>完成重复的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(int i &#x3D; 0;i &lt; 10; i++)&#123;&#125;</span><br><span class="line">属性：</span><br><span class="line">    begin：开始值</span><br><span class="line">    end：结束值</span><br><span class="line">    var：临时变量</span><br><span class="line">    step：步长</span><br><span class="line">    varStatus：循环状态对象</span><br><span class="line">        index：容器中元素的索引，从0开始</span><br><span class="line">        count：循环次数，从1开始</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; list;</span><br><span class="line">for(User user:list)&#123;&#125;</span><br><span class="line"></span><br><span class="line">属性：</span><br><span class="line">    items：容器对象</span><br><span class="line">    var：容器中元素的临时变量</span><br><span class="line">    varStatus：循环状态对象</span><br><span class="line">        index：容器中元素的索引，从0开始</span><br><span class="line">        count：循环次数，从1开始</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h2><p><img src="/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/%E4%B8%89%E5%B1%82.png" alt="avatar"></p>
+
       
 
       
@@ -215,6 +470,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -308,7 +574,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javaweb-jsp、MVC、EL、JSTL"><span class="toc-number">1.</span> <span class="toc-text">javaweb-jsp、MVC、EL、JSTL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP"><span class="toc-number">1.1.</span> <span class="toc-text">JSP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC：开发模式"><span class="toc-number">1.2.</span> <span class="toc-text">MVC：开发模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EL表达式"><span class="toc-number">1.3.</span> <span class="toc-text">EL表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL"><span class="toc-number">1.4.</span> <span class="toc-text">JSTL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三层架构"><span class="toc-number">1.5.</span> <span class="toc-text">三层架构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -423,15 +689,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,7 +713,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,7 +721,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
