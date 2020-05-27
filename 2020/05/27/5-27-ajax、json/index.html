@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: javaweb | NoteBook</title>
+  <title>5.27-ajax、json | NoteBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="NoteBook">
-<meta property="og:url" content="http://yoursite.com/tags/javaweb/index.html">
+  <meta name="description" content="ajax、json">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.27-ajax、json">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/5-27-ajax%E3%80%81json/index.html">
 <meta property="og:site_name" content="NoteBook">
+<meta property="og:description" content="ajax、json">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-27T01:20:47.000Z">
+<meta property="article:modified_time" content="2020-05-27T03:34:11.969Z">
 <meta property="article:author" content="青衫白衣">
+<meta property="article:tag" content="javaweb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NoteBook" type="application/atom+xml">
@@ -159,36 +164,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-5-27-ajax、json" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      5.27-ajax、json
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/5-27-ajax%E3%80%81json/" class="archive-article-date">
+
+        
+        <a href="/2020/05/27/5-27-ajax%E3%80%81json/" class="archive-article-date">
   	<time datetime="2020-05-27T01:20:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/5-27-ajax%E3%80%81json/">5.27-ajax、json</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ajax、json"><a href="#ajax、json" class="headerlink" title="ajax、json"></a>ajax、json</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="AJAX概念"><a href="#AJAX概念" class="headerlink" title="AJAX概念"></a>AJAX概念</h2><ul>
+<li>概念：ASynchronous JavaScript And XML 异步的JavaScript和XML<ol>
+<li>异步和同步：客户端和服务器端相互通信的基础上<ul>
+<li>客户端必须等待服务器端的响应。在等待的期间客户端不能做其他操作</li>
+<li>客户端不需要等待服务器端的响应。在服务器处理请求的过程中，客户端可以进行其他的操作</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>AJAX是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。通过在后台与服务器进行少量数据交换，AJAX可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。传统的网页(不使用AJAX)如果需要更新内容，必须重新加载整个网页页面。</li>
+</ul>
+</li>
+</ul>
+<h2 id="原生JS方式实现AJAX"><a href="#原生JS方式实现AJAX" class="headerlink" title="原生JS方式实现AJAX"></a>原生JS方式实现AJAX</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//发送异步请求</span></span><br><span class="line">    <span class="comment">//1. 创建核心对象</span></span><br><span class="line">    <span class="keyword">var</span> xmlhttp</span><br><span class="line">    <span class="keyword">if</span>(window.XMLHttpRequest)&#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2. 发送请求</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        参数：</span></span><br><span class="line"><span class="comment">            1. 请求方式：GET、POST</span></span><br><span class="line"><span class="comment">            2. 请求的URL</span></span><br><span class="line"><span class="comment">            3. 同步或异步</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajaxServlet?username=tom"</span>,<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    xmlhttp.send();</span><br><span class="line">    <span class="comment">//4. 接受并处理来自服务器的响应结果</span></span><br><span class="line">    <span class="comment">//获取方式：xmlhttp.responseText</span></span><br><span class="line">    <span class="comment">//什么时候获取？当服务器响应成功后再获取</span></span><br><span class="line">    <span class="comment">//当xmlhttp对象的就绪状态改变时，触发时间onreadystatechange</span></span><br><span class="line">    xmlhttp.onreadystatechange=function()&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)&#123;</span><br><span class="line">            document.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="JQuery实现AJAX方式"><a href="#JQuery实现AJAX方式" class="headerlink" title="JQuery实现AJAX方式"></a>JQuery实现AJAX方式</h2><ol>
+<li><p>$.ajax()</p>
+<ul>
+<li>语法：$.ajax({键值对});<br>//使用$.ajax()发送异步请求<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:<span class="string">"ajaxServlet"</span>,<span class="comment">//请求路径</span></span><br><span class="line">    type:<span class="string">"POST"</span>,<span class="comment">//请求方式</span></span><br><span class="line">    data:&#123;<span class="string">"username"</span>:<span class="string">"jack"</span>,<span class="string">"age"</span>:<span class="number">23</span>&#125;,</span><br><span class="line">    success:function(data)&#123;</span><br><span class="line">        alert(data);</span><br><span class="line">    &#125;,<span class="comment">//响应成功后的回调函数</span></span><br><span class="line">    error:function()&#123;</span><br><span class="line">        alert(<span class="string">"出错了..."</span>)</span><br><span class="line">    &#125;,<span class="comment">//表示如果请求响应出现错误，会执行的回调函数</span></span><br><span class="line">    dataType:<span class="string">"text"</span><span class="comment">//设置接受到的响应数据的格式</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>$.get():发送get请求</p>
+<ul>
+<li>语法：$.get(url,[data],[callback],[type])<ul>
+<li>参数：<ul>
+<li>url：请求路径</li>
+<li>data：请求参数</li>
+<li>callback：回调函数</li>
+<li>type：相应结果的类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>$.post():发送post请求</p>
+</li>
+</ol>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON:"></a>JSON:</h2><ol>
+<li>概念：JavaScript Object Notation         JavaScript对象表示法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Person p = <span class="keyword">new</span> Person();</span><br><span class="line">p.setName(<span class="string">"张三"</span>);</span><br><span class="line">p.setAge(<span class="number">23</span>);</span><br><span class="line">p.setGender(<span class="string">"男"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = &#123;<span class="string">"name"</span>:<span class="string">"张三"</span>,<span class="string">"age"</span>:<span class="number">23</span>,<span class="string">"gender"</span>:<span class="string">"男"</span>&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>json现在多用于存储和交换本文信息的语法</li>
+<li>进行数据的传输</li>
+<li>JSON比XML更小、更快、更易解析</li>
+</ul>
+<h2 id="JSON定义"><a href="#JSON定义" class="headerlink" title="JSON定义"></a>JSON定义</h2><ol>
+<li><p>基本规则</p>
+<ul>
+<li>数据在名称/值对中:json数据是由键值对构成的<ul>
+<li>键用引号(单双都行)引起来，也可以不使用引号</li>
+<li>值的取值类型：<ol>
+<li>数字(整数或浮点数)</li>
+<li>字符串(在双引号中)</li>
+<li>逻辑值(true或false)</li>
+<li>数组(在方括号中){“persons”:[{},{}]}</li>
+<li>对象(在花括号中){“address”:{“province”:”陕西”…}}</li>
+<li>null</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>数据由逗号分隔：多个键值对由逗号分隔</li>
+<li>花括号保存对象：使用{}定义json格式</li>
+<li>方括号保存数组：[]</li>
+</ul>
+</li>
+<li><p>获取数据：</p>
+<ol>
+<li>json对象.键名</li>
+<li>json对象[“键名”]</li>
+<li>数组对象[索引]</li>
+</ol>
+</li>
+</ol>
+<h2 id="JSON解析器-java对象转JSON"><a href="#JSON解析器-java对象转JSON" class="headerlink" title="JSON解析器-java对象转JSON"></a>JSON解析器-java对象转JSON</h2><ul>
+<li>使用步骤：<ol>
+<li>导入jackson的相关jar包</li>
+<li>创建Jackson核心对象 ObjectMapper</li>
+<li>调用ObjectMapper的相关方法进行转换<ol>
+<li>转换方法<ul>
+<li>writeValue(参数1,obj):<ul>
+<li>参数1：<ul>
+<li>File：将obj对象转换为JSON字符串，并保存到指定的文家中</li>
+<li>Writeer：将obj对象转换为JSON字符串，并将json数据填充到字符输出流中</li>
+<li>OutputStream：将obj对象转换为JSON字符串，并将json数据填充到字节输出流中国</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>writeValueAsSting(obj):将对象转换json字符串</li>
+</ul>
+</li>
+<li>注解：<br> 添加到想要加注释的相应属性前<ol>
+<li>@JsonIgnore：排除属性</li>
+<li>@JsonFormat：属性值的格式化  <ul>
+<li>@JsonFormat(pattern = “yyyy-MM-dd”)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>复杂java对象转换<ol>
+<li>List：数组</li>
+<li>Map：对象格式一致</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="JSON转java对象"><a href="#JSON转java对象" class="headerlink" title="JSON转java对象"></a>JSON转java对象</h2><ol>
+<li>导入jackson的相关jar包</li>
+<li>创建Jackson核心对象 ObjectMapper</li>
+<li>调用ObjectMapper的相关方法进行转换<ol>
+<li>readValue(json字符串数据,Class)</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,364 +352,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/27/5-27-ajax%E3%80%81json/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/5-26javaweb-jQuery%E5%9F%BA%E7%A1%802/" class="archive-article-date">
-  	<time datetime="2020-05-26T01:17:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/26/5-26javaweb-jQuery%E5%9F%BA%E7%A1%802/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.26javaweb-jQuery基础2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/5-26javaweb-jQuery%E5%9F%BA%E7%A1%802/">5.26javaweb-jQuery基础2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ajax、json"><span class="toc-number">1.</span> <span class="toc-text">ajax、json</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX概念"><span class="toc-number">1.1.</span> <span class="toc-text">AJAX概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原生JS方式实现AJAX"><span class="toc-number">1.2.</span> <span class="toc-text">原生JS方式实现AJAX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery实现AJAX方式"><span class="toc-number">1.3.</span> <span class="toc-text">JQuery实现AJAX方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-number">1.4.</span> <span class="toc-text">JSON:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON定义"><span class="toc-number">1.5.</span> <span class="toc-text">JSON定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON解析器-java对象转JSON"><span class="toc-number">1.6.</span> <span class="toc-text">JSON解析器-java对象转JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON转java对象"><span class="toc-number">1.7.</span> <span class="toc-text">JSON转java对象</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/5-24javaweb-jQuery%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-05-24T01:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/5-24javaweb-jQuery%E5%9F%BA%E7%A1%80/">5.24javaweb-jQuery基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/5-20javaweb-Filter%E6%A1%88%E4%BE%8B/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:19:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/5-20javaweb-Filter%E6%A1%88%E4%BE%8B/">5.20javaweb-Filter案例</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/5-20javaweb-Filter%E5%92%8CListener/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/5-20javaweb-Filter%E5%92%8CListener/">5.20javaweb-Filter和Listener</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/" class="archive-article-date">
-  	<time datetime="2020-05-12T02:03:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/12/5-12javaweb-jsp%E3%80%81MVC%E3%80%81EL%E3%80%81JSTL/">5.12javaweb-jsp、MVC、EL、JSTL</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/11/5-11javaweb-cookie%E3%80%81JSP%E3%80%81session/" class="archive-article-date">
-  	<time datetime="2020-05-11T02:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/11/5-11javaweb-cookie%E3%80%81JSP%E3%80%81session/">5.11javaweb-cookie、JSP、session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/5-9javaweb-response%E3%80%81servletContext/" class="archive-article-date">
-  	<time datetime="2020-05-09T06:28:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/5-9javaweb-response%E3%80%81servletContext/">5.9javaweb-response、servletContext</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/5-7javaweb-http%E3%80%81request/" class="archive-article-date">
-  	<time datetime="2020-05-07T01:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/5-7javaweb-http%E3%80%81request/">5.7javaweb-http、request</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/5-6javaweb%E6%9C%8D%E5%8A%A1-tomcat%E3%80%81Servlet/" class="archive-article-date">
-  	<time datetime="2020-05-06T01:49:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/5-6javaweb%E6%9C%8D%E5%8A%A1-tomcat%E3%80%81Servlet/">5.6javaweb服务(tomcat、Servlet)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/javaweb/page/2/">2</a><a class="extend next" rel="next" href="/tags/javaweb/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -584,9 +490,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
